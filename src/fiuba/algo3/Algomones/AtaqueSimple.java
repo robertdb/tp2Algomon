@@ -17,11 +17,11 @@ public class AtaqueSimple implements Ataque {
 	}
 
 	@Override
-	public Algomon atacar(Algomon atacante, Algomon atacado) {
+	public boolean atacar(Algomon atacante, Algomon atacado) {
 		
 		atacado.reducirVida(tipoDeAtaque.danioPorTipo(atacado.tipoDeATaque() ) * potencia);
 
-		return atacante;
+		return true ;
 	}
 
 }

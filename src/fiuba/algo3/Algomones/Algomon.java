@@ -19,7 +19,7 @@ public class Algomon {
 		
 	}
 
-	public Algomon atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
+	public boolean atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
 		
 		 Ataque ataque = this.ataques.get(nombreDelAtaque);
 		 
