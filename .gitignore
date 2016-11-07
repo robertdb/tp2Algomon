@@ -1,3 +1,4 @@
+.metadata/
 *.sw*
 build/
 libs/
