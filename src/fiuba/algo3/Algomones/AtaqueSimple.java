@@ -2,14 +2,26 @@ package fiuba.algo3.Algomones;
 
 public class AtaqueSimple implements Ataque {
 
-	public AtaqueSimple(TipoDeAtaque tipo) {
-		// TODO Auto-generated constructor stub
+	private TipoDeAtaque tipoDeAtaque;
+	private int potencia;
+	private int cantidadOriginalDeAtaque;
+	private int cantidadDeAtaquesRestantes;
+	
+	public AtaqueSimple(TipoDeAtaque tipo, int potencia, int cantidadMaximaDeAtaques) {
+		
+		this.tipoDeAtaque = tipo;
+		this.potencia = potencia;
+		this.cantidadOriginalDeAtaque = cantidadMaximaDeAtaques;
+		this.cantidadDeAtaquesRestantes  = cantidadMaximaDeAtaques;
+		
 	}
 
 	@Override
-	public int atacar(Algomon atacante, Algomon atacado) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Algomon atacar(Algomon atacante, Algomon atacado) {
+		
+		atacado.reducirVida(tipoDeAtaque.danioPorTipo(atacado.tipoDeATaque() ) * potencia);
+
+		return atacante;
 	}
 
 }

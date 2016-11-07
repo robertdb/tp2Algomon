@@ -2,6 +2,7 @@ package fiuba.algo3.Algomones;
 
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
 
 
@@ -16,11 +17,12 @@ public enum EspecieAlgomon {
 			//Ataque brasas = new AtaqueSimple(TipoDeAtaque.BRASAS);
 			//Ataque ataqueRapido = new AtaqueSimple(TipoDeAtaque.ATAQUE_RAPIDO);
 			//Ataque fogonazo = new AtaqueConEfecto(TipoDeAtaque.FOGONAZO);
-			List<Ataque> ataques = new ArrayList<Ataque>();
+			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 			//ataques.add(brasas);
 			//ataques.add(ataqueRapido);
 			//ataques.add(fogonazo);
-			return new Algomon("Charmander", "Fuego", ataques);
+			Salud salud = new Salud(170);
+			return new Algomon("Charmander", TipoDeAtaque.FUEGO, ataques, salud);
 		}
 	},
 	
@@ -28,15 +30,28 @@ public enum EspecieAlgomon {
 	{
 		public Algomon nuevo()
 		{
-			Ataque burbuja = new AtaqueSimple(TipoDeAtaque.BURBUJA);
-			Ataque canionDeAgua = new AtaqueSimple(TipoDeAtaque.CANION_DE_AGUA);
-			Ataque ataqueRapido = new AtaqueSimple(TipoDeAtaque.ATAQUE_RAPIDO);
-			List<Ataque> ataques = new ArrayList<Ataque>();
-			ataques.add(burbuja);
-			ataques.add(canionDeAgua);
-			ataques.add(ataqueRapido);
 			
-			return new Algomon("Squirtle", "Agua", ataques);
+			int potenciaBurbuja = 10;
+			int cantidadMaximaDeAtaquesBurbuja = 16;
+			Ataque burbuja = new AtaqueSimple(TipoDeAtaque.AGUA, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja);
+			
+			int potenciaCanionDeAgua = 20;
+			int cantidadMaximaDeAtaquesCanionDeBurbuja = 8;
+			Ataque canionDeAgua = new AtaqueSimple(TipoDeAtaque.AGUA, potenciaCanionDeAgua, cantidadMaximaDeAtaquesCanionDeBurbuja );
+			
+			int potenciaAtaqueRapido = 10;
+			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
+			Ataque ataqueRapido = new AtaqueSimple(TipoDeAtaque.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			
+			
+			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
+			ataques.put(NombreDelAtaque.BURBUJA, burbuja);
+			ataques.put(NombreDelAtaque.CANION_DE_AGUA, canionDeAgua);
+			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO,ataqueRapido);
+			
+			Salud salud = new Salud(150);
+			
+			return new Algomon("Squirtle", TipoDeAtaque.AGUA, ataques, salud);
 		}
 	};
 	
