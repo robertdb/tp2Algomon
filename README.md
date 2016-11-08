@@ -1,2 +1,2 @@
-                                                                                                                                                           Trabajo Grupal Algomones
-<h>Trabajo Grupal Algomones</h>
+                                                                                                                                                         
+                                                                                                                                                         <h><strong>Trabajo Grupal Algomones</strong></h>
