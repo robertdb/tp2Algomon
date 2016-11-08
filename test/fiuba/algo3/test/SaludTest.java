@@ -9,7 +9,7 @@ import fiuba.algo3.algomones.Salud;
 public class SaludTest {
 
 	@Test
-	public void testLaSaludNoPuedeSerUnValorNegativo() {
+	public void testVidaDeSaludNoPuedeSerUnValorNegativo() {
 		
 		Salud salud = new Salud(100);
 		
@@ -19,5 +19,20 @@ public class SaludTest {
 		
 		assertFalse( salud.vida() < 0);
 	}
+	
+	@Test
+	public void testVidaDeSaludTerminadaConVidaIgualA0() {
+		
+		Salud salud = new Salud(100);
+		
+		int danioInferidoAlaSalud = 200;
+		
+		salud.reducirVida(danioInferidoAlaSalud);
+		
+		assertTrue( salud.vida() == 0);
+		assertTrue( salud.terminada());
+	}
+	
+	
 
 }

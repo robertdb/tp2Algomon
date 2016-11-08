@@ -24,4 +24,9 @@ public class Salud {
 		return vidaAfectada;
 	}
 
+	public boolean terminada() {
+		
+		return this.vidaAfectada == 0;
+	}
+
 }
