@@ -2,7 +2,7 @@ package fiuba.algo3.algomones;
 
 public class AtaqueFogonazo implements Ataque {
 
-	public AtaqueFogonazo(TipoDeAtaque fuego, int potenciaFogonazo, int cantidadMaximaDeAtaquesFogonazo) {
+	public AtaqueFogonazo(Tipo fuego, int potenciaFogonazo, int cantidadMaximaDeAtaquesFogonazo) {
 		// TODO Auto-generated constructor stub
 	}
 

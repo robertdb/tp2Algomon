@@ -1,6 +1,6 @@
 package fiuba.algo3.algomones;
 
-public enum TipoDeAtaque {
+public enum Tipo {
 	
 	
 	AGUA("agua", 0.5, 2, 0.5, 1),
@@ -15,7 +15,7 @@ public enum TipoDeAtaque {
 	private double danioContraNormal;
 
 	
-	private TipoDeAtaque(String tipo, double danioContraAgua, double danioContraFuego, double danioContraPlanta, double danioContraNormal){
+	private Tipo(String tipo, double danioContraAgua, double danioContraFuego, double danioContraPlanta, double danioContraNormal){
 		
 		this.tipo = tipo;
 		this.danioContraAgua = danioContraAgua;
@@ -26,27 +26,27 @@ public enum TipoDeAtaque {
 	}
 	
 	
-	private boolean esFuego(TipoDeAtaque tipoAtaque){
+	private boolean esFuego(Tipo tipoAtaque){
 		
 		return tipoAtaque.tipo == "fuego";
 	}
 	
-	private boolean esAgua(TipoDeAtaque tipoAtaque){
+	private boolean esAgua(Tipo tipoAtaque){
 		
 		return tipoAtaque.tipo == "agua";
 	}
 	
-	private boolean esPlanta(TipoDeAtaque tipoAtaque){
+	private boolean esPlanta(Tipo tipoAtaque){
 		
 		return tipoAtaque.tipo == "planta";
 	}
 	
-	private boolean esNormal(TipoDeAtaque tipoAtaque){
+	private boolean esNormal(Tipo tipoAtaque){
 		
 		return tipoAtaque.tipo == "normal";
 	}
 	
-	public double danioPorTipo(TipoDeAtaque otro){
+	public double danioPorTipo(Tipo otro){
 				
 		if(otro.esFuego(otro))
 			return this.danioContraFuego;
