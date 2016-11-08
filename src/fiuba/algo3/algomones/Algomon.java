@@ -10,7 +10,7 @@ public class Algomon {
 	private Tipo tipoAlgomon;
 	private Salud salud;
 	
-	public Algomon(String nombre, Tipo tipoAlgomon, EnumMap ataques, Salud salud) {
+	public Algomon(String nombre, Tipo tipoAlgomon, EnumMap<NombreDelAtaque, Ataque> ataques, Salud salud) {
 		
 		this.nombreAlgomon = nombre;
 		this.tipoAlgomon = tipoAlgomon;
