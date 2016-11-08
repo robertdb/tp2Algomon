@@ -53,6 +53,35 @@ public enum EspecieAlgomon {
 			
 			return new Algomon("Squirtle", TipoDeAtaque.AGUA, ataques, salud);
 		}
+	}, 
+	
+	BULBASOUR
+	{
+		public Algomon nuevo()
+		{
+			
+			int potenciaChupavidas = 15;
+			int cantidadMaximaDeAtaquesChupavidas = 8;
+			Ataque chupavidas = new AtaqueChupavidas(TipoDeAtaque.PLANTA, potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas);
+			
+			int potenciaLatigoCepa = 15;
+			int cantidadMaximaDeAtaquesLatigoCepa = 10;
+			Ataque latigoCepa = new AtaqueSimple(TipoDeAtaque.PLANTA, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
+			
+			int potenciaAtaqueRapido = 10;
+			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
+			Ataque ataqueRapido = new AtaqueSimple(TipoDeAtaque.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			
+			
+			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
+			ataques.put(NombreDelAtaque.CHUPAVIDAS, chupavidas);
+			ataques.put(NombreDelAtaque.LATIGO_CEPA, latigoCepa);
+			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO,ataqueRapido);
+			
+			Salud salud = new Salud(140);
+			
+			return new Algomon("Bulbasour", TipoDeAtaque.PLANTA, ataques, salud);
+		}
 	};
 	
 	public abstract Algomon nuevo();

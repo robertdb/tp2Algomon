@@ -40,5 +40,22 @@ public class AlgomonTest {
 		assertEquals(vidaOriginal - 40,  charmander.vida() , 0.001D);
 		
 	}
+	
+	@Test
+	public void testAtacarConBurbujaQuita5ptsAunAlgomonTipoPlanta() {
+		
+		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		
+		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		
+		double vidaOriginal = bulbasaur.vida();
+		
+		squirtle.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
+		
+		assertEquals(vidaOriginal - 5, bulbasaur.vida() , 0.001D);
+		
+	}
+	
+	
 
 }
