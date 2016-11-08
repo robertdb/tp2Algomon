@@ -21,7 +21,7 @@ public class SaludTest {
 	}
 	
 	@Test
-	public void testVidaDeSaludTerminadaConVidaIgualA0() {
+	public void testSaludTerminadaEsConVidaIgualA0() {
 		
 		Salud salud = new Salud(100);
 		
