@@ -9,7 +9,7 @@ import fiuba.algo3.algomones.Salud;
 public class SaludTest {
 
 	@Test
-	public void testVidaDeSaludNoPuedeSerUnValorNegativo() {
+	public void testSaludNoPuedeTenerVidaNegativa() {
 		
 		Salud salud = new Salud(100);
 		
