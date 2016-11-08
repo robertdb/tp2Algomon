@@ -15,7 +15,8 @@ public class Salud {
 	public void reducirVida(double danio) {
 	
 		vidaAfectada = vidaAfectada - (int)danio;
-		
+		if( vidaAfectada < 0)
+			vidaAfectada = 0;
 	}
 
 	public double vida() {
