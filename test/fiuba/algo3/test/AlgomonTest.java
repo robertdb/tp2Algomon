@@ -9,7 +9,7 @@ import fiuba.algo3.Algomones.EspecieAlgomon;
 import fiuba.algo3.Algomones.NombreDelAtaque;
 import fiuba.algo3.Algomones.TipoDeAtaque;
 
-public class AtaqueSimpleTest {
+public class AlgomonTest {
 
 	@Test
 	public void testAtacarConBurbujaQuita20ptsAunAlgomonTipoFuego() {
