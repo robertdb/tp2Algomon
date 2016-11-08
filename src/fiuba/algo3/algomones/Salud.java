@@ -2,23 +2,25 @@ package fiuba.algo3.algomones;
 
 public class Salud {
 
-	private int vida ;
+	private int vidaAfectada;
+	private int vidaOriginal;
 	
 	public Salud(int vida) {
 		
-		this.vida = vida;	
+		this.vidaAfectada = vida;
+		this.vidaOriginal = vida;	
 		
 	}
 
 	public void reducirVida(double danio) {
 	
-		vida = vida - (int)danio;
+		vidaAfectada = vidaAfectada - (int)danio;
 		
 	}
 
 	public double vida() {
 		
-		return vida;
+		return vidaAfectada;
 	}
 
 }
