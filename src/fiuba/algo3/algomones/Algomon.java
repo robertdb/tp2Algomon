@@ -7,10 +7,10 @@ public class Algomon {
 
 	private EnumMap<NombreDelAtaque, Ataque> ataques;
 	private String nombreAlgomon;
-	private TipoDeAtaque tipoAlgomon;
+	private Tipo tipoAlgomon;
 	private Salud salud;
 	
-	public Algomon(String nombre, TipoDeAtaque tipoAlgomon, EnumMap ataques, Salud salud) {
+	public Algomon(String nombre, Tipo tipoAlgomon, EnumMap ataques, Salud salud) {
 		
 		this.nombreAlgomon = nombre;
 		this.tipoAlgomon = tipoAlgomon;
@@ -27,7 +27,7 @@ public class Algomon {
 			 
 	}
 	
-	public TipoDeAtaque tipoDeATaque(){
+	public Tipo tipoDeATaque(){
 		 return tipoAlgomon;
 	}
 

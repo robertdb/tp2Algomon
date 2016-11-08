@@ -4,12 +4,12 @@ import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 
 public class AtaqueSimple implements Ataque {
 
-	private TipoDeAtaque tipoDeAtaque;
+	private Tipo tipoDeAtaque;
 	private int potencia;
 	private int cantidadOriginalDeAtaque;
 	private int cantidadDeAtaquesRestantes;
 	
-	public AtaqueSimple(TipoDeAtaque tipo, int potencia, int cantidadMaximaDeAtaques) {
+	public AtaqueSimple(Tipo tipo, int potencia, int cantidadMaximaDeAtaques) {
 		
 		this.tipoDeAtaque = tipo;
 		this.potencia = potencia;
