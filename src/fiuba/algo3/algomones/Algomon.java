@@ -1,4 +1,4 @@
-package fiuba.algo3.Algomones;
+package fiuba.algo3.algomones;
 
 import java.util.EnumMap;
 import java.util.List;

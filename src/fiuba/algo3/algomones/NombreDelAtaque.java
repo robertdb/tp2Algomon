@@ -1,4 +1,4 @@
-package fiuba.algo3.Algomones;
+package fiuba.algo3.algomones;
 
 public enum NombreDelAtaque {
 

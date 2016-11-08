@@ -1,4 +1,6 @@
-package fiuba.algo3.Algomones;
+package fiuba.algo3.algomones;
+
+import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 
 public class AtaqueSimple implements Ataque {
 
@@ -19,9 +21,21 @@ public class AtaqueSimple implements Ataque {
 	@Override
 	public boolean atacar(Algomon atacante, Algomon atacado) {
 		
+		if(ataquesAgotados())
+			throw new CantidadDeAtaquesAgotadosException();
+			
 		atacado.reducirVida(tipoDeAtaque.danioPorTipo(atacado.tipoDeATaque() ) * potencia);
 
+		cantidadDeAtaquesRestantes -= 1;
+		
 		return true ;
+		
+	}
+	
+	private boolean ataquesAgotados(){
+		
+		return cantidadDeAtaquesRestantes == 0;
+		
 	}
 
 }

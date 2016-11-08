@@ -1,8 +1,8 @@
-package fiuba.algo3.Algomones;
+package fiuba.algo3.algomones;
 
 public class Salud {
 
-	private double vida ;
+	private int vida ;
 	
 	public Salud(int vida) {
 		
@@ -12,7 +12,7 @@ public class Salud {
 
 	public void reducirVida(double danio) {
 	
-		vida = vida - danio;
+		vida = vida - (int)danio;
 		
 	}
 
