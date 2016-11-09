@@ -36,7 +36,7 @@ public class Algomon {
 		 return tipoAlgomon;
 	}
 
-	public void reducirVida(double danio) {
+	public void reducirSalud(double danio) {
 		
 		salud.reducirVida(danio);
 		

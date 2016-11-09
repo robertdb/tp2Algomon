@@ -24,7 +24,7 @@ public class AtaqueSimple implements Ataque {
 		if(ataquesAgotados())
 			throw new CantidadDeAtaquesAgotadosException();
 			
-		atacado.reducirVida(tipoDeAtaque.danioPorTipo(atacado.tipoDeATaque() ) * potencia);
+		atacado.reducirSalud(tipoDeAtaque.danioPorTipo(atacado.tipoDeATaque() ) * potencia);
 
 		cantidadDeAtaquesRestantes -= 1;
 		
