@@ -8,6 +8,7 @@ import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Tipo;
+import fiuba.algo3.algomones.excepciones.AtaqueNoPertenecienteAalgomonException;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 
 public class AlgomonTest {
@@ -280,5 +281,16 @@ public class AlgomonTest {
 			ataque += 1;	
 		
 		}	
+	}
+	
+	@Test(expected = AtaqueNoPertenecienteAalgomonException.class)
+	public void testAlgomonNoPuedeAtacarSiNotieneEseAtaque(){
+		
+		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		
+		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+			
+		charmander.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
+			
 	}
 }

@@ -3,6 +3,8 @@ package fiuba.algo3.algomones;
 import java.util.EnumMap;
 import java.util.List;
 
+import fiuba.algo3.algomones.excepciones.AtaqueNoPertenecienteAalgomonException;
+
 public class Algomon {
 
 	private EnumMap<NombreDelAtaque, Ataque> ataques;
@@ -23,6 +25,9 @@ public class Algomon {
 		
 		 Ataque ataque = this.ataques.get(nombreDelAtaque);
 		 
+		 if( ataque == null)
+			 throw new AtaqueNoPertenecienteAalgomonException();
+	
 		 return ataque.atacar(this, atacado);
 			 
 	}
