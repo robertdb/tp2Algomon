@@ -37,7 +37,7 @@ public class Algomon {
 		
 	}
 
-	public double vida() {
+	public double salud() {
 		
 		return salud.vida();
 		

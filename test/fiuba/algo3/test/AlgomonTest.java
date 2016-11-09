@@ -19,11 +19,11 @@ public class AlgomonTest {
 		
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		
-		double vidaOriginal = charmander.vida();
+		double vidaOriginal = charmander.salud();
 		
 		squirtle.atacar(charmander, NombreDelAtaque.BURBUJA);
 		
-		assertEquals(vidaOriginal - 20,  charmander.vida() , 0.001D);
+		assertEquals(vidaOriginal - 20,  charmander.salud() , 0.001D);
 		
 	}
 	
@@ -34,11 +34,11 @@ public class AlgomonTest {
 		
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		
-		double vidaOriginal = charmander.vida();
+		double vidaOriginal = charmander.salud();
 		
 		squirtle.atacar(charmander, NombreDelAtaque.CANION_DE_AGUA);
 		
-		assertEquals(vidaOriginal - 40,  charmander.vida() , 0.001D);
+		assertEquals(vidaOriginal - 40,  charmander.salud() , 0.001D);
 		
 	}
 	
@@ -49,11 +49,11 @@ public class AlgomonTest {
 		
 		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
 		
-		double vidaOriginal = bulbasaur.vida();
+		double vidaOriginal = bulbasaur.salud();
 		
 		squirtle.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
 		
-		assertEquals(vidaOriginal - 5, bulbasaur.vida() , 0.001D);
+		assertEquals(vidaOriginal - 5, bulbasaur.salud() , 0.001D);
 		
 	}
 	
@@ -64,11 +64,11 @@ public class AlgomonTest {
 		
 		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
 		
-		double vidaOriginal = bulbasaur.vida();
+		double vidaOriginal = bulbasaur.salud();
 		
 		squirtle.atacar(bulbasaur, NombreDelAtaque.CANION_DE_AGUA);
 		
-		assertEquals(vidaOriginal - 10,  bulbasaur.vida() , 0.001D);
+		assertEquals(vidaOriginal - 10,  bulbasaur.salud() , 0.001D);
 		
 	}
 	
@@ -81,17 +81,17 @@ public class AlgomonTest {
 		
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 		
-		double vidaOriginalChamsey = chansey.vida();
+		double vidaOriginalChamsey = chansey.salud();
 		
-		double vidaOriginalRattata = rattata.vida();
+		double vidaOriginalRattata = rattata.salud();
 		
 		squirtle.atacar(chansey, NombreDelAtaque.CANION_DE_AGUA);
 		
 		squirtle.atacar(rattata, NombreDelAtaque.CANION_DE_AGUA);
 		
-		assertEquals(vidaOriginalChamsey - 20,  chansey.vida() , 0.001D);
+		assertEquals(vidaOriginalChamsey - 20,  chansey.salud() , 0.001D);
 		
-		assertEquals(vidaOriginalRattata - 20,  rattata.vida() , 0.001D);
+		assertEquals(vidaOriginalRattata - 20,  rattata.salud() , 0.001D);
 		
 	}
 	
@@ -107,17 +107,17 @@ public class AlgomonTest {
 		
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 		
-		double vidaOriginalSquirtle1 = squirtle1.vida();
+		double vidaOriginalSquirtle1 = squirtle1.salud();
 		
-		double vidaOriginalSquirtle2 = squirtle2.vida();
+		double vidaOriginalSquirtle2 = squirtle2.salud();
 		
 		bulbasaur.atacar(squirtle1, NombreDelAtaque.LATIGO_CEPA);
 		
 		chansey.atacar(squirtle2, NombreDelAtaque.LATIGO_CEPA);
 		
-		assertEquals(vidaOriginalSquirtle1 - 30,  squirtle1.vida() , 0.001D);
+		assertEquals(vidaOriginalSquirtle1 - 30,  squirtle1.salud() , 0.001D);
 		
-		assertEquals(vidaOriginalSquirtle2 - 30,  squirtle2.vida() , 0.001D);
+		assertEquals(vidaOriginalSquirtle2 - 30,  squirtle2.salud() , 0.001D);
 		
 	}
 	
@@ -133,17 +133,17 @@ public class AlgomonTest {
 		
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 		
-		double vidaOriginalCharmi1 = charmi1.vida();
+		double vidaOriginalCharmi1 = charmi1.salud();
 		
-		double vidaOriginaCharmi2 = charmi2.vida();
+		double vidaOriginaCharmi2 = charmi2.salud();
 		
 		bulbasaur.atacar(charmi1, NombreDelAtaque.LATIGO_CEPA);
 		
 		chansey.atacar(charmi2, NombreDelAtaque.LATIGO_CEPA);
 		
-		assertEquals(vidaOriginalCharmi1 - 7,  charmi1.vida() , 0.001D);
+		assertEquals(vidaOriginalCharmi1 - 7,  charmi1.salud() , 0.001D);
 		
-		assertEquals(vidaOriginaCharmi2  - 7,  charmi2.vida() , 0.001D);
+		assertEquals(vidaOriginaCharmi2  - 7,  charmi2.salud() , 0.001D);
 		
 	}
 	
@@ -159,17 +159,17 @@ public class AlgomonTest {
 		
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 		
-		double vidaOriginalJiggly1 = jiggly1.vida();
+		double vidaOriginalJiggly1 = jiggly1.salud();
 		
-		double vidaOriginaJiggly2 = jiggly2.vida();
+		double vidaOriginaJiggly2 = jiggly2.salud();
 		
 		bulbasaur.atacar(jiggly1, NombreDelAtaque.LATIGO_CEPA);
 		
 		chansey.atacar(jiggly2, NombreDelAtaque.LATIGO_CEPA);
 		
-		assertEquals(vidaOriginalJiggly1 - 15,  jiggly1.vida() , 0.001D);
+		assertEquals(vidaOriginalJiggly1 - 15,  jiggly1.salud() , 0.001D);
 		
-		assertEquals(vidaOriginaJiggly2 - 15,  jiggly2.vida() , 0.001D);
+		assertEquals(vidaOriginaJiggly2 - 15,  jiggly2.salud() , 0.001D);
 		
 	}
 	
@@ -181,11 +181,11 @@ public class AlgomonTest {
 		
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		
-		double vidaOriginal = squirtle.vida();
+		double vidaOriginal = squirtle.salud();
 		
 		charmander.atacar(squirtle, NombreDelAtaque.BRASAS);
 		
-		assertEquals(vidaOriginal - 8,  squirtle.vida() , 0.001D);
+		assertEquals(vidaOriginal - 8,  squirtle.salud() , 0.001D);
 		
 	}
 	
@@ -197,11 +197,11 @@ public class AlgomonTest {
 		
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		
-		double vidaOriginal = bulbasaur.vida();
+		double vidaOriginal = bulbasaur.salud();
 		
 		charmander.atacar(bulbasaur, NombreDelAtaque.BRASAS);
 		
-		assertEquals(vidaOriginal - 32,  bulbasaur.vida() , 0.001D);
+		assertEquals(vidaOriginal - 32,  bulbasaur.salud() , 0.001D);
 		
 	}
 	
@@ -212,11 +212,11 @@ public class AlgomonTest {
 		
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		
-		double vidaOriginal = rattata.vida();
+		double vidaOriginal = rattata.salud();
 		
 		charmander.atacar(rattata, NombreDelAtaque.BRASAS);
 		
-		assertEquals(vidaOriginal - 16,  rattata.vida() , 0.001D);
+		assertEquals(vidaOriginal - 16,  rattata.salud() , 0.001D);
 		
 	}
 	
@@ -232,17 +232,17 @@ public class AlgomonTest {
 		
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 		
-		double vidaOriginalJiggly1 = jiggly1.vida();
+		double vidaOriginalJiggly1 = jiggly1.salud();
 		
-		double vidaOriginaJiggly2 = jiggly2.vida();
+		double vidaOriginaJiggly2 = jiggly2.salud();
 		
 		bulbasaur.atacar(jiggly1, NombreDelAtaque.ATAQUE_RAPIDO);
 		
 		chansey.atacar(jiggly2, NombreDelAtaque.ATAQUE_RAPIDO);
 		
-		assertEquals(vidaOriginalJiggly1 - 10,  jiggly1.vida() , 0.001D);
+		assertEquals(vidaOriginalJiggly1 - 10,  jiggly1.salud() , 0.001D);
 		
-		assertEquals(vidaOriginaJiggly2 - 10,  jiggly2.vida() , 0.001D);
+		assertEquals(vidaOriginaJiggly2 - 10,  jiggly2.salud() , 0.001D);
 		
 	}
 	
