@@ -32,7 +32,7 @@ public class Algomon {
 			 
 	}
 	
-	public Tipo tipoDeATaque(){
+	public Tipo tipoDeAlgomon(){
 		 return tipoAlgomon;
 	}
 
