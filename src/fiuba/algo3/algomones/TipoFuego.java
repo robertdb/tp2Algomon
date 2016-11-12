@@ -1,6 +1,6 @@
 package fiuba.algo3.algomones;
 
-public class TipoFuego extends DanioPorTipo{
+public class TipoFuego extends Tipo{
 
 	public TipoFuego() {
 		this.danioContraAgua = 2;
@@ -10,7 +10,7 @@ public class TipoFuego extends DanioPorTipo{
 	}
 
 	@Override
-	public double danioContra(DanioPorTipo tipo) {
+	public double danioContra(Tipo tipo) {
 		return tipo.danioContraFuego;
 	}
 

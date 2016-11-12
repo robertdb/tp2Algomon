@@ -9,10 +9,10 @@ public class Algomon {
 
 	private EnumMap<NombreDelAtaque, Ataque> ataques;
 	private String nombreAlgomon;
-	private DanioPorTipo tipoAlgomon;
+	private Tipo tipoAlgomon;
 	private Salud salud;
 	
-	public Algomon(String nombre, DanioPorTipo tipo, EnumMap<NombreDelAtaque, Ataque> ataques, Salud salud) {
+	public Algomon(String nombre, Tipo tipo, EnumMap<NombreDelAtaque, Ataque> ataques, Salud salud) {
 		
 		this.nombreAlgomon = nombre;
 		this.tipoAlgomon = tipo;
@@ -32,7 +32,7 @@ public class Algomon {
 			 
 	}
 	
-	public DanioPorTipo tipoDeAlgomon(){
+	public Tipo tipoDeAlgomon(){
 		 return tipoAlgomon;
 	}
 

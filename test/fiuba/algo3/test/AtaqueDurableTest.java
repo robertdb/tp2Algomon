@@ -11,7 +11,7 @@ import fiuba.algo3.algomones.Ataque;
 import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.Tipo;
+
 
 public class AtaqueDurableTest {
 

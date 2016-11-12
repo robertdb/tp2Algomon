@@ -1,8 +1,8 @@
 package fiuba.algo3.algomones;
 
-public class AtaqueCanto implements Ataque {
+public class AtaqueDurable implements Ataque {
 
-	public AtaqueCanto(Tipo normal, int potenciaCanto, int cantidadMaximaDeAtaquesCanto) {
+	public AtaqueDurable(Tipo tipoFuego1, int potenciaFogonazo, int cantidadMaximaDeAtaquesFogonazo) {
 		// TODO Auto-generated constructor stub
 	}
 

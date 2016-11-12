@@ -9,11 +9,9 @@ import org.junit.Test;
 import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.Ataque;
 import fiuba.algo3.algomones.AtaqueSimple;
-import fiuba.algo3.algomones.DanioPorTipo;
-import fiuba.algo3.algomones.EspecieAlgomon;
+import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoPlanta;
 
@@ -25,13 +23,13 @@ public class AtaqueSimpleTest {
 		// Se crea un algomon personalizado.
 		int potenciaLatigoCepa = 15;
 		int cantidadMaximaDeAtaquesLatigoCepa = 50;
-		DanioPorTipo tipoPlanta = new TipoPlanta();
+		Tipo tipoPlanta = new TipoPlanta();
 		Ataque latigoCepa = new AtaqueSimple(tipoPlanta, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
 		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 		ataques.put(NombreDelAtaque.LATIGO_CEPA, latigoCepa);
 		
 		Salud salud = new Salud(400);
-		DanioPorTipo planta = new TipoPlanta();
+		Tipo planta = new TipoPlanta();
 		Algomon venusaur = new Algomon("Venusaur", planta, ataques, salud);
 		
 		// Se crea otro algomon personalizado.
