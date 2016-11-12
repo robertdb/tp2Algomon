@@ -2,8 +2,13 @@ package fiuba.algo3.algomones;
 
 public class AtaqueDurable implements Ataque {
 
-	public AtaqueDurable(Tipo tipoFuego1, int potenciaFogonazo, int cantidadMaximaDeAtaquesFogonazo) {
-		// TODO Auto-generated constructor stub
+	
+	private Ataque ataque;
+	
+	public AtaqueDurable(Tipo tipo, int potencia, int cantidadMaximaDeAtaques) {
+		
+		this.ataque = new AtaqueSimple(tipo, potencia, cantidadMaximaDeAtaques);
+		
 	}
 
 	@Override
