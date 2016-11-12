@@ -10,7 +10,7 @@ import fiuba.algo3.algomones.TipoFuego;
 import fiuba.algo3.algomones.TipoNormal;
 import fiuba.algo3.algomones.TipoPlanta;
 
-public class DanioPorTipoTest {
+public class TipoTest {
 
 	@Test
 	public void testFuegoContraTodo() {
