@@ -25,6 +25,7 @@ public class AtaqueSimpleTest {
 		Ataque latigoCepa = new AtaqueSimple(Tipo.PLANTA, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
 		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 		ataques.put(NombreDelAtaque.LATIGO_CEPA, latigoCepa);
+		
 		Salud salud = new Salud(400);
 		Algomon venusaur = new Algomon("Venusaur", Tipo.PLANTA, ataques, salud);
 		
