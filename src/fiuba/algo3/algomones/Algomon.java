@@ -21,7 +21,7 @@ public class Algomon {
 		
 	}
 
-	public boolean atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
+	public double atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
 		
 		 Ataque ataque = this.ataques.get(nombreDelAtaque);
 		 

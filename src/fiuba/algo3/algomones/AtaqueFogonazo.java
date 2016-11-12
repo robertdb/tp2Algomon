@@ -7,9 +7,9 @@ public class AtaqueFogonazo implements Ataque {
 	}
 
 	@Override
-	public boolean atacar(Algomon atacante, Algomon atacado) {
+	public double atacar(Algomon atacante, Algomon atacado) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 }

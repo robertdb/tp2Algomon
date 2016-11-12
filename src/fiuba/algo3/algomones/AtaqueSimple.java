@@ -19,16 +19,18 @@ public class AtaqueSimple implements Ataque {
 	}
 
 	@Override
-	public boolean atacar(Algomon atacante, Algomon atacado) {
+	public double atacar(Algomon atacante, Algomon atacado) {
 		
 		if(ataquesAgotados())
 			throw new CantidadDeAtaquesAgotadosException();
 			
-		atacado.reducirSalud(tipoDeAtaque.danioPorTipo(atacado.tipoDeAlgomon() ) * potencia);
+		double danio = tipoDeAtaque.danioPorTipo(atacado.tipoDeAlgomon() ) * potencia;
+		
+		atacado.reducirSalud(danio);
 
 		cantidadDeAtaquesRestantes -= 1;
 		
-		return true ;
+		return danio ;
 		
 	}
 	
