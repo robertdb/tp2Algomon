@@ -2,31 +2,40 @@ package fiuba.algo3.algomones;
 
 public class Salud {
 
-	private int vidaAfectada;
+	private int vidaDinamica;
 	private int vidaOriginal;
 	
 	public Salud(int vida) {
 		
-		this.vidaAfectada = vida;
+		this.vidaDinamica = vida;
 		this.vidaOriginal = vida;	
 		
 	}
 
 	public void reducirVida(double danio) {
 	
-		vidaAfectada = vidaAfectada - (int)danio;
-		if( vidaAfectada < 0)
-			vidaAfectada = 0;
+		vidaDinamica = vidaDinamica - (int)danio;
+		if( vidaDinamica < 0)
+			vidaDinamica = 0;
 	}
 
-	public double vida() {
+	public int vida() {
 		
-		return vidaAfectada;
+		return vidaDinamica;
+	
 	}
 
 	public boolean terminada() {
 		
-		return this.vidaAfectada == 0;
+		return this.vidaDinamica == 0;
 	}
 
+	public void aumentarVida(double aumentoDeVida) {
+		
+		this.vidaDinamica = (int) (this.vidaDinamica + aumentoDeVida);
+		
+		if(this.vidaDinamica > this.vidaOriginal)
+			this.vidaDinamica = this.vidaOriginal;
+		
+	}
 }

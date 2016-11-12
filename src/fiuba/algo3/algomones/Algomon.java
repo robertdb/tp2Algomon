@@ -42,9 +42,15 @@ public class Algomon {
 		
 	}
 
-	public double salud() {
+	public int salud() {
 		
 		return salud.vida();
+		
+	}
+
+	public void aumentoDeSalud(double aumentoDeVida) {
+		
+		salud.aumentarVida(aumentoDeVida);
 		
 	}
 
