@@ -1,7 +1,7 @@
 package fiuba.algo3.algomones;
 
 public abstract class DanioPorTipo {
-	 double danioContraAgua;
+	  double danioContraAgua;
 	  double danioContraFuego;
 	  double danioContraPlanta;
 	  double danioContraNormal;

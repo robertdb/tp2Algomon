@@ -16,15 +16,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaFogonazo = 2;
 			int cantidadMaximaDeAtaquesFogonazo = 4;
-			Ataque fogonazo = new AtaqueFogonazo(Tipo.FUEGO, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
+			DanioPorTipo tipoFuego1 = new TipoFuego();
+			Ataque fogonazo = new AtaqueFogonazo(tipoFuego1, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
 			
 			int potenciaBrasas = 16;
 			int cantidadMaximaDeAtaquesBrasas = 10;
-			Ataque brasas = new AtaqueSimple(Tipo.FUEGO, potenciaBrasas, cantidadMaximaDeAtaquesBrasas);
+			DanioPorTipo tipoFuego2 = new TipoFuego();
+			Ataque brasas = new AtaqueSimple(tipoFuego2, potenciaBrasas, cantidadMaximaDeAtaquesBrasas);
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -33,8 +36,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
 			
 			Salud salud = new Salud(170);
-			
-			return new Algomon("Charmander", Tipo.FUEGO, ataques, salud);
+			DanioPorTipo fuego = new TipoFuego();
+			return new Algomon("Charmander", fuego, ataques, salud);
 		}
 	},
 	
@@ -45,15 +48,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaBurbuja = 10;
 			int cantidadMaximaDeAtaquesBurbuja = 16;
-			Ataque burbuja = new AtaqueSimple(Tipo.AGUA, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja);
+			DanioPorTipo tipoAgua1 = new TipoAgua();
+			Ataque burbuja = new AtaqueSimple(tipoAgua1, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja);
 			
 			int potenciaCanionDeAgua = 20;
 			int cantidadMaximaDeAtaquesCanionDeBurbuja = 8;
-			Ataque canionDeAgua = new AtaqueSimple(Tipo.AGUA, potenciaCanionDeAgua, cantidadMaximaDeAtaquesCanionDeBurbuja );
+			DanioPorTipo tipoAgua2 = new TipoAgua();
+			Ataque canionDeAgua = new AtaqueSimple(tipoAgua2, potenciaCanionDeAgua, cantidadMaximaDeAtaquesCanionDeBurbuja );
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -62,8 +68,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO,ataqueRapido);
 			
 			Salud salud = new Salud(150);
-			
-			return new Algomon("Squirtle", Tipo.AGUA, ataques, salud);
+			DanioPorTipo agua = new TipoAgua();
+			return new Algomon("Squirtle", agua, ataques, salud);
 		}
 	}, 
 	
@@ -74,15 +80,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaChupavidas = 15;
 			int cantidadMaximaDeAtaquesChupavidas = 8;
-			Ataque chupavidas = new AtaqueChupavidas(Tipo.PLANTA, potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas);
+			DanioPorTipo tipoPlanta1 = new TipoPlanta();
+			Ataque chupavidas = new AtaqueChupavidas(tipoPlanta1, potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas);
 			
 			int potenciaLatigoCepa = 15;
 			int cantidadMaximaDeAtaquesLatigoCepa = 10;
-			Ataque latigoCepa = new AtaqueSimple(Tipo.PLANTA, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
+			DanioPorTipo tipoPlanta2 = new TipoPlanta();
+			Ataque latigoCepa = new AtaqueSimple(tipoPlanta2, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -91,8 +100,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO,ataqueRapido);
 			
 			Salud salud = new Salud(140);
-			
-			return new Algomon("Bulbasour", Tipo.PLANTA, ataques, salud);
+			DanioPorTipo planta = new TipoPlanta();
+			return new Algomon("Bulbasour", planta, ataques, salud);
 		}
 	}, 
 	
@@ -103,15 +112,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaCanto = 0;
 			int cantidadMaximaDeAtaquesCanto = 6;
+			
 			Ataque canto = new AtaqueCanto(Tipo.NORMAL, potenciaCanto, cantidadMaximaDeAtaquesCanto);
 			
 			int potenciaLatigoCepa = 15;
 			int cantidadMaximaDeAtaquesLatigoCepa = 10;
-			Ataque latigoCepa = new AtaqueSimple(Tipo.PLANTA, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
+			DanioPorTipo tipoPlanta = new TipoPlanta();
+			Ataque latigoCepa = new AtaqueSimple(tipoPlanta, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal2 = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal2, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -120,8 +132,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO,ataqueRapido);
 			
 			Salud salud = new Salud(130);
-			
-			return new Algomon("Chansey", Tipo.NORMAL, ataques, salud);
+			DanioPorTipo normal = new TipoNormal();
+			return new Algomon("Chansey", normal, ataques, salud);
 		}
 		
 	}, 
@@ -132,15 +144,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaFogonazo = 2;
 			int cantidadMaximaDeAtaquesFogonazo = 4;
-			Ataque fogonazo = new AtaqueFogonazo(Tipo.FUEGO, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
+			DanioPorTipo tipoFuego = new TipoFuego();
+			Ataque fogonazo = new AtaqueFogonazo(tipoFuego, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
 			
 			int potenciaBurbuja = 10;
 			int cantidadMaximaDeAtaquesBurbuja = 15;
-			Ataque burbuja = new AtaqueSimple(Tipo.AGUA, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja );
+			DanioPorTipo tipoAgua = new TipoAgua();
+			Ataque burbuja = new AtaqueSimple(tipoAgua, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja );
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -149,8 +164,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
 			
 			Salud salud = new Salud(170);
-			
-			return new Algomon("Rattata", Tipo.NORMAL, ataques, salud);
+			DanioPorTipo normal = new TipoNormal();
+			return new Algomon("Rattata", normal, ataques, salud);
 			
 		}
 	}, 
@@ -162,15 +177,18 @@ public enum EspecieAlgomon {
 			
 			int potenciaCanto = 0;
 			int cantidadMaximaDeAtaquesCanto = 6;
+			
 			Ataque canto = new AtaqueCanto(Tipo.NORMAL, potenciaCanto, cantidadMaximaDeAtaquesCanto);
 			
 			int potenciaBurbuja = 10;
 			int cantidadMaximaDeAtaquesBurbuja = 15;
-			Ataque burbuja = new AtaqueSimple(Tipo.AGUA, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja );
+			DanioPorTipo tipoAgua = new TipoAgua();
+			Ataque burbuja = new AtaqueSimple(tipoAgua, potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja );
 			
 			int potenciaAtaqueRapido = 10;
 			int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-			Ataque ataqueRapido = new AtaqueSimple(Tipo.NORMAL, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+			DanioPorTipo tipoNormal = new TipoNormal();
+			Ataque ataqueRapido = new AtaqueSimple(tipoNormal, potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
 			
 			
 			EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
@@ -179,8 +197,8 @@ public enum EspecieAlgomon {
 			ataques.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
 			
 			Salud salud = new Salud(130);
-			
-			return new Algomon("Jigglypuff", Tipo.NORMAL, ataques, salud);
+			DanioPorTipo normal = new TipoNormal();
+			return new Algomon("Jigglypuff", normal, ataques, salud);
 			
 		}
 		

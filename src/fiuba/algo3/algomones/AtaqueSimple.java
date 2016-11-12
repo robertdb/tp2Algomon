@@ -4,14 +4,14 @@ import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 
 public class AtaqueSimple implements Ataque {
 
-	private Tipo tipoDeAtaque;
+	private DanioPorTipo tipoDeAtaque;
 	private int potencia;
 	private int cantidadOriginalDeAtaque;
 	private int cantidadDeAtaquesRestantes;
 	
-	public AtaqueSimple(Tipo tipo, int potencia, int cantidadMaximaDeAtaques) {
+	public AtaqueSimple(DanioPorTipo tipoAgua, int potencia, int cantidadMaximaDeAtaques) {
 		
-		this.tipoDeAtaque = tipo;
+		this.tipoDeAtaque = tipoAgua;
 		this.potencia = potencia;
 		this.cantidadOriginalDeAtaque = cantidadMaximaDeAtaques;
 		this.cantidadDeAtaquesRestantes  = cantidadMaximaDeAtaques;
@@ -24,8 +24,10 @@ public class AtaqueSimple implements Ataque {
 		if(ataquesAgotados())
 			throw new CantidadDeAtaquesAgotadosException();
 			
-		double danio = tipoDeAtaque.danioPorTipo(atacado.tipoDeAlgomon() ) * potencia;
+		DanioPorTipo tipo = atacado.tipoDeAlgomon();
 		
+		double danio = tipoDeAtaque.danioContra(tipo) * potencia;
+	
 		atacado.reducirSalud(danio);
 
 		cantidadDeAtaquesRestantes -= 1;
