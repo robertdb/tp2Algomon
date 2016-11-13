@@ -17,7 +17,7 @@ public enum EspecieAlgomon {
 			int potenciaFogonazo = 2;
 			int cantidadMaximaDeAtaquesFogonazo = 4;
 			Tipo tipoFuego1 = new TipoFuego();
-			Ataque fogonazo = new AtaqueDurable(tipoFuego1, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
+			Ataque fogonazo = new AtaqueFogonazo(tipoFuego1, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
 			
 			int potenciaBrasas = 16;
 			int cantidadMaximaDeAtaquesBrasas = 10;
@@ -113,7 +113,7 @@ public enum EspecieAlgomon {
 			int potenciaCanto = 0;
 			int cantidadMaximaDeAtaquesCanto = 6;
 			Tipo tipoNormal1 = new TipoNormal();
-			Ataque canto = new AtaqueDurable(tipoNormal1, potenciaCanto, cantidadMaximaDeAtaquesCanto);
+			Ataque canto = new AtaqueCanto(tipoNormal1, potenciaCanto, cantidadMaximaDeAtaquesCanto);
 			
 			int potenciaLatigoCepa = 15;
 			int cantidadMaximaDeAtaquesLatigoCepa = 10;
@@ -145,7 +145,7 @@ public enum EspecieAlgomon {
 			int potenciaFogonazo = 2;
 			int cantidadMaximaDeAtaquesFogonazo = 4;
 			Tipo tipoFuego = new TipoFuego();
-			Ataque fogonazo = new AtaqueDurable(tipoFuego, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
+			Ataque fogonazo = new AtaqueFogonazo(tipoFuego, potenciaFogonazo, cantidadMaximaDeAtaquesFogonazo);
 			
 			int potenciaBurbuja = 10;
 			int cantidadMaximaDeAtaquesBurbuja = 15;
@@ -178,7 +178,7 @@ public enum EspecieAlgomon {
 			int potenciaCanto = 0;
 			int cantidadMaximaDeAtaquesCanto = 6;
 			Tipo tipoNormal1 = new TipoNormal();
-			Ataque canto = new AtaqueDurable(tipoNormal1, potenciaCanto, cantidadMaximaDeAtaquesCanto);
+			Ataque canto = new AtaqueCanto(tipoNormal1, potenciaCanto, cantidadMaximaDeAtaquesCanto);
 			
 			int potenciaBurbuja = 10;
 			int cantidadMaximaDeAtaquesBurbuja = 15;
