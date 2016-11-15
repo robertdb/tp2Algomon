@@ -108,7 +108,6 @@ public class PosionTest {
 		posion.aplicarElemento(raticate);
 		posion.aplicarElemento(raticate);
 		
-		throw new PosionAgotadaException();
 	}
 	
 	
