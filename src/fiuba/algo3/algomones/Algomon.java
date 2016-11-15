@@ -57,6 +57,7 @@ public class Algomon {
 	}
 
 	public void alterarEstado(AlgomonEstado persistente) {
+		
 		this.estado.estadoNuevo(persistente);
 		
 	}
@@ -68,6 +69,12 @@ public class Algomon {
 			ataque.aumentarAtaques();
 		
 		}
+		
+	}
+
+	public void aplicarElementoAlaSalud(int aumentoDeVida) {
+		
+		this.aumentoDeSalud(aumentoDeVida);
 		
 	}
 

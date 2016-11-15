@@ -22,7 +22,8 @@ public class Posion implements Elemento {
 		if(posionesAgotadas())
 			throw new PosionAgotadaException();
 		
-		algomon.aumentoDeSalud(aumentoDeVida);
+		algomon.aplicarElementoAlaSalud(aumentoDeVida);
+		
 		posionesRestantes -= 1;
 		
 	}
