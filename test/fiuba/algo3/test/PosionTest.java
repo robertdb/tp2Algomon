@@ -59,11 +59,54 @@ public class PosionTest {
 	
 	@Test
 	public void testUsarPosionEnAlgomonConVidaSinSerDaniadaNoRecuperaPtsDeVida() {
-		assertTrue(true);
+		
+		// Se crea un algomon personalizado.
+		int potenciaCanionDeAgua = 20;
+		int cantidadMaximaDeAtaques = 8;
+		Ataque canionDeAgua = new AtaqueSimple(new TipoAgua(), potenciaCanionDeAgua , cantidadMaximaDeAtaques);
+		EnumMap<NombreDelAtaque, Ataque> _ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
+		_ataques.put(NombreDelAtaque.CANION_DE_AGUA, canionDeAgua);
+		Salud saludBlastoise = new Salud(400);
+		Algomon blastoise = new Algomon("Blastoise", new TipoAgua(), _ataques , saludBlastoise);
+						
+				
+		// Se crea otro algomon personalizado.
+		int potenciaAtaqueRapido = 25;
+		int cantidadMaximaDeAtaquesAtaqueRapido = 16;
+		Ataque ataqueRapido = new AtaqueSimple(new TipoNormal(), potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+		EnumMap<NombreDelAtaque, Ataque> ataquesNormal = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
+		ataquesNormal.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
+		Salud saludRaticate = new Salud(300);
+		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
+				
+		int vidaOriginalRaticate  = raticate.salud();
+				
+		Elemento posion = new Posion();
+				
+		posion.aplicarElemento(raticate);
+				
+		assertEquals(vidaOriginalRaticate , raticate.salud() );
 	}
 	
 	@Test(expected = PosionAgotadaException.class)
 	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
+		
+		// Se crea un algomon personalizado.
+		int potenciaAtaqueRapido = 25;
+		int cantidadMaximaDeAtaquesAtaqueRapido = 16;
+		Ataque ataqueRapido = new AtaqueSimple(new TipoNormal(), potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
+		EnumMap<NombreDelAtaque, Ataque> ataquesNormal = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
+		ataquesNormal.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
+		Salud saludRaticate = new Salud(300);
+		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
+		
+		Elemento posion = new Posion();
+	
+		posion.aplicarElemento(raticate);
+		posion.aplicarElemento(raticate);
+		posion.aplicarElemento(raticate);
+		posion.aplicarElemento(raticate);
+		posion.aplicarElemento(raticate);
 		
 		throw new PosionAgotadaException();
 	}
