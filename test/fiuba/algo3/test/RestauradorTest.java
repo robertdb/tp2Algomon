@@ -10,4 +10,10 @@ public class RestauradorTest {
 	public void testUsarRestauradorEnAlgomonBajoEfectoQuemadoVuelveAestadoNormal() {
 		assertTrue(true);
 	}
+	
+	@Test
+	public void testUsarRestauradorEnAlgomonBajoEfectoDomidoVuelveAestadoNormal() {
+		assertTrue(true);
+	}
+	
 }
