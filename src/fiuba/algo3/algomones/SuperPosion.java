@@ -5,14 +5,12 @@ import fiuba.algo3.algomones.excepciones.SuperPosionAgotadaException;
 
 public class SuperPosion implements Elemento {
 
-	Elemento posionSimple1;
-	Elemento posionSimple2;
+	Elemento posionSimple;
+
 	
 	public SuperPosion(){
 		
-		this.posionSimple1 = new Posion();
-		
-		this.posionSimple2 = new Posion();
+		this.posionSimple = new Posion();
 		
 	}
 	
@@ -20,23 +18,17 @@ public class SuperPosion implements Elemento {
 	public void aplicarElemento(Algomon algomon) {
 		
 		try{
-			this.posionSimple1.aplicarElemento(algomon);
-			this.posionSimple1.aplicarElemento(algomon);
+			this.posionSimple.aplicarElemento(algomon);
+			this.posionSimple.aplicarElemento(algomon);
 		}
 		catch(PosionAgotadaException e){
 			
-			try{
-				this.posionSimple2.aplicarElemento(algomon);
-				this.posionSimple1.aplicarElemento(algomon);
-			}
-			catch(PosionAgotadaException _e){
-				
 				throw new SuperPosionAgotadaException();
-				
+			
 			}
 			
-		}
-
 	}
 
 }
+
+

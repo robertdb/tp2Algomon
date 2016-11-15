@@ -22,6 +22,8 @@ public class RestauradorTest {
 	@Test(expected = RestauradorAgotadoException.class)
 	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
 		
+		
+		
 		throw new RestauradorAgotadoException();
 	}
 	
