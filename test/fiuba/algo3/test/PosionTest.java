@@ -23,7 +23,7 @@ public class PosionTest {
 	}
 	
 	@Test(expected = ElementoAgotadoException .class)
-	public void testAlgomonAgotoLasPosicionesYnoPuedeUtilizarElMas(){
+	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarElMas(){
 		
 		throw new ElementoAgotadoException();
 	}
