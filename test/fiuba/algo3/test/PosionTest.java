@@ -10,5 +10,10 @@ public class PosionTest {
 	public void testUsarPosionEnAlgomonCon20ptsDeDanioRecuperaTodaSuVida() {
 		assertTrue(true);
 	}
+	
+	@Test
+	public void testUsarPosionEnAlgomonConVidaSinSerDaniadaNoRecuperaPtsDeVida() {
+		assertTrue(true);
+	}
 
 }
