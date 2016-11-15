@@ -8,7 +8,7 @@ import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
-import fiuba.algo3.algomones.excepciones.ElementoAgotadoException;
+import fiuba.algo3.algomones.excepciones.PosionAgotadaException;
 
 public class PosionTest {
 
@@ -22,10 +22,10 @@ public class PosionTest {
 		assertTrue(true);
 	}
 	
-	@Test(expected = ElementoAgotadoException .class)
-	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarElMas(){
+	@Test(expected = PosionAgotadaException.class)
+	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
 		
-		throw new ElementoAgotadoException();
+		throw new PosionAgotadaException();
 	}
 	
 	
