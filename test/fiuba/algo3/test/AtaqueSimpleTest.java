@@ -23,7 +23,7 @@ public class AtaqueSimpleTest {
 		// Se crea un algomon personalizado.
 		int potenciaLatigoCepa = 15;
 		int cantidadMaximaDeAtaquesLatigoCepa = 50;
-		TipoPlanta tipoPlanta = new TipoPlanta();
+		Tipo tipoPlanta = new TipoPlanta();
 		Ataque latigoCepa = new AtaqueSimple(tipoPlanta, potenciaLatigoCepa, cantidadMaximaDeAtaquesLatigoCepa );
 		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 		ataques.put(NombreDelAtaque.LATIGO_CEPA, latigoCepa);
