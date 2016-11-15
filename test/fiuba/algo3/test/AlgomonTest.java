@@ -282,6 +282,27 @@ public class AlgomonTest {
 		}	
 	}
 	
+	@Test(expected = CantidadDeAtaquesAgotadosException .class)
+	public void testAlgomonAgotoLaCantidadDeAtaquesFogonazoYnoPuedeUtilizarElAtaque(){
+		
+		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		
+		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		
+		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		
+		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		
+		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		
+		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		
+		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		
+	}
+	
+	
+	
 	@Test(expected = AtaqueNoPertenecienteAalgomonException.class)
 	public void testAlgomonNoPuedeAtacarSiNotieneEseAtaque(){
 		
