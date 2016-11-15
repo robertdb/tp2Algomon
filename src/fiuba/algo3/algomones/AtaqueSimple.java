@@ -42,4 +42,14 @@ public class AtaqueSimple implements Ataque {
 		
 	}
 
+	@Override
+	public void aumentarAtaques() {
+		
+		this.cantidadDeAtaquesRestantes += 2;
+		
+		if(cantidadOriginalDeAtaque < cantidadDeAtaquesRestantes)
+			cantidadDeAtaquesRestantes = cantidadOriginalDeAtaque;
+		
+	}
+
 }

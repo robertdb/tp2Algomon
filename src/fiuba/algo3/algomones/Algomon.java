@@ -61,4 +61,14 @@ public class Algomon {
 		
 	}
 
+	public void aumentarAtaques() {
+		
+		for (Ataque ataque : this.ataques.values()) {
+		    
+			ataque.aumentarAtaques();
+		
+		}
+		
+	}
+
 }

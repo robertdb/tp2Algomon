@@ -15,4 +15,11 @@ public class AtaqueCanto implements Ataque {
 		return 0;
 	}
 
+	@Override
+	public void aumentarAtaques() {
+		
+		this.ataque.aumentarAtaques();
+		
+	}
+
 }

@@ -27,4 +27,11 @@ public class AtaqueChupavidas implements Ataque {
 		
 	}
 
+	@Override
+	public void aumentarAtaques() {
+		
+		this.ataque.aumentarAtaques();
+		
+	}
+
 }

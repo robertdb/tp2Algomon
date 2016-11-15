@@ -15,4 +15,11 @@ public class AtaqueFogonazo implements Ataque {
 		return this.ataque.atacar(atacante, atacado);
 	}
 
+	@Override
+	public void aumentarAtaques() {
+		
+		this.ataque.aumentarAtaques();
+		
+	}
+
 }
