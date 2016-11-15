@@ -9,7 +9,6 @@ public class AtaqueCantoTest {
 	@Test
 	public void testAtacarConCantoYelAtacadoNoPuedeAtacarDurante3Turnos() {
 		
-		assertTrue(true);
 		
 	}
 }

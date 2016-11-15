@@ -11,6 +11,7 @@ public class Algomon {
 	private String nombreAlgomon;
 	private Tipo tipoAlgomon;
 	private Salud salud;
+	private ContextoEstado estado;
 	
 	public Algomon(String nombre, Tipo tipo, EnumMap<NombreDelAtaque, Ataque> ataques, Salud salud) {
 		
@@ -18,6 +19,7 @@ public class Algomon {
 		this.tipoAlgomon = tipo;
 		this.ataques = ataques;
 		this.salud = salud;
+		this.estado = new ContextoEstado();
 		
 	}
 
@@ -51,6 +53,11 @@ public class Algomon {
 	public void aumentoDeSalud(double aumentoDeVida) {
 		
 		salud.aumentarVida(aumentoDeVida);
+		
+	}
+
+	public void alterarEstado(AlgomonEstado persistente) {
+		this.estado.estadoNuevo(persistente);
 		
 	}
 
