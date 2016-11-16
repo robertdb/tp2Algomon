@@ -24,6 +24,9 @@ public class Algomon {
 	}
 
 	public double atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
+		if (estado.estaAfectado()){
+			estado.aplicarEfectos(this);
+		}
 		
 		 Ataque ataque = this.ataques.get(nombreDelAtaque);
 		 
