@@ -83,9 +83,52 @@ public class ContextoEstadoYEfectoTest {
 		contexto.estadoNuevo(efimero);
 		
 		contexto.aplicarEfectos(venusaur);
-		
-		
-		
 	}
-
+	@Test
+	public void desactivarEstadosDelContexto(){
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		Efecto quemado = new Quemado();
+		AlgomonEstado persistente = new EstadoPersistente(quemado);
+		contexto.estadoNuevo(persistente);
+		
+		Salud salud = new Salud(400);
+		Tipo planta = new TipoPlanta();
+		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+		
+		contexto.desactivarEstados(venusaur);
+		assertEquals(360,venusaur.salud(),0.01D);
+		
+		assertEquals(false,contexto.estaAfectado());
+		
+		Efecto dormido = new Dormido();
+		AlgomonEstado efimero = new EstadoEfimero(dormido);
+		contexto.estadoNuevo(efimero);
+		
+		contexto.desactivarEstados(venusaur);
+		assertEquals(360,venusaur.salud(),0.01D);
+		
+		assertEquals(false,contexto.estaAfectado());
+	}
+	@Test
+	public void desactivarMasDeUnEstadoDelContexto(){
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		Efecto quemado = new Quemado();
+		AlgomonEstado persistente = new EstadoPersistente(quemado);
+		contexto.estadoNuevo(persistente);
+		
+		Efecto dormido = new Dormido();
+		AlgomonEstado efimero = new EstadoEfimero(dormido);
+		contexto.estadoNuevo(efimero);
+		
+		Salud salud = new Salud(400);
+		Tipo planta = new TipoPlanta();
+		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+		
+		contexto.desactivarEstados(venusaur);
+		assertEquals(360,venusaur.salud(),0.01D);
+		
+		assertEquals(false,contexto.estaAfectado());
+	}
 }
