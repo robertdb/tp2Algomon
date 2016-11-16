@@ -60,7 +60,7 @@ public class ContextoEstadoYEfectoTest {
 		dormido.aplicarEfecto(venusaur);
 	}
 	@Test(expected = PierdeUnTurnoExeption .class)
-	public void testListaDeEfectoABolmasour(){
+	public void testListaDeEfectoABulbasour(){
 		ContextoEstado contexto = new ContextoEstado(); 
 		
 		Efecto quemado = new Quemado();
@@ -76,7 +76,7 @@ public class ContextoEstadoYEfectoTest {
 		
 
 		contexto.aplicarEfectos(venusaur);
-		assertEquals(324,venusaur.salud(),0.01D);
+		assertEquals(320,venusaur.salud(),0.01D);
 		
 		Efecto dormido = new Dormido();
 		AlgomonEstado efimero = new EstadoEfimero(dormido);

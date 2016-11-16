@@ -28,6 +28,7 @@ public class Salud {
 	public boolean terminada() {
 		
 		return this.vidaDinamica == 0;
+	
 	}
 
 	public void aumentarVida(double aumentoDeVida) {
@@ -37,5 +38,12 @@ public class Salud {
 		if(this.vidaDinamica > this.vidaOriginal)
 			this.vidaDinamica = this.vidaOriginal;
 		
+	}
+
+	public int vidaOriginal() {
+		
+		
+		return this.vidaOriginal;
+
 	}
 }
