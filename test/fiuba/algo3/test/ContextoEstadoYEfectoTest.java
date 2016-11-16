@@ -21,60 +21,63 @@ import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.TipoPlanta;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
-import fiuba.algo3.algomones.excepciones.PierdeUnTurnoException;
+import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 
-public class ContextoEstadoYEfectoTest {
+	public class ContextoEstadoYEfectoTest {
 
 	@Test
-	public void testContextoEstadoInicial() {
+	public void testContextoEstadoIncialNoEstaAfectado(){
+		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		assertEquals(false,contexto.estaAfectado());
+		assertFalse(contexto.estaAfectado());
+		
+	}
+	
+	@Test
+	public void testElEstadoEfimeroAfectaAlContextoDelEstado() {
+		
+		ContextoEstado contexto = new ContextoEstado(); 
 		
 		Efecto dormido = new Dormido();
+		
 		AlgomonEstado efimero = new EstadoEfimero(dormido);
+		
 		contexto.estadoNuevo(efimero);
 		
+		assertTrue(contexto.estaAfectado());
+		
+	}
+	
+	@Test
+	public void testElEstadoPersistenciaAfectaAlContextoDelEstado() {
+		
+		ContextoEstado contexto = new ContextoEstado();
+		
 		Efecto quemado = new Quemado();
+		
 		AlgomonEstado persistente = new EstadoPersistente(quemado);
+		
 		contexto.estadoNuevo(persistente);
 		
-		assertEquals(true,contexto.estaAfectado());
+		assertTrue(contexto.estaAfectado());
+		
 	}
-	@Test(expected = PierdeUnTurnoException .class)
-	public void testContextoConAlgomonBolbasour(){
-
-		Efecto dormido = new Dormido();
-		
-		Efecto quemado = new Quemado();
-		
-		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
-		
-		quemado.aplicarEfecto(venusaur);
-		
-		assertEquals(360,venusaur.salud(),0.001D);
-		
-		dormido.aplicarEfecto(venusaur);
-	}
-	@Test(expected = PierdeUnTurnoException .class)
+	
+	@Test(expected = AtacarDormidoNoPuedeRealizarseException.class)
 	public void testListaDeEfectoABulbasour(){
+		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
 		Efecto quemado = new Quemado();
 		AlgomonEstado persistente = new EstadoPersistente(quemado);
 		contexto.estadoNuevo(persistente);
 		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		contexto.aplicarEfectos(venusaur);
 		assertEquals(360,venusaur.salud(),0.01D);
-		
-
+	
 		contexto.aplicarEfectos(venusaur);
 		assertEquals(320,venusaur.salud(),0.01D);
 		
@@ -83,9 +86,12 @@ public class ContextoEstadoYEfectoTest {
 		contexto.estadoNuevo(efimero);
 		
 		contexto.aplicarEfectos(venusaur);
+		
 	}
+	
 	@Test
 	public void desactivarEstadosDelContexto(){
+		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
 		Efecto quemado = new Quemado();
@@ -99,7 +105,7 @@ public class ContextoEstadoYEfectoTest {
 		contexto.desactivarEstados(venusaur);
 		assertEquals(360,venusaur.salud(),0.01D);
 		
-		assertEquals(false,contexto.estaAfectado());
+		assertFalse(contexto.estaAfectado());
 		
 		Efecto dormido = new Dormido();
 		AlgomonEstado efimero = new EstadoEfimero(dormido);
@@ -108,7 +114,7 @@ public class ContextoEstadoYEfectoTest {
 		contexto.desactivarEstados(venusaur);
 		assertEquals(360,venusaur.salud(),0.01D);
 		
-		assertEquals(false,contexto.estaAfectado());
+		assertFalse(contexto.estaAfectado());
 	}
 	@Test
 	public void desactivarMasDeUnEstadoDelContexto(){

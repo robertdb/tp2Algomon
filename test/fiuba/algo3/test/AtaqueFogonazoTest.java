@@ -19,7 +19,7 @@ import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.TipoFuego;
 import fiuba.algo3.algomones.TipoNormal;
 import fiuba.algo3.algomones.TipoPlanta;
-import fiuba.algo3.algomones.excepciones.PierdeUnTurnoException;
+import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 
 public class AtaqueFogonazoTest {
 
@@ -50,7 +50,7 @@ public class AtaqueFogonazoTest {
 		assertEquals(270,raticate.salud(),0.001D);
 				
 	}
-	@Test(expected = PierdeUnTurnoException .class)
+	@Test(expected = AtacarDormidoNoPuedeRealizarseException .class)
 	public void testAtacarConFogonazoAunAlgomonYColocaDosEstados() {
 		//Se crea un algomon personalizado con fogonazo.
 		Ataque fogonazo = new AtaqueFogonazo(new TipoFuego(), 2, 4 );
