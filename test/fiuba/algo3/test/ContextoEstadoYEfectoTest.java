@@ -21,7 +21,7 @@ import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.TipoPlanta;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
-import fiuba.algo3.algomones.excepciones.PierdeUnTurnoExeption;
+import fiuba.algo3.algomones.excepciones.PierdeUnTurnoException;
 
 public class ContextoEstadoYEfectoTest {
 
@@ -41,7 +41,7 @@ public class ContextoEstadoYEfectoTest {
 		
 		assertEquals(true,contexto.estaAfectado());
 	}
-	@Test(expected = PierdeUnTurnoExeption .class)
+	@Test(expected = PierdeUnTurnoException .class)
 	public void testContextoConAlgomonBolbasour(){
 
 		Efecto dormido = new Dormido();
@@ -59,7 +59,7 @@ public class ContextoEstadoYEfectoTest {
 		
 		dormido.aplicarEfecto(venusaur);
 	}
-	@Test(expected = PierdeUnTurnoExeption .class)
+	@Test(expected = PierdeUnTurnoException .class)
 	public void testListaDeEfectoABulbasour(){
 		ContextoEstado contexto = new ContextoEstado(); 
 		

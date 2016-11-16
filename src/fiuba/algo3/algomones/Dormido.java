@@ -1,6 +1,6 @@
 package fiuba.algo3.algomones;
 
-import fiuba.algo3.algomones.excepciones.PierdeUnTurnoExeption;
+import fiuba.algo3.algomones.excepciones.PierdeUnTurnoException;
 
 public class Dormido implements Efecto{
 	private int tiempo;
@@ -12,7 +12,7 @@ public class Dormido implements Efecto{
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
 		this.tiempo = this.tiempo -1;
-		throw new PierdeUnTurnoExeption();
+		throw new PierdeUnTurnoException();
 		
 	}
 
