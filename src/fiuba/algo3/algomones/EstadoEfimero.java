@@ -8,7 +8,7 @@ public class EstadoEfimero implements AlgomonEstado{
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
-		// TODO Auto-generated method stub
+		efecto.aplicarEfecto(algomon);
 		
 	}
 

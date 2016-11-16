@@ -42,7 +42,7 @@ public class ContextoEstadoYEfectoTest {
 		assertEquals(true,contexto.estaAfectado());
 	}
 	@Test(expected = PierdeUnTurnoExeption .class)
-	public void testcontextoConAlgomonBolbasour(){
+	public void testContextoConAlgomonBolbasour(){
 
 		Efecto dormido = new Dormido();
 		
@@ -58,6 +58,32 @@ public class ContextoEstadoYEfectoTest {
 		assertEquals(360,venusaur.salud(),0.001D);
 		
 		dormido.aplicarEfecto(venusaur);
+	}
+	@Test(expected = PierdeUnTurnoExeption .class)
+	public void testListaDeEfectoABolmasour(){
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		Efecto quemado = new Quemado();
+		AlgomonEstado persistente = new EstadoPersistente(quemado);
+		contexto.estadoNuevo(persistente);
+		
+		Salud salud = new Salud(400);
+		Tipo planta = new TipoPlanta();
+		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+		
+		contexto.aplicarEfectos(venusaur);
+		assertEquals(360,venusaur.salud(),0.01D);
+		
+
+		contexto.aplicarEfectos(venusaur);
+		assertEquals(324,venusaur.salud(),0.01D);
+		
+		Efecto dormido = new Dormido();
+		AlgomonEstado efimero = new EstadoEfimero(dormido);
+		contexto.estadoNuevo(efimero);
+		
+		contexto.aplicarEfectos(venusaur);
+		
 		
 		
 	}
