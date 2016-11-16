@@ -15,11 +15,12 @@ public class ContextoEstado {
   	
   	public void estadoNuevo(AlgomonEstado estado){
   		
-  		if (estado instanceof EstadoEfimero){
+  		if (estado instanceof EstadoPersistente){
   			this.estados.add(0, estado);
+  			return;
   		}
   		
-  		this.estados.add(0, estado);
+  		this.estados.add(estado);
   		
   	}
   

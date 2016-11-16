@@ -23,7 +23,7 @@ import fiuba.algo3.algomones.TipoPlanta;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 
-	public class ContextoEstadoYEfectoTest {
+	public class ContextoEstadoTest {
 
 	@Test
 	public void testContextoEstadoIncialNoEstaAfectado(){
@@ -64,77 +64,82 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 		
 	}
 	
-	@Test(expected = AtacarDormidoNoPuedeRealizarseException.class)
-	public void testListaDeEfectoABulbasour(){
+	@Test
+	public void testAlgomonEstaEnEstadoEfimeroYestadoPersistenteAlMismoTiempo(){
 		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		Efecto quemado = new Quemado();
-		AlgomonEstado persistente = new EstadoPersistente(quemado);
-		contexto.estadoNuevo(persistente);
+		AtacarDormidoNoPuedeRealizarseException excp = null; 
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
-		contexto.aplicarEfectos(venusaur);
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
+		
+		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			excp = exception;
+			
+		}
+		
+		assertTrue(excp instanceof AtacarDormidoNoPuedeRealizarseException);
+		
 		assertEquals(360,venusaur.salud(),0.01D);
-	
-		contexto.aplicarEfectos(venusaur);
-		assertEquals(320,venusaur.salud(),0.01D);
 		
-		Efecto dormido = new Dormido();
-		AlgomonEstado efimero = new EstadoEfimero(dormido);
-		contexto.estadoNuevo(efimero);
-		
-		contexto.aplicarEfectos(venusaur);
 		
 	}
 	
 	@Test
-	public void desactivarEstadosDelContexto(){
+	public void testAlgomonEnEstadoPersistenteSeDesactivaCausandoDanioAntesDeDesactivarse(){
+		
+		
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		Efecto quemado = new Quemado();
-		AlgomonEstado persistente = new EstadoPersistente(quemado);
-		contexto.estadoNuevo(persistente);
-		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
 		
 		contexto.desactivarEstados(venusaur);
+		
 		assertEquals(360,venusaur.salud(),0.01D);
 		
 		assertFalse(contexto.estaAfectado());
 		
-		Efecto dormido = new Dormido();
-		AlgomonEstado efimero = new EstadoEfimero(dormido);
-		contexto.estadoNuevo(efimero);
-		
-		contexto.desactivarEstados(venusaur);
-		assertEquals(360,venusaur.salud(),0.01D);
-		
-		assertFalse(contexto.estaAfectado());
 	}
+	
 	@Test
-	public void desactivarMasDeUnEstadoDelContexto(){
+	public void testAlgomonEnEstadoEfimeroSeDesactiva(){
+		
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		Efecto quemado = new Quemado();
-		AlgomonEstado persistente = new EstadoPersistente(quemado);
-		contexto.estadoNuevo(persistente);
+		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+					
+		contexto.desactivarEstados(venusaur);
 		
-		Efecto dormido = new Dormido();
-		AlgomonEstado efimero = new EstadoEfimero(dormido);
-		contexto.estadoNuevo(efimero);
+		assertFalse(contexto.estaAfectado());
 		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, null, salud);
+	}
+	
+	@Test
+	public void testDesactivarMasDeUnEstadoDelContexto(){
+		
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
+		
+		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
 		
 		contexto.desactivarEstados(venusaur);
+		
 		assertEquals(360,venusaur.salud(),0.01D);
 		
-		assertEquals(false,contexto.estaAfectado());
+		assertFalse(contexto.estaAfectado());
 	}
 }
