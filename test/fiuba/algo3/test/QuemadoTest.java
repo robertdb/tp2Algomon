@@ -29,5 +29,7 @@ public class QuemadoTest {
 		assertEquals(360,venusaur.salud(),0.001D);
 				
 	}
+	
+	
 
 }

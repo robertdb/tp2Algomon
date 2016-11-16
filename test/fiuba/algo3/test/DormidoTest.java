@@ -16,16 +16,42 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 public class DormidoTest {
 
 	@Test(expected = AtacarDormidoNoPuedeRealizarseException .class)
-	public void testContextoConAlgomonBolbasour(){
-
+	public void testEfectoDormirProduceUnaExcepcion(){
+	
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		
 		Efecto dormido = new Dormido();
 		
-		Salud salud = new Salud(400);
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, salud);
-				
 		dormido.aplicarEfecto(venusaur);
 		
+	}
+	
+	public void testEfectoDormirProduce3ExcepcionesDeNoPoderAtacr(){
+		
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		
+		Efecto dormido = new Dormido();
+		
+		try{
+			
+			dormido.aplicarEfecto(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException e1){}
+		
+		try{
+			
+			dormido.aplicarEfecto(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException e12){}
+		
+		try{
+			
+			dormido.aplicarEfecto(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException e2){}
+		
+		assertTrue(dormido.estaActivado());
+			
 	}
 
 }
