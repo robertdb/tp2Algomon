@@ -10,12 +10,12 @@ import fiuba.algo3.algomones.excepciones.SuperPocionAgotadaException;
 public class RestauradorTest {
 
 	@Test
-	public void testUsarRestauradorEnAlgomonBajoEfectoQuemadoVuelveAestadoNormal() {
+	public void testUsarRestauradorEnAlgomonBajoEfectoQuemadoPuedeAtacar() {
 		assertTrue(true);
 	}
 	
 	@Test
-	public void testUsarRestauradorEnAlgomonBajoEfectoDomidoVuelveAestadoNormal() {
+	public void testUsarRestauradorEnAlgomonBajoEfectoDomidoPuedeAtacar() {
 		assertTrue(true);
 	}
 	
