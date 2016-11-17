@@ -142,4 +142,31 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 		
 		assertFalse(contexto.estaAfectado());
 	}
+	
+	/*@Test
+	public void testLosElEstadoEfimeroQueProduceEfectosDeDormirNoSonAcumulables(){
+		
+		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		
+		ContextoEstado contexto = new ContextoEstado(); 
+		
+		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		
+		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		
+		contexto.aplicarEfectos(venusaur);
+		
+	}*/
 }

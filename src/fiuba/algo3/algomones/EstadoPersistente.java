@@ -10,7 +10,9 @@ public class EstadoPersistente implements AlgomonEstado{
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
+	
 		efecto.aplicarEfecto(algomon);
+		
 	}
 
 }

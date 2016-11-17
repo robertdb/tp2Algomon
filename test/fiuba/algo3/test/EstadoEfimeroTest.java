@@ -31,33 +31,4 @@ public class EstadoEfimeroTest {
 		
 	}
 	
-	@Test
-	public void testAlgomonLuegoDe3AccionesNoEstaEnEstadoEfimero(){
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
-		Efecto dormido = new Dormido();
-		
-		AlgomonEstado efimero = new EstadoEfimero(dormido);
-		
-		try{
-			
-			efimero.aplicarEfecto(venusaur);
-			
-			efimero.aplicarEfecto(venusaur);
-			
-			efimero.aplicarEfecto(venusaur);
-			
-		}catch(AtacarDormidoNoPuedeRealizarseException e){
-			
-			assertFalse(dormido.estaActivado());
-			
-		}
-		
-	
-		
-		
-	}
-	
-
 }

@@ -34,5 +34,7 @@ public enum NombreDelAtaque {
 	public boolean esPersistente() {
 		return esPersistente;
 	}
+
+
 	
 }

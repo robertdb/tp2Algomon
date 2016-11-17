@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algomones.excepciones.RestauradorAgotadoException;
-import fiuba.algo3.algomones.excepciones.SuperPosionAgotadaException;
+import fiuba.algo3.algomones.excepciones.SuperPocionAgotadaException;
 
 public class RestauradorTest {
 

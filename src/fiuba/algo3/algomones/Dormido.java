@@ -11,7 +11,12 @@ public class Dormido implements Efecto{
 
 	@Override
 	public void aplicarEfecto(Algomon algomon) {
+		
+		if(efectoCaducado())
+			return;
+		
 		this.tiempo = this.tiempo -1;
+		
 		throw new AtacarDormidoNoPuedeRealizarseException();
 		
 	}
@@ -19,6 +24,12 @@ public class Dormido implements Efecto{
 	@Override
 	public boolean estaActivado() {
 		return (this.tiempo == 0);
+	}
+	
+	private boolean efectoCaducado(){
+		
+		return tiempo == -1;
+		
 	}
 
 }

@@ -1,14 +1,14 @@
 package fiuba.algo3.algomones;
 
-import fiuba.algo3.algomones.excepciones.PosionAgotadaException;
+import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
 
-public class Posion implements Elemento {
+public class Pocion implements Elemento {
 	
 	private int aumentoDeVida;
 	
 	private int  posionesRestantes;
 	
-	public Posion(){
+	public Pocion(){
 		
 		this.aumentoDeVida = 20;
 		
@@ -19,8 +19,8 @@ public class Posion implements Elemento {
 	@Override
 	public void aplicarElemento(Algomon algomon) {
 		
-		if(posionesAgotadas())
-			throw new PosionAgotadaException();
+		if(pocionesAgotadas())
+			throw new PocionAgotadaException();
 		
 		algomon.aplicarElementoAlaSalud(aumentoDeVida);
 		
@@ -28,7 +28,7 @@ public class Posion implements Elemento {
 		
 	}
 
-	private boolean posionesAgotadas() {
+	private boolean pocionesAgotadas() {
 		
 		return posionesRestantes == 0;
 	}

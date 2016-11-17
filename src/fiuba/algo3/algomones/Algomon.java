@@ -65,9 +65,9 @@ public class Algomon {
 		
 	}
 
-	public void alterarEstado(AlgomonEstado persistente) {
+	public void alterarEstado(AlgomonEstado estado) {
 		
-		this.estado.estadoNuevo(persistente);
+		this.estado.estadoNuevo(estado);
 		
 	}
 

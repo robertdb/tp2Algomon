@@ -2,7 +2,7 @@ package fiuba.algo3.algomones;
 
 public class Quemado implements Efecto{
 	
-	private double porcetajeDeQuemadura;
+	private final double porcetajeDeQuemadura;
 	
 	public Quemado() {
 		

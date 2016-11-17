@@ -12,12 +12,12 @@ import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.Elemento;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.Posion;
+import fiuba.algo3.algomones.Pocion;
 import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoNormal;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
-import fiuba.algo3.algomones.excepciones.PosionAgotadaException;
+import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
 
 public class PosionTest {
 
@@ -49,7 +49,7 @@ public class PosionTest {
 		
 		assertEquals(vidaOriginalRaticate - 20,  raticate.salud() );
 		
-		Elemento posion = new Posion();
+		Elemento posion = new Pocion();
 		
 		posion.aplicarElemento(raticate);
 		
@@ -81,14 +81,14 @@ public class PosionTest {
 				
 		int vidaOriginalRaticate  = raticate.salud();
 				
-		Elemento posion = new Posion();
+		Elemento posion = new Pocion();
 				
 		posion.aplicarElemento(raticate);
 				
 		assertEquals(vidaOriginalRaticate , raticate.salud() );
 	}
 	
-	@Test(expected = PosionAgotadaException.class)
+	@Test(expected = PocionAgotadaException.class)
 	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
 		
 		// Se crea un algomon personalizado.
@@ -100,7 +100,7 @@ public class PosionTest {
 		Salud saludRaticate = new Salud(300);
 		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
 		
-		Elemento posion = new Posion();
+		Elemento posion = new Pocion();
 	
 		posion.aplicarElemento(raticate);
 		posion.aplicarElemento(raticate);

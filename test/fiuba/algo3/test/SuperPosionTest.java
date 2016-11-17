@@ -11,13 +11,13 @@ import fiuba.algo3.algomones.Ataque;
 import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.Elemento;
 import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.Posion;
+import fiuba.algo3.algomones.Pocion;
 import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.SuperPosion;
+import fiuba.algo3.algomones.SuperPocion;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.excepciones.PosionAgotadaException;
-import fiuba.algo3.algomones.excepciones.SuperPosionAgotadaException;
+import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
+import fiuba.algo3.algomones.excepciones.SuperPocionAgotadaException;
 
 public class SuperPosionTest {
 
@@ -50,7 +50,7 @@ public class SuperPosionTest {
 				
 		assertEquals(vidaOriginalRaticate - 40,  raticate.salud() );
 				
-		Elemento superPosion = new SuperPosion();
+		Elemento superPosion = new SuperPocion();
 				
 		superPosion.aplicarElemento(raticate);
 				
@@ -83,7 +83,7 @@ public class SuperPosionTest {
 				
 		int vidaOriginalRaticate  = raticate.salud();
 				
-		Elemento superPosion = new SuperPosion();
+		Elemento superPosion = new SuperPocion();
 		
 		superPosion.aplicarElemento(raticate);
 				
@@ -92,7 +92,7 @@ public class SuperPosionTest {
 		
 	
 	
-	@Test(expected = SuperPosionAgotadaException.class)
+	@Test(expected = SuperPocionAgotadaException.class)
 	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
 		
 		// Se crea un algomon personalizado.
@@ -104,7 +104,7 @@ public class SuperPosionTest {
 		Salud saludRaticate = new Salud(300);
 		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
 		
-		Elemento superPosion = new SuperPosion();
+		Elemento superPosion = new SuperPocion();
 	
 		superPosion.aplicarElemento(raticate);
 		superPosion.aplicarElemento(raticate);

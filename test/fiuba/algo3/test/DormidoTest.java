@@ -26,7 +26,7 @@ public class DormidoTest {
 		
 	}
 	
-	public void testEfectoDormirProduce3ExcepcionesDeNoPoderAtacr(){
+	public void testEfectoDormirProduce3ExcepcionesDeNoPoderAtacar(){
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
@@ -36,22 +36,22 @@ public class DormidoTest {
 			
 			dormido.aplicarEfecto(venusaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException e1){}
+		}catch(AtacarDormidoNoPuedeRealizarseException e){}
 		
 		try{
 			
 			dormido.aplicarEfecto(venusaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException e12){}
+		}catch(AtacarDormidoNoPuedeRealizarseException e){}
 		
 		try{
 			
 			dormido.aplicarEfecto(venusaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException e2){}
+		}catch(AtacarDormidoNoPuedeRealizarseException e){}
 		
 		assertTrue(dormido.estaActivado());
 			
 	}
-
+	
 }

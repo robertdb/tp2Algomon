@@ -12,7 +12,7 @@ import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.Elemento;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.SuperPosion;
+import fiuba.algo3.algomones.SuperPocion;
 import fiuba.algo3.algomones.TipoNormal;
 import fiuba.algo3.algomones.Vitamina;
 import fiuba.algo3.algomones.excepciones.VitaminaAgotadaException;
