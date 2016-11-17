@@ -1,7 +1,6 @@
 package fiuba.algo3.algomones;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ContextoEstado {
@@ -40,8 +39,19 @@ public class ContextoEstado {
   
   	public void aplicarEfectos(Algomon algomon){
   		
-  		for(AlgomonEstado estado : estados)
-          	estado.aplicarEfecto(algomon);
+  		int i = 0;
+  		
+  		for(AlgomonEstado estado : estados){
+  			
+  			estado.aplicarEfecto(algomon);
+  			
+  			i += 1;
+  			
+  			if(i == 2)
+  				break;
+  			
+  		}
+          	
           
   	}
   	
@@ -54,6 +64,9 @@ public class ContextoEstado {
   	  		}
   			
   			estado.aplicarEfecto(algomon);
+  			
+  			break;
+  			
   		}
   		
   		this.estados = new ArrayList<AlgomonEstado>();
