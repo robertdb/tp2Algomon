@@ -1,75 +1,71 @@
+
 package fiuba.algo3.algomones;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContextoEstado {
+  
+  private Efecto quemado;
+  private Efecto dormido;
+    
+  public ContextoEstado() {
+    
+	  quemado = new Normal();
 	
-	
-	private List <AlgomonEstado> estados;
-	  
-  	public ContextoEstado(){
+	  dormido = new Normal();
+  
+  }
+  
+  public void nuevoEfecto(Efecto efecto) {
       
-  		this.estados = new ArrayList<AlgomonEstado>();
+	  efecto.agregar(this);
   
-  	}
-  	
-  	public void estadoNuevo(AlgomonEstado estado) {
-  	    	  		
-		if(estado instanceof EstadoPersistente){
-				
-			this.estados.add(0, estado);
-			
-			return;
-		}
-		
-		this.estados.add(estado);
-  	
-  	}
-  	  
-  	public boolean estaAfectado(){
-  		
-  		if (this.estados.isEmpty()){
-  			return false;
-  		}
-  		
-  		return true;
-  		
-  	}
+  }
+
+  public void setearQuemado(Efecto quemado){
+
+      this.quemado = quemado;
+      
+  }
+
+  public void setearDormido(Efecto dormido){
   
-  	public void aplicarEfectos(Algomon algomon){
-  		
-  		int i = 0;
-  		
-  		for(AlgomonEstado estado : estados){
-  			
-  			estado.aplicarEfecto(algomon);
-  			
-  			i += 1;
-  			
-  			if(i == 2)
-  				break;
-  			
-  		}
-          	
-          
-  	}
-  	
-  	public void desactivarEstados(Algomon algomon){
-  		
-  		for(AlgomonEstado estado : estados){
-  			
-  			if (estado instanceof EstadoEfimero){
-  	  			continue;
-  	  		}
-  			
-  			estado.aplicarEfecto(algomon);
-  			
-  			break;
-  			
-  		}
-  		
-  		this.estados = new ArrayList<AlgomonEstado>();
-  		
-  	}
- }
+      this.dormido = dormido;
+      
+  }
+     
+  public void aplicarEfectos(Algomon algomon){
+
+      // el orden importa
+	  
+      quemado.aplicarEfecto(algomon); 
+      
+      dormido.aplicarEfecto(algomon);
+      
+  }
+  
+  public void desactivarQuemado(){
+	  
+    quemado = new Normal();
+    
+  }
+
+  public void desactivarDormido(){
+	  
+    dormido = new Normal();
+    
+  }
+  
+  public void aplicarNormalizador(Algomon algomon){
+	  
+	  this.aplicarEfectos(algomon);
+	  
+	  this.desactivarQuemado();
+	  
+	  this.desactivarDormido();
+	  
+  }
+  
+  
+}

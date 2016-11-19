@@ -25,16 +25,15 @@ public class Algomon {
 
 	public double atacar(Algomon atacado, NombreDelAtaque nombreDelAtaque) {
 		
-		if (estado.estaAfectado())
-			estado.aplicarEfectos(this);
+		estado.aplicarEfectos(this);
 		
-		 Ataque ataque = this.ataques.get(nombreDelAtaque);
+		Ataque ataque = this.ataques.get(nombreDelAtaque);
 		 
-		 if( ataque == null)
-			 throw new AtaqueNoPertenecienteAalgomonException();
+		if( ataque == null)
+			throw new AtaqueNoPertenecienteAalgomonException();
 	
-		 return ataque.atacar(this, atacado);
-			 
+		return ataque.atacar(this, atacado);
+		 
 	}
 	
 	public Tipo tipoDeAlgomon(){
@@ -65,9 +64,9 @@ public class Algomon {
 		
 	}
 
-	public void alterarEstado(AlgomonEstado estado) {
+	public void alterarEstado(Efecto efecto) {
 		
-		this.estado.estadoNuevo(estado);
+		this.estado.nuevoEfecto(efecto);
 		
 	}
 

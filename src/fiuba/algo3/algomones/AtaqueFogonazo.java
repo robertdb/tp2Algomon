@@ -10,8 +10,7 @@ public class AtaqueFogonazo implements Ataque {
 	@Override
 	public double atacar(Algomon atacante, Algomon atacado) {
 		Efecto efecto = new Quemado();
-		AlgomonEstado persistente = new EstadoPersistente(efecto);
-		atacado.alterarEstado(persistente);
+		atacado.alterarEstado(efecto);
 		return this.ataque.atacar(atacante, atacado);
 	}
 

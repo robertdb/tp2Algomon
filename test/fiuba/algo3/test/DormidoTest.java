@@ -2,6 +2,7 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import fiuba.algo3.algomones.Algomon;
@@ -26,6 +27,7 @@ public class DormidoTest {
 		
 	}
 	
+	@Ignore
 	public void testEfectoDormirProduce3ExcepcionesDeNoPoderAtacar(){
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));

@@ -10,8 +10,7 @@ public class AtaqueCanto implements Ataque {
 	@Override
 	public double atacar(Algomon atacante, Algomon atacado) {
 		Efecto efecto = new Dormido();
-		AlgomonEstado efimero= new EstadoEfimero(efecto);
-		atacado.alterarEstado(efimero);
+		atacado.alterarEstado(efecto);
 		return 0;
 	}
 

@@ -2,34 +2,34 @@ package fiuba.algo3.algomones;
 
 import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 
+
 public class Dormido implements Efecto{
-	private int tiempo;
-	
-	public Dormido() {
-		tiempo = 3;
-	}
+  
+  private int tiempo;
+  private ContextoEstado contexto;
+  
+  public Dormido() {
+    tiempo = 3;
+  }
+  
+  public void agregar(ContextoEstado contexto){
+    this.contexto = contexto;
+    contexto.setearQuemado(this);    
+  }
+  
+  @Override
+  public void aplicarEfecto(Algomon algomon) {
+    
+    if (efectoCaducado())
+      contexto.desactivarDormido();
+    
+    this.tiempo = this.tiempo -1;
+    throw new AtacarDormidoNoPuedeRealizarseException();
+  }
 
-	@Override
-	public void aplicarEfecto(Algomon algomon) {
-		
-		if(efectoCaducado())
-			return;
-		
-		this.tiempo = this.tiempo -1;
-		
-		throw new AtacarDormidoNoPuedeRealizarseException();
-		
-	}
-
-	@Override
-	public boolean estaActivado() {
-		return (this.tiempo == 0);
-	}
-	
-	private boolean efectoCaducado(){
-		
-		return tiempo == -1;
-		
-	}
-
+  private boolean efectoCaducado(){
+    
+      return tiempo == -1;
+    
+  }
 }
