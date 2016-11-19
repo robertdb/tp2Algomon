@@ -39,9 +39,9 @@ public class ContextoEstado {
 
       // el orden importa
 	  
+	  dormido.aplicarEfecto(algomon);
       quemado.aplicarEfecto(algomon); 
       
-      dormido.aplicarEfecto(algomon);
       
   }
   

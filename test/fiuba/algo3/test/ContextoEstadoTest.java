@@ -39,18 +39,21 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 		
 		dormido.agregar(contexto);
 		quemado.agregar(contexto);
-		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			excp = exception;
-			
-		}
-		
-		assertTrue(excp instanceof AtacarDormidoNoPuedeRealizarseException);
-		
-		assertEquals(360,venusaur.salud(),0.01D);
+	
+			try{
+				contexto.aplicarEfectos(venusaur);
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
+			try{
+				contexto.aplicarEfectos(venusaur);
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
+			try{
+				contexto.aplicarEfectos(venusaur);
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
+
+			try{
+				contexto.aplicarEfectos(venusaur);
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
+		assertEquals(400,venusaur.salud(),0.01D);
 		
 		
 	}
