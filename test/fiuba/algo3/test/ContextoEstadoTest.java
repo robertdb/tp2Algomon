@@ -24,119 +24,173 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 
 	public class ContextoEstadoTest {
 
-
+	
 	@Test
-	public void testAlgomonEstaEnEstadoDormidoYestadoQuemadoAlMismoTiempo(){
+	public void testSeAplicanEfectosDormidoYQuemadoAlAlgomon(){
 		
-		AtacarDormidoNoPuedeRealizarseException excp = null; 
+		AtacarDormidoNoPuedeRealizarseException err1 = null;
+		AtacarDormidoNoPuedeRealizarseException err2 = null;
+		AtacarDormidoNoPuedeRealizarseException err3 = null;
+		AtacarDormidoNoPuedeRealizarseException err4 = null;
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		Efecto dormido = new Dormido();
-		Efecto quemado = new Quemado();
+		contexto.nuevoEfecto(new Dormido());
 		
-		dormido.agregar(contexto);
-		quemado.agregar(contexto);
-	
-			try{
-				contexto.aplicarEfectos(venusaur);
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
-			try{
-				contexto.aplicarEfectos(venusaur);
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
-			try{
-				contexto.aplicarEfectos(venusaur);
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
+		contexto.nuevoEfecto(new Quemado());
+		
+		
+		try{
+			
+			contexto.aplicarEfectos(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+			
+			err1 = exep;
+			
+		}
+		
+		try{
+			
+			contexto.aplicarEfectos(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+			
+			err2 = exep;
+			
+		}
+		try{
+			
+			contexto.aplicarEfectos(venusaur);
+			
+		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+			
+			err3 = exep;
+		}
 
-			try{
-				contexto.aplicarEfectos(venusaur);
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){}
-		assertEquals(400,venusaur.salud(),0.01D);
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+			
+			err4 = exep;
+		}
+		
+		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertTrue(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertFalse(err4 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertEquals(240,venusaur.salud(),0.01D);
 		
 		
 	}
 	
-	@Ignore
+	
 	@Test
-	public void testAlgomonEnEstadoPersistenteSeDesactivaCausandoDanioAntesDeDesactivarse(){
+	public void testElEfectoQuemadoCausaDanioEnElAlgomonAntesDeDesactivarse(){
 		
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
+		contexto.nuevoEfecto(new Quemado());
 		
-		contexto.desactivarEstados(venusaur);
+		contexto.aplicarNormalizador(venusaur);
 		
 		assertEquals(360,venusaur.salud(),0.01D);
 		
-		assertFalse(contexto.estaAfectado());
-		
 	}
 	
-	@Ignore
+	
 	@Test
-	public void testAlgomonEnEstadoEfimeroSeDesactiva(){
+	public void testEfectoDormidoEnAlgomonSeDesactiva(){
+		
+		AtacarDormidoNoPuedeRealizarseException err1 = null;
+		AtacarDormidoNoPuedeRealizarseException err2 = null;
+		AtacarDormidoNoPuedeRealizarseException err3 = null;
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		contexto.nuevoEfecto(new Dormido());
 					
-		contexto.desactivarEstados(venusaur);
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err1 = exception;
+			
+		}
 		
-		assertFalse(contexto.estaAfectado());
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err2 = exception;
+			
+		}
 		
+		contexto.aplicarNormalizador(venusaur);
+		
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err3 = exception;
+			
+		}
+		
+		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertFalse(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
+			
 	}
 	
-	@Ignore
 	@Test
-	public void testDesactivarMasDeUnEstadoDelContexto(){
+	public void testAplicarEfectosDormidoDevueleExceptionDeNoPoderAtacar3Veces(){
+		
+		AtacarDormidoNoPuedeRealizarseException err1 = null;
+		AtacarDormidoNoPuedeRealizarseException err2 = null;
+		AtacarDormidoNoPuedeRealizarseException err3 = null;
+		AtacarDormidoNoPuedeRealizarseException err4 = null;
 		
 		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
-		
-		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
-		
-		contexto.desactivarEstados(venusaur);
-		
-		assertEquals(360,venusaur.salud(),0.01D);
-		
-		assertFalse(contexto.estaAfectado());
-	}
+		contexto.nuevoEfecto(new Dormido());
 	
-	@Ignore
-	@Test
-	public void testLosElEstadoEfimeroQueProduceEfectosDeDormirNoSonAcumulables(){
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
-		
-		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err1 = exception;
+			
+		}
 		
 		try{
 			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err2 = exception;
+			
+		}
 		
 		try{
 			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err3 = exception;
+		}
 		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertTrue(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
+		assertFalse(err4 instanceof AtacarDormidoNoPuedeRealizarseException);
 		
-		contexto.aplicarEfectos(venusaur);
 		
 	}
 }

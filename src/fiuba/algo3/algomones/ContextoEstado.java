@@ -39,10 +39,10 @@ public class ContextoEstado {
 
       // el orden importa
 	  
+	  quemado.aplicarEfecto(algomon); 
+	  
 	  dormido.aplicarEfecto(algomon);
-      quemado.aplicarEfecto(algomon); 
-      
-      
+           
   }
   
   public void desactivarQuemado(){
@@ -59,7 +59,7 @@ public class ContextoEstado {
   
   public void aplicarNormalizador(Algomon algomon){
 	  
-	  this.aplicarEfectos(algomon);
+	  quemado.aplicarEfecto(algomon);
 	  
 	  this.desactivarQuemado();
 	  

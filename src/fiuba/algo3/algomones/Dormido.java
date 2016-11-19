@@ -14,22 +14,29 @@ public class Dormido implements Efecto{
   
   public void agregar(ContextoEstado contexto){
     this.contexto = contexto;
-    contexto.setearQuemado(this);    
+    contexto.setearDormido(this);    
   }
   
   @Override
   public void aplicarEfecto(Algomon algomon) {
     
-    if (efectoCaducado())
-      contexto.desactivarDormido();
+    if (efectoCaducado()){
+    	
+    		contexto.desactivarDormido();
+    		
+    		return;
+    }
+      
     
-    this.tiempo = this.tiempo -1;
+    this.tiempo -= 1;
+    
     throw new AtacarDormidoNoPuedeRealizarseException();
+    
   }
 
   private boolean efectoCaducado(){
     
-      return tiempo == -1;
+      return tiempo == 0;
     
   }
 }
