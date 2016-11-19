@@ -27,33 +27,5 @@ public class DormidoTest {
 		
 	}
 	
-	@Ignore
-	public void testEfectoDormirProduce3ExcepcionesDeNoPoderAtacar(){
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
-		Efecto dormido = new Dormido();
-		
-		try{
-			
-			dormido.aplicarEfecto(venusaur);
-			
-		}catch(AtacarDormidoNoPuedeRealizarseException e){}
-		
-		try{
-			
-			dormido.aplicarEfecto(venusaur);
-			
-		}catch(AtacarDormidoNoPuedeRealizarseException e){}
-		
-		try{
-			
-			dormido.aplicarEfecto(venusaur);
-			
-		}catch(AtacarDormidoNoPuedeRealizarseException e){}
-		
-		assertTrue(dormido.estaActivado());
-			
-	}
 	
 }

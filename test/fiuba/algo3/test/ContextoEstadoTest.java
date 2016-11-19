@@ -14,8 +14,6 @@ import fiuba.algo3.algomones.AtaqueChupavidas;
 import fiuba.algo3.algomones.ContextoEstado;
 import fiuba.algo3.algomones.Dormido;
 import fiuba.algo3.algomones.Efecto;
-import fiuba.algo3.algomones.EstadoEfimero;
-import fiuba.algo3.algomones.EstadoPersistente;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Quemado;
 import fiuba.algo3.algomones.Salud;
@@ -26,51 +24,9 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 
 	public class ContextoEstadoTest {
 
-	@Ignore	
+
 	@Test
-	public void testContextoEstadoIncialNoEstaAfectado(){
-		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		assertFalse(contexto.estaAfectado());
-		
-	}
-	
-	@Ignore
-	@Test
-	public void testElEstadoEfimeroAfectaAlContextoDelEstado() {
-		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		Efecto dormido = new Dormido();
-		
-		AlgomonEstado efimero = new EstadoEfimero(dormido);
-		
-		contexto.estadoNuevo(efimero);
-		
-		assertTrue(contexto.estaAfectado());
-		
-	}
-	
-	@Ignore
-	@Test
-	public void testElEstadoPersistenciaAfectaAlContextoDelEstado() {
-		
-		ContextoEstado contexto = new ContextoEstado();
-		
-		Efecto quemado = new Quemado();
-		
-		AlgomonEstado persistente = new EstadoPersistente(quemado);
-		
-		contexto.estadoNuevo(persistente);
-		
-		assertTrue(contexto.estaAfectado());
-		
-	}
-	
-	@Ignore
-	@Test
-	public void testAlgomonEstaEnEstadoEfimeroYestadoPersistenteAlMismoTiempo(){
+	public void testAlgomonEstaEnEstadoDormidoYestadoQuemadoAlMismoTiempo(){
 		
 		AtacarDormidoNoPuedeRealizarseException excp = null; 
 		
@@ -78,9 +34,11 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 		
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		contexto.estadoNuevo(new EstadoPersistente(new Quemado()));
+		Efecto dormido = new Dormido();
+		Efecto quemado = new Quemado();
 		
-		contexto.estadoNuevo(new EstadoEfimero(new Dormido()));
+		dormido.agregar(contexto);
+		quemado.agregar(contexto);
 		
 		try{
 			contexto.aplicarEfectos(venusaur);
