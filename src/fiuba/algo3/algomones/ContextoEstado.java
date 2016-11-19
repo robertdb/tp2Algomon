@@ -4,16 +4,16 @@ package fiuba.algo3.algomones;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ContextoEstado {
-  
   private Efecto quemado;
   private Efecto dormido;
     
   public ContextoEstado() {
     
-	  quemado = new Normal();
+	  quemado = new NormalEfecto();
 	
-	  dormido = new Normal();
+	  dormido = new NormalEfecto();
   
   }
   
@@ -47,13 +47,13 @@ public class ContextoEstado {
   
   public void desactivarQuemado(){
 	  
-    quemado = new Normal();
+    quemado = new NormalEfecto();
     
   }
 
   public void desactivarDormido(){
 	  
-    dormido = new Normal();
+    dormido = new NormalEfecto();
     
   }
   
