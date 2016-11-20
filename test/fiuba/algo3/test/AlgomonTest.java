@@ -343,6 +343,9 @@ public class AlgomonTest {
 		//chansey ataca a rattata con canto
 		chansey.atacar(rattata, NombreDelAtaque.CANTO);
 		
+		CantidadTurnosDormidos = 0;
+		err1 = null;
+		
 		while (CantidadTurnosDormidos <3){
 			try {
 				rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
@@ -357,6 +360,64 @@ public class AlgomonTest {
 		
 		rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
 		assertEquals(3,CantidadTurnosDormidos);
-		}
-	
+	}
+	@Test
+	public void bulbasourAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
+		
+		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		
+		charmander.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
+		
+		assertEquals(130,bulbasour.salud(),0.01D);
+		
+		bulbasour.atacar(charmander, NombreDelAtaque.CHUPAVIDAS);
+		
+		assertEquals(132,bulbasour.salud(),0.0001D);
+		assertEquals(163,charmander.salud(),0.0001D);
+	}
+	@Test
+	public void bulbasourAtacaSquartleConChupavidasRecupera9Vida(){
+		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
+		
+		squartle.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
+		bulbasour.atacar(squartle, NombreDelAtaque.CHUPAVIDAS);
+		
+		assertEquals(120,squartle.salud(),0.0001D);
+		assertEquals(139,bulbasour.salud(),0.0001D);
+	}
+	@Test
+	public void bulbasourAtacaAlgomonNormalConChupavidasRecupera4Vida(){
+		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		
+		rattata.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
+		bulbasour.atacar(rattata, NombreDelAtaque.CHUPAVIDAS);
+		
+		assertEquals(155,rattata.salud(),0.0001D);
+		assertEquals(134,bulbasour.salud(),0.0001D);
+		
+	}
+	@Test
+	public void charmanderRattataAtacanConFogonazoAalgomónRecibeDañoCuandoEstaActivo(){
+		//Algomones atacando
+		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		//Algomones a atacar
+		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		
+		rattata.atacar(squartle, NombreDelAtaque.FOGONAZO);
+		assertEquals(149,squartle.salud(),0.001D);
+		
+		squartle.atacar(rattata, NombreDelAtaque.ATAQUE_RAPIDO);
+		assertEquals(134,squartle.salud(),0.001D);
+		
+		charmander.atacar(bulbasour, NombreDelAtaque.FOGONAZO);
+		assertEquals(136,bulbasour.salud(),0.001D);
+		
+		bulbasour.atacar(charmander, NombreDelAtaque.ATAQUE_RAPIDO);
+		assertEquals(122,bulbasour.salud(),0.001D);
+	}
 }
