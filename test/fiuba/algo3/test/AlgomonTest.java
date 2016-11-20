@@ -7,6 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
+import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 import fiuba.algo3.algomones.excepciones.AtaqueNoPertenecienteAalgomonException;
 import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 
@@ -313,4 +314,49 @@ public class AlgomonTest {
 		charmander.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
 			
 	}
+	@Test
+	public void testJigglypuffAtacanConCantoAlgomonNormalPierdeTresTurnos() {
+		
+		Algomon jigglypuff = EspecieAlgomon.JIGGLYPUFF.nuevo();
+		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		AtacarDormidoNoPuedeRealizarseException err1 = null;
+		int CantidadTurnosDormidos = 0;
+		
+		jigglypuff.atacar(rattata, NombreDelAtaque.CANTO);
+		
+		while (CantidadTurnosDormidos <3){
+			try {
+				rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
+				
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){
+				
+				err1 = exep;
+				CantidadTurnosDormidos = CantidadTurnosDormidos + 1;
+			}
+		}
+		
+		assertTrue (err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+		rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
+		assertEquals(3,CantidadTurnosDormidos);
+		/////////////////////////////////////////////////////////////////////
+		//chansey ataca a rattata con canto
+		chansey.atacar(rattata, NombreDelAtaque.CANTO);
+		
+		while (CantidadTurnosDormidos <3){
+			try {
+				rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
+				
+			}catch(AtacarDormidoNoPuedeRealizarseException exep){
+				err1 = exep;
+				CantidadTurnosDormidos = CantidadTurnosDormidos + 1;
+			}
+		}
+		
+		assertTrue (err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+		
+		rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
+		assertEquals(3,CantidadTurnosDormidos);
+		}
+	
 }
