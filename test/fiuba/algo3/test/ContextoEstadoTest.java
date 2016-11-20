@@ -185,6 +185,12 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 			
 			err3 = exception;
 		}
+		try{
+			contexto.aplicarEfectos(venusaur);
+		}catch(AtacarDormidoNoPuedeRealizarseException exception){
+			
+			err4 = exception;
+		}
 		
 		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
 		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
