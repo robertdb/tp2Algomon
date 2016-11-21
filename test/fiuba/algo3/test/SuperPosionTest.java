@@ -93,7 +93,7 @@ public class SuperPosionTest {
 	
 	
 	@Test(expected = SuperPocionAgotadaException.class)
-	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
+	public void testAlgomonAgoto2SuperPosionesYnoPuedeUtilizarMas(){
 		
 		// Se crea un algomon personalizado.
 		int potenciaAtaqueRapido = 25;
@@ -108,6 +108,7 @@ public class SuperPosionTest {
 	
 		superPosion.aplicarElemento(raticate);
 		superPosion.aplicarElemento(raticate);
+		assertTrue(true);
 		superPosion.aplicarElemento(raticate);
 		
 	}

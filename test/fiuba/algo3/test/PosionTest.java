@@ -89,7 +89,7 @@ public class PosionTest {
 	}
 	
 	@Test(expected = PocionAgotadaException.class)
-	public void testAlgomonAgotoLasPosionesYnoPuedeUtilizarMasPosiones(){
+	public void testAlgomonAgoto4PosionesYnoPuedeUtilizarMasPosiones(){
 		
 		// Se crea un algomon personalizado.
 		int potenciaAtaqueRapido = 25;
@@ -106,6 +106,7 @@ public class PosionTest {
 		posion.aplicarElemento(raticate);
 		posion.aplicarElemento(raticate);
 		posion.aplicarElemento(raticate);
+		assertTrue(true);
 		posion.aplicarElemento(raticate);
 		
 	}
