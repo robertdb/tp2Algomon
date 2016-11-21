@@ -1,12 +1,9 @@
-
 package fiuba.algo3.algomones;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class ContextoEstado {
+  
   private Efecto quemado;
+  
   private Efecto dormido;
     
   public ContextoEstado() {

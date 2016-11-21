@@ -1,6 +1,5 @@
 package fiuba.algo3.algomones;
 
-import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
 import fiuba.algo3.algomones.excepciones.VitaminaAgotadaException;
 
 public class Vitamina implements Elemento {

@@ -86,4 +86,10 @@ public class Algomon {
 		
 	}
 
+	public void aplicarRestaurador() {
+		
+		this.estado.aplicarNormalizador(this);
+		
+	}
+
 }
