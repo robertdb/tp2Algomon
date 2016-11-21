@@ -1,11 +1,5 @@
 package fiuba.algo3.algomones;
-
-
-import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.List;
-
-
 
 public enum EspecieAlgomon {
 	

@@ -362,7 +362,7 @@ public class AlgomonTest {
 		assertEquals(3,CantidadTurnosDormidos);
 	}
 	@Test
-	public void bulbasourAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
+	public void testBulbasourAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
 		
 		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
@@ -377,7 +377,7 @@ public class AlgomonTest {
 		assertEquals(163,charmander.salud(),0.0001D);
 	}
 	@Test
-	public void bulbasourAtacaSquartleConChupavidasRecupera9Vida(){
+	public void testBulbasourAtacaSquartleConChupavidasRecupera9Vida(){
 		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
 		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
 		
@@ -388,7 +388,7 @@ public class AlgomonTest {
 		assertEquals(139,bulbasour.salud(),0.0001D);
 	}
 	@Test
-	public void bulbasourAtacaAlgomonNormalConChupavidasRecupera4Vida(){
+	public void testBulbasourAtacaAlgomonNormalConChupavidasRecupera4Vida(){
 		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 		
@@ -400,7 +400,7 @@ public class AlgomonTest {
 		
 	}
 	@Test
-	public void charmanderRattataAtacanConFogonazoAalgomonRecibeDañoCuandoEstaActivo(){
+	public void testCharmanderRattataAtacanConFogonazoAalgomonRecibeDañoCuandoEstaActivo(){
 	
 		//Algomones atacando
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
