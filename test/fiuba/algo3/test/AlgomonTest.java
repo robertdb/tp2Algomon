@@ -400,7 +400,8 @@ public class AlgomonTest {
 		
 	}
 	@Test
-	public void charmanderRattataAtacanConFogonazoAalgomónRecibeDañoCuandoEstaActivo(){
+	public void charmanderRattataAtacanConFogonazoAalgomonRecibeDañoCuandoEstaActivo(){
+	
 		//Algomones atacando
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
@@ -419,5 +420,6 @@ public class AlgomonTest {
 		
 		bulbasour.atacar(charmander, NombreDelAtaque.ATAQUE_RAPIDO);
 		assertEquals(122,bulbasour.salud(),0.001D);
+	
 	}
 }

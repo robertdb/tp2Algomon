@@ -16,6 +16,7 @@ import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.Tipo;
+import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoFuego;
 import fiuba.algo3.algomones.TipoNormal;
 import fiuba.algo3.algomones.TipoPlanta;
@@ -50,35 +51,34 @@ public class AtaqueFogonazoTest {
 		assertEquals(270,raticate.salud(),0.001D);
 				
 	}
-	@Test(expected = AtacarDormidoNoPuedeRealizarseException .class)
-	public void testAtacarConFogonazoAunAlgomonYColocaDosEstados() {
+	
+	@Test
+	public void testAtacarConFogonazoAunAlgomonTipoAguaQuita4ptsDeVidaYCambiaEstado() {
+		
 		//Se crea un algomon personalizado con fogonazo.
 		Ataque fogonazo = new AtaqueFogonazo(new TipoFuego(), 2, 4 );
 		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 		ataques.put(NombreDelAtaque.FOGONAZO,fogonazo);
-		
-		Ataque canto = new AtaqueCanto(new TipoNormal(),0,6);
-		ataques.put(NombreDelAtaque.CANTO, canto);
-		
+				
 		Salud saludCharizard= new Salud(400);
 		Algomon charizard = new Algomon("Charizard", new TipoFuego(), ataques , saludCharizard);
-				
+		
 		// Se crea un algomon personalizado.
 		Ataque ataqueRapido = new AtaqueSimple(new TipoNormal(), 25 , 16 );
 		EnumMap<NombreDelAtaque, Ataque> ataquesNormal = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
 		ataquesNormal.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
 		
-		Salud saludRaticate = new Salud(302);
-		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
 		
-		charizard.atacar(raticate, NombreDelAtaque.FOGONAZO);
-		assertEquals(300,raticate.salud(),0.001D);
+		Algomon blastoise = new Algomon("Blastoise", new TipoAgua(), ataquesNormal, new Salud(400));
 		
-		charizard.atacar(raticate, NombreDelAtaque.CANTO);
-		assertEquals(300,raticate.salud(),0.001D);
+		charizard.atacar(blastoise, NombreDelAtaque.FOGONAZO);
+		assertEquals(399,blastoise.salud(),0.001D);
 		
-		raticate.atacar(charizard, NombreDelAtaque.ATAQUE_RAPIDO);
+		//afecta el efecto Quemado
+		blastoise.atacar(charizard, NombreDelAtaque.ATAQUE_RAPIDO);
+		assertEquals(359,blastoise.salud(),0.001D);
 				
-		}
+	}
+
 
 }
