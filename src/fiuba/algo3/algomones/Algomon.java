@@ -2,6 +2,7 @@ package fiuba.algo3.algomones;
 
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Set;
 
 import fiuba.algo3.algomones.excepciones.AtaqueNoPertenecienteAalgomonException;
 
@@ -90,6 +91,11 @@ public class Algomon {
 		
 		this.estado.aplicarNormalizador(this);
 		
+	}
+
+	public Set<NombreDelAtaque> getAtaques() {
+		// TODO Auto-generated method stub
+		return ataques.keySet();
 	}
 
 }
