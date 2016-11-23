@@ -20,24 +20,26 @@ public class jugadorTest {
 
 	@Test
 	public void testJugadorInicialConalgomones() {
-		EnumMap<EspecieAlgomon, Algomon> algomones = new EnumMap<EspecieAlgomon,Algomon >(EspecieAlgomon.class);
-		
 		
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
-		algomones.put(EspecieAlgomon.RATTATA, rattata);
-		algomones.put(EspecieAlgomon.CHARMANDER, charmander);
-		algomones.put(EspecieAlgomon.BULBASOUR, bulbasour);
 		
 		
-		Jugador jugador = new Jugador(algomones,rattata,null);
+		Jugador jugador = new Jugador();
 		
-		assertEquals(rattata,jugador.statusAlgomonActual()); 
+		assertEquals(null,jugador.statusAlgomonActual());
+		
+		jugador.ingresarAlgomon(EspecieAlgomon.RATTATA,rattata);
+		jugador.ingresarAlgomon(EspecieAlgomon.CHARMANDER,charmander);
+		jugador.ingresarAlgomon(EspecieAlgomon.BULBASOUR,bulbasour);
+		
+		assertEquals(rattata,jugador.statusAlgomonActual());
 		
 		jugador.elegirAlgomon(EspecieAlgomon.CHARMANDER);
 		
 		assertEquals(charmander,jugador.statusAlgomonActual());
+		
 		
 		jugador.elegirAlgomon(EspecieAlgomon.BULBASOUR);
 		
@@ -51,23 +53,18 @@ public class jugadorTest {
 	@Test
 	public void testJugadorDevuelveElementos(){ 
 		
-		EnumMap<TipoElemento,Elemento> elementos = new EnumMap<TipoElemento,Elemento>(TipoElemento.class);
 		
-		elementos.put(TipoElemento.POCION, TipoElemento.POCION.nuevo());
-		elementos.put(TipoElemento.SUPERPOCION, TipoElemento.SUPERPOCION.nuevo());
-		elementos.put(TipoElemento.VITAMINA, TipoElemento.VITAMINA.nuevo());
-		elementos.put(TipoElemento.RESTAURADOR, TipoElemento.RESTAURADOR.nuevo());
-		
-		Jugador jugador = new Jugador(null,null,elementos);
+		Jugador jugador = new Jugador();
 		Set<TipoElemento> listaElementos = jugador.getElementos(); 
 		assertTrue(listaElementos.size() == 4);
 	}
 	@Test
 	public void testJugadorDevuelveLosAtaqueDelAlgomonActual(){
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
-		EnumMap<EspecieAlgomon, Algomon> algomones = new EnumMap<EspecieAlgomon,Algomon >(EspecieAlgomon.class);
 		
-		Jugador jugador = new Jugador(algomones,rattata,null);
+		Jugador jugador = new Jugador();
+		
+		jugador.ingresarAlgomon(EspecieAlgomon.RATTATA, rattata);
 		
 		Set<NombreDelAtaque> listaAtaques = jugador.getAtaqueAlgomon();
 		

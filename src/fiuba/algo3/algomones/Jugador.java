@@ -9,10 +9,20 @@ public class Jugador {
 	EnumMap<TipoElemento,Elemento> elementos;
 	private Algomon algomonActual;
 
-	public Jugador(EnumMap<EspecieAlgomon, Algomon> algomonesLista, Algomon algomonInicial, EnumMap<TipoElemento, Elemento> elementosLista) {
-		algomones = algomonesLista;
-		elementos = elementosLista;
-		algomonActual = algomonInicial;
+	public Jugador() {
+		algomones = new EnumMap<EspecieAlgomon,Algomon >(EspecieAlgomon.class);
+		elementos = crearHashMap();
+		algomonActual = null;
+	}
+
+	private EnumMap<TipoElemento, Elemento> crearHashMap() {
+		EnumMap<TipoElemento,Elemento> elementos = new EnumMap<TipoElemento,Elemento>(TipoElemento.class);
+		
+		elementos.put(TipoElemento.POCION, TipoElemento.POCION.nuevo());
+		elementos.put(TipoElemento.SUPERPOCION, TipoElemento.SUPERPOCION.nuevo());
+		elementos.put(TipoElemento.VITAMINA, TipoElemento.VITAMINA.nuevo());
+		elementos.put(TipoElemento.RESTAURADOR, TipoElemento.RESTAURADOR.nuevo());
+		return elementos;
 	}
 
 	public Algomon statusAlgomonActual() {
@@ -45,6 +55,15 @@ public class Jugador {
 	}
 	public void aplicarAtaque(NombreDelAtaque ataque,Jugador jugador2){
 		algomonActual.atacar(jugador2.algomonActual, ataque);
+	}
+
+	public void ingresarAlgomon(EspecieAlgomon nombreAlgomon, Algomon algomon) {
+		if (algomones.isEmpty()){
+			algomonActual = algomon;
+		}
+		
+		algomones.put(nombreAlgomon, algomon);
+		
 	}
 
 }
