@@ -1,7 +1,5 @@
 package fiuba.algo3.algomones;
 
-import fiuba.algo3.algomones.Jugador;
-
 public class Juego {
 	private Jugador activo;
 	private Jugador pasivo;
