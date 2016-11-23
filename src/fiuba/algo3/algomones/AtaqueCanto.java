@@ -1,6 +1,6 @@
 package fiuba.algo3.algomones;
 
-public class AtaqueCanto implements Ataque {
+public class AtaqueCanto extends AtaqueEspecial {
 
 	private Ataque ataque;
 	public AtaqueCanto(Tipo tipoNormal1, int potenciaCanto, int cantidadMaximaDeAtaquesCanto) {

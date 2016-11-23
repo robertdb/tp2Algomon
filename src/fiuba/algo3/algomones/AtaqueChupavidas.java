@@ -1,6 +1,6 @@
 package fiuba.algo3.algomones;
 
-public class AtaqueChupavidas implements Ataque {
+public class AtaqueChupavidas extends AtaqueEspecial {
 	
 	private Ataque ataque;
 	

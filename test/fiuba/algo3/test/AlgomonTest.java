@@ -400,7 +400,7 @@ public class AlgomonTest {
 		
 	}
 	@Test
-	public void testCharmanderRattataAtacanConFogonazoAalgomonRecibeDañoCuandoEstaActivo(){
+	public void testCharmanderRattataAtacanConFogonazoAalgomonRecibeDanioCuandoEstaActivo(){
 	
 		//Algomones atacando
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
