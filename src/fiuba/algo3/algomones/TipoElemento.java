@@ -27,7 +27,5 @@ public enum TipoElemento {
 		}
 	};
 
-	public Elemento nuevo() {
-		return null;
-	}
+	public abstract Elemento nuevo();
 }
