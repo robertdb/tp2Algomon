@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import fiuba.algo3.algomones.Jugador;
+
 public class Ventana extends JFrame{
 	
 	private JPanel contenedor;
@@ -45,5 +47,4 @@ public class Ventana extends JFrame{
 	protected JLayeredPane getPanel() {
 		return this.panel;
 	}
-
 }

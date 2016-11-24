@@ -10,9 +10,10 @@ import fiuba.algo3.algomones.Jugador;
 public class juegoTest {
 
 	@Test
-	public void test() {
-		Jugador jugador1 = new Jugador(null,null,null);
-		Jugador jugador2 = new Jugador(null,null,null);
+	public void testJuegoIngresarAlgomones() {
+		Jugador jugador1 = new Jugador();
+		Jugador jugador2 = new Jugador();
+		
 		
 	}
 
