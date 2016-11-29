@@ -17,7 +17,6 @@ public class AtaqueSimple implements Ataque {
 		this.cantidadDeAtaquesRestantes  = cantidadMaximaDeAtaques;
 		
 	}
-
 	@Override
 	public double atacar(Algomon atacante, Algomon atacado) {
 		
