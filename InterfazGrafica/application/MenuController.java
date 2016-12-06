@@ -10,13 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class MenuController implements Initializable{
 	
 	public void onActionJugar(ActionEvent event) throws IOException{
-		BorderPane layout = (BorderPane)FXMLLoader.load(getClass().getResource("SeleccionAlgomon.fxml"));
+		AnchorPane layout = (AnchorPane)FXMLLoader.load(getClass().getResource("SeleccionAlgomon.fxml"));
 		Scene scene = new Scene(layout);
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
