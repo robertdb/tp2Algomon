@@ -12,10 +12,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane layout  =(AnchorPane)FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
-			Scene scene = new Scene(layout);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			//AnchorPane layout  =(AnchorPane)FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+			//Scene scene = new Scene(layout);
+			//primaryStage.setScene(scene);
+			//primaryStage.show();
+			Combate combate = new Combate(primaryStage, null);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
