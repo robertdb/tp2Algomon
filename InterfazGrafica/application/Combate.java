@@ -87,27 +87,15 @@ public class Combate {
     	 root.getChildren().addAll(boton1,boton2,buton);
 	}
 	public void insertarBotonesElementos(Jugador jugador, Group root ){
-		 Button boton1 = new Button();
-		 Button boton2 = new Button();
-		
-		 boton1.setText("Pocion");
-    	 boton2.setText("SuperPocion");
-    	 Button buton = new Button();
-    	 buton.setText("Restaurador");
+		UbicacionControles menu = new UbicacionControles();
+		Button boton1 = menu.controlerProColumna("pocion");
     	
-    	 boton1.setPrefSize(300, 80);
-    	 boton2.setPrefSize(300, 80);
-    	 buton.setPrefSize(300, 80);
-    	 
-    	 boton1.setLayoutY(490);
-    	 boton2.setLayoutY(560);
-    	 buton.setLayoutY(630);
-    	
-    	 root.getChildren().addAll(boton1,boton2,buton);
+    	 root.getChildren().addAll(boton1);
 
     	 boton1.setOnAction (new EventHandler <ActionEvent> () {
 		     @Override 
 		     public void handle (ActionEvent e) {
+		    	 boton1.setText("jaja lo logre");
 		     }
 		 });
     
@@ -117,15 +105,15 @@ public class Combate {
 	public void insertatBotonesCambiarAlgomon(Jugador jugador,Group root){
 		 Button boton1 = new Button();
 		 Button boton2 = new Button();
-		
+		 Button buton = new Button();
+		 
 		 boton1.setText("bulmasour");
     	 boton2.setText("Charmander");
-    	 Button buton = new Button();
     	 buton.setText("Rratata");
     	
-    	 boton1.setPrefSize(300, 80);
-    	 boton2.setPrefSize(300, 80);
-    	 buton.setPrefSize(300, 80);
+    	 boton1.setPrefSize(300, 70);
+    	 boton2.setPrefSize(300, 70);
+    	 buton.setPrefSize(300, 70);
     	 
     	 boton1.setLayoutY(490);
     	 boton1.setLayoutX(300);
