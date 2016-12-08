@@ -1,5 +1,6 @@
 package application;
 	
+import fiuba.algo3.algomones.Juego;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,7 +17,8 @@ public class Main extends Application {
 			//Scene scene = new Scene(layout);
 			//primaryStage.setScene(scene);
 			//primaryStage.show();
-			Combate combate = new Combate(primaryStage, null);
+			Combate combate = new Combate(primaryStage, new Juego());
+			combate.iniciarCombate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

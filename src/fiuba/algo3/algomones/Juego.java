@@ -27,17 +27,11 @@ public class Juego {
 			cantAlgomones = cantAlgomones + 1;
 		}
 	}
-	//public void comenzarJuego( ){
-		//Deveriamos pasar por parametro una ventana : combate y una ventana: Ganador
-		//try{
-			//while(true){
-				//combate.aplicarAccion(activo,pasivo);
-				//this.siguienteTruno();
-			//}
-		//}catch(AlgomonesDeJugadorMuertosExeption dead){
-			//Ganador(activo);
-		//}
-		
-	//}
+	public Jugador setActivo(){
+		return  activo;
+	}
+	public Jugador setPasivo(){
+		return  pasivo;
+	}
 
 }
