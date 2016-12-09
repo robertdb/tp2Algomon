@@ -27,11 +27,11 @@ public class Combate {
 
 	private Juego juego;
 	private Stage stage;
+	private ActionBotones botones;
 	
 	public Combate(Stage stage,Juego juego ){
 		this.juego = juego;
 		this.stage = stage;
-
 	}
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		Image image = new Image(getClass().getResource("charmander.gif").toExternalForm());
@@ -45,84 +45,14 @@ public class Combate {
 		iv2.setLayoutY(200);
 		
 		Group root = new Group();
-		
+		this.botones = new ActionBotones(root);
 		
 		root.getChildren().add(iv1);
 		root.getChildren().add(iv2);
 		
-		insertarBotonesElementos(juego.setActivo(),root);
-		insertatBotonesCambiarAlgomon(juego.setActivo(),root);
-		insertarBotonesAtaque(juego.setActivo(),root);
-		
-		Label label = new Label();
-		label.setText("aqui deverian ir descripciones");
-		label.setLayoutX(900);
-		label.setLayoutY(600);
-		
-		root.getChildren().add(label);
 		
 		Scene scene = new Scene(root,1200,700);
 		return scene;
-	}
-	public void insertarBotonesAtaque(Jugador jugador,Group root){
-		 Button boton1 = new Button();
-		 Button boton2 = new Button();
-		
-		 boton1.setText("Fogonaso");
-    	 boton2.setText("AtaqueRapido");
-    	 Button buton = new Button();
-    	 buton.setText("Canto");
-    	
-    	 boton1.setPrefSize(300, 70);
-    	 boton2.setPrefSize(300, 70);
-    	 buton.setPrefSize(300, 70);
-    	 
-    	 boton1.setLayoutY(490);
-    	 boton1.setLayoutX(600);
-    	 boton2.setLayoutY(560);
-    	 boton2.setLayoutX(600);
-    	 buton.setLayoutY(630);
-    	 buton.setLayoutX(600);
-    	
-    	 root.getChildren().addAll(boton1,boton2,buton);
-	}
-	public void insertarBotonesElementos(Jugador jugador, Group root ){
-		UbicacionControles menu = new UbicacionControles();
-		Button boton1 = menu.controlerProColumna("pocion");
-    	
-    	 root.getChildren().addAll(boton1);
-
-    	 boton1.setOnAction (new EventHandler <ActionEvent> () {
-		     @Override 
-		     public void handle (ActionEvent e) {
-		    	 boton1.setText("jaja lo logre");
-		     }
-		 });
-    
-	}
-		
-	
-	public void insertatBotonesCambiarAlgomon(Jugador jugador,Group root){
-		 Button boton1 = new Button();
-		 Button boton2 = new Button();
-		 Button buton = new Button();
-		 
-		 boton1.setText("bulmasour");
-    	 boton2.setText("Charmander");
-    	 buton.setText("Rratata");
-    	
-    	 boton1.setPrefSize(300, 70);
-    	 boton2.setPrefSize(300, 70);
-    	 buton.setPrefSize(300, 70);
-    	 
-    	 boton1.setLayoutY(490);
-    	 boton1.setLayoutX(300);
-    	 boton2.setLayoutY(560);
-    	 boton2.setLayoutX(300);
-    	 buton.setLayoutY(630);
-    	 buton.setLayoutX(300);
-    	
-    	 root.getChildren().addAll(boton1,boton2,buton);
 	}
 	public void iniciarCombate(){
 		

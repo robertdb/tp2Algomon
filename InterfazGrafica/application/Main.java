@@ -12,11 +12,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			//AnchorPane layout  =(AnchorPane)FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
-			//Scene scene = new Scene(layout);
-			//primaryStage.setScene(scene);
-			//primaryStage.show();
+		try{
 			Combate combate = new Combate(primaryStage, new Juego());
 			combate.iniciarCombate();
 		} catch(Exception e) {

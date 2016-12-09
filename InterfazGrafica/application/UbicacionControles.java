@@ -18,29 +18,26 @@ public class UbicacionControles{
 		fila3 = 490;
 	}
 	
-	public Button  controlerProColumna(String text ){
-		 Button boton = new Button();
-		 boton.setPrefSize(ancho, alto);
-		 boton.setLayoutX(columna1);
-		 boton.setLayoutY(fila1);
-		 fila1 = fila1 +100;
-		 return boton;
+	public void controlerProColumna(String text ,BotonDeAtaque ataque1){
+		 ataque1.getBoton().setPrefSize(ancho, alto);
+		 ataque1.getBoton().setLayoutX(columna1);
+		 ataque1.getBoton().setLayoutY(fila1);
+		 fila1 = fila1 +alto ;
 		
 	}
-	public Button controlerPorColumnba2(String text){
-		Button boton = new Button();
+	public void  controlerPorColumnba2(String text,Button boton){
 		 boton.setPrefSize(ancho, alto);
 		 boton.setLayoutX(columna2);
 		 boton.setLayoutY(fila2);
 		 fila2 = fila2 +100;
-		 return boton;
+		
 	}
-	public Button controlerPorColumnba3(String text){
-		Button boton = new Button();
+	public void controlerPorColumnba3(String text, Button boton){
+		
 		 boton.setPrefSize(ancho, alto);
 		 boton.setLayoutX(columna3);
 		 boton.setLayoutY(fila3);
 		 fila3 = fila3 +100;
-		 return boton;
+		
 	}
 }
