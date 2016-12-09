@@ -46,6 +46,7 @@ public class Combate {
 		
 		Group root = new Group();
 		this.botones = new ActionBotones(root);
+	
 		
 		root.getChildren().add(iv1);
 		root.getChildren().add(iv2);
