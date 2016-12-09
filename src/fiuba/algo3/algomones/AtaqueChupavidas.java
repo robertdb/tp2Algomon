@@ -25,4 +25,10 @@ public class AtaqueChupavidas extends AtaqueEspecial {
 		
 	}
 
+	@Override
+	public int cantidadDeAtaqueRestantes() {
+		
+		return 0;
+	}
+
 }

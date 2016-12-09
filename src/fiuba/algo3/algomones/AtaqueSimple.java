@@ -50,5 +50,10 @@ public class AtaqueSimple implements Ataque {
 			cantidadDeAtaquesRestantes = cantidadOriginalDeAtaque;
 		
 	}
+	@Override
+	public int cantidadDeAtaqueRestantes() {
+		
+		return this.cantidadDeAtaquesRestantes;
+	}
 
 }

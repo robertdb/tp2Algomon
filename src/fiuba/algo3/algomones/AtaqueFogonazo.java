@@ -13,4 +13,10 @@ public class AtaqueFogonazo extends AtaqueEspecial {
 		return getAtaque().atacar(atacante, atacado);
 	}
 
+	@Override
+	public int cantidadDeAtaqueRestantes() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -33,4 +33,10 @@ public class Pocion implements Elemento {
 		return posionesRestantes == 0;
 	}
 
+	@Override
+	public int cantidadDeElementosRestantes() {
+		
+		return this.posionesRestantes;
+	}
+
 }

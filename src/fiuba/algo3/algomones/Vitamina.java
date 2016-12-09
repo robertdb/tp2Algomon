@@ -30,4 +30,10 @@ public class Vitamina implements Elemento {
 		return vitaminasRestantes == 0;
 	}
 
+	@Override
+	public int cantidadDeElementosRestantes() {
+		
+		return this.vitaminasRestantes;
+	}
+
 }

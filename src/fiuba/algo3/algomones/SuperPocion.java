@@ -29,6 +29,12 @@ public class SuperPocion implements Elemento {
 			
 	}
 
+	@Override
+	public int cantidadDeElementosRestantes() {
+	
+		return pocionSimple.cantidadDeElementosRestantes()*2;
+	}
+
 }
 
 

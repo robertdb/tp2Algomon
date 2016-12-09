@@ -28,5 +28,10 @@ public class Restaurador implements Elemento {
 		return restauradoresRestantes == 0;
 		
 	}
+	@Override
+	public int cantidadDeElementosRestantes() {
+		
+		return this.restauradoresRestantes;
+	}
 
 }
