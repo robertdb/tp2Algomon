@@ -17,7 +17,8 @@ public class ActionEscene {
 	private BotonesDeAlgomones algomones;
 	private ImagenesDeEstado estatus;
 	
-	public ActionEscene(Group root, ImagenesDeEstado estatus ){
+	public ActionEscene(Group root, ImagenesDeEstado estatus ,Juego juego){
+		this.juego = juego;
 		this.ataques = new BotonesDeAtaque(this,root);
 		this.elementos = new BotonesDeElementos(this,root);
 		this.algomones = new BotonesDeAlgomones(this,root);
@@ -25,10 +26,10 @@ public class ActionEscene {
 	}
 
 	public void actualizarBotones() {
+		this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
 	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
 	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
 	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
-	    this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
 	}	
 	
 }

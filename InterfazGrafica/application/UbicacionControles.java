@@ -4,9 +4,9 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 
 public class UbicacionControles{
-	private double columna1 = 100;
-	private double columna2 = 500;
-	private double columna3 = 900;
+	private double columna1 = 80;
+	private double columna2 = 480;
+	private double columna3 = 880;
 	private double alto = 70;
 	private double ancho =300 ;
 	private double fila1;

@@ -33,13 +33,13 @@ public class Combate {
 	public Combate(Stage stage,Juego juego ){
 		this.juego = juego;
 		this.stage = stage;
-		this.estatus = new ImagenesDeEstado();
 	}
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		
 		
 		Group root = new Group();
-		this.botones = new ActionEscene(root,this.estatus);
+		this.estatus = new ImagenesDeEstado(root);
+		this.botones = new ActionEscene(root,this.estatus,this.juego);
 		Scene scene = new Scene(root,1200,700);
 		return scene;
 	}
