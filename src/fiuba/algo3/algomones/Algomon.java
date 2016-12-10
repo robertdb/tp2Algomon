@@ -97,5 +97,8 @@ public class Algomon {
 		// TODO Auto-generated method stub
 		return ataques.keySet();
 	}
+	public int ataqueRestantes(NombreDelAtaque nombre){
+		return this.ataques.get(nombre).cantidadDeAtaqueRestantes();
+	}
 
 }

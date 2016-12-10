@@ -66,4 +66,14 @@ public class Jugador {
 		
 	}
 
+	public int elementosRestantes(TipoElemento nombre) {
+		// TODO Auto-generated method stub
+		return this.elementos.get(nombre).cantidadDeElementosRestantes();
+	}
+
+	public int vidaDeAlogmon(EspecieAlgomon nombre) {
+		// TODO Auto-generated method stub
+		return this.algomones.get(nombre).salud();
+	}
+
 }

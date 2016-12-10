@@ -11,33 +11,22 @@ import javafx.scene.control.Button;
 
 public class ActionBotones {
 	private int botonesColumna = 3;
-	private ArrayList<BotonDeAtaque> list;
 	private Juego juego;
+	private BotonesDeAtaque ataques;
+	private BotonesDeElementos elementos;
+	private BotonesDeAlgomones algomones;
 	
-	public ActionBotones(Group root){
-		UbicacionControles ubicacion = new UbicacionControles();
-		this.list = new ArrayList<BotonDeAtaque>();
-		
-		for(int i = 1; i <= botonesColumna; i = i + 1){
-			
-				BotonDeAtaque boton = new BotonDeAtaque(this);
-				ubicacion.controlerProColumna(null, boton);
-				root.getChildren().add(boton.getBoton());
-		}
+	public ActionBotones(Group root ){
+		this.ataques = new BotonesDeAtaque(this,root);
+		this.elementos = new BotonesDeElementos(this,root);
+		this.algomones = new BotonesDeAlgomones(this,root);
+	
+	}
 
-	}
-	
 	public void actualizarBotones() {
-		Iterator<BotonDeAtaque> it = this.list.iterator();
-		for (NombreDelAtaque nombre: juego.setActivo().getAtaqueAlgomon()){
-			BotonDeAtaque boton = it.next();
-			boton.insertarJugadoresYNombreAtaque(juego.setActivo(),juego.setPasivo(),nombre);
-			boton.insertarNombreBoton(nombre.obtenerRepresentation());
-		}
-		while (it.hasNext()) {
-			it.next().getBoton().setDisable(true);
-			 
-			}
-	}
+	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
+	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
+	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
+	}	
 	
 }

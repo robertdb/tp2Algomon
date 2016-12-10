@@ -41,9 +41,10 @@ public class BotonDeAtaque {
 		this.defensivo = activo;
 		this.ofensivo = pasivo;
 		
+		boton.setText(ataque.name()+" Restantes " +activo.statusAlgomonActual().ataqueRestantes(ataque));
+		if (activo.statusAlgomonActual().ataqueRestantes(ataque) == 0){
+			boton.setDisable(true);
+		}
 	}
-	public void insertarNombreBoton(String obtenerRepresentation) {
-		boton.setText(obtenerRepresentation);
-		
-	}
+	
 }
