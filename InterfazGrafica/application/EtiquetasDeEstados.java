@@ -1,6 +1,7 @@
 package application;
 
 import fiuba.algo3.algomones.EspecieAlgomon;
+import fiuba.algo3.algomones.Jugador;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -37,11 +38,13 @@ public class EtiquetasDeEstados {
 		this.estado2.posicionarLabelEstado(0,300);
 		this.estado2.colocarLabel(root);
 		
-		
-	
 		root.getChildren().addAll(this.turnoJugador);
-		
  		
+	}
+	public void actualizarEtiquetas(Jugador activo,Jugador pasivo){
+		this.estado1.cambiarEstados(activo.statusAlgomonActual());
+		this.estado2.cambiarEstados(pasivo.statusAlgomonActual());
+		this.turnoJugador.setText(activo.nombreJugador());
 	}
 
 	

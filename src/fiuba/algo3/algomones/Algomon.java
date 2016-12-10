@@ -101,4 +101,9 @@ public class Algomon {
 		return this.ataques.get(nombre).cantidadDeAtaqueRestantes();
 	}
 
+	public String nombreDeEstado() {
+		
+		return this.estado.toString();
+	}
+
 }

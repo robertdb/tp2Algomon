@@ -1,5 +1,6 @@
 package application;
 
+import fiuba.algo3.algomones.Algomon;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -28,6 +29,11 @@ public class LabelEstados {
 	}
 	public void colocarLabel(Group root) {
 		root.getChildren().addAll(this.estado,this.salud);
+		
+	}
+	public void cambiarEstados(Algomon statusAlgomonActual) {
+		this.salud.setText("SALUD : "+statusAlgomonActual.salud());
+		this.estado.setText("ESTADO : " +statusAlgomonActual.nombreDeEstado());
 		
 	}
 

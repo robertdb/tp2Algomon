@@ -8,6 +8,7 @@ public class Jugador {
 	EnumMap<EspecieAlgomon, Algomon> algomones;
 	EnumMap<TipoElemento,Elemento> elementos;
 	private Algomon algomonActual;
+	private String nombre;
 
 	public Jugador() {
 		algomones = new EnumMap<EspecieAlgomon,Algomon >(EspecieAlgomon.class);
@@ -74,6 +75,14 @@ public class Jugador {
 	public int vidaDeAlogmon(EspecieAlgomon nombre) {
 		// TODO Auto-generated method stub
 		return this.algomones.get(nombre).salud();
+	}
+
+	public String nombreJugador() {
+		
+		return this.nombre;
+	}
+	public void setNombre(String nombre){
+		this.nombre = nombre;
 	}
 
 }
