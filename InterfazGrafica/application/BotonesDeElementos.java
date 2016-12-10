@@ -13,7 +13,7 @@ public class BotonesDeElementos {
 	private ArrayList<BotonElemento> botones;
 	private int botonesColumna = 3 ;
 	
-	public BotonesDeElementos(ActionBotones actionBotones, Group root) {
+	public BotonesDeElementos(ActionEscene actionBotones, Group root) {
 		UbicacionControles ubicacion = new UbicacionControles();
 		this.botones = new ArrayList<BotonElemento>();
 		

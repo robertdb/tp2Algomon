@@ -18,10 +18,10 @@ public class BotonDeAtaque {
 	private NombreDelAtaque ataque;
 	private Jugador ofensivo;
 	private Jugador defensivo;
-	private ActionBotones actionBotones;
+	private ActionEscene actionBotones;
 	
 	
-	public BotonDeAtaque(ActionBotones actionBotones){
+	public BotonDeAtaque(ActionEscene actionBotones){
 		boton = new Button();
 		this.actionBotones = actionBotones;
 		this.boton.setOnAction (new EventHandler <ActionEvent> () {

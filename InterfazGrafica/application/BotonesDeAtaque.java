@@ -12,7 +12,7 @@ public class BotonesDeAtaque {
 	private int botonesColumna = 3;
 	private ArrayList<BotonDeAtaque> list;
 	
-	public BotonesDeAtaque(ActionBotones actionBotones, Group root){
+	public BotonesDeAtaque(ActionEscene actionBotones, Group root){
 		
 		UbicacionControles ubicacion = new UbicacionControles();
 		this.list = new ArrayList<BotonDeAtaque>();

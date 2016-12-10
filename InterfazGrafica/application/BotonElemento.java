@@ -11,7 +11,7 @@ public class BotonElemento {
 	private Jugador activo;
 	private TipoElemento element;
 
-	public BotonElemento(ActionBotones actionBotones) {
+	public BotonElemento(ActionEscene actionBotones) {
 		this.boton = new Button();
 		this.boton.setOnAction (new EventHandler <ActionEvent> () {
 		     @Override 

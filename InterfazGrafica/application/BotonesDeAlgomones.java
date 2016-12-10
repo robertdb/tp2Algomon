@@ -10,11 +10,11 @@ import fiuba.algo3.algomones.NombreDelAtaque;
 import javafx.scene.Group;
 
 public class BotonesDeAlgomones {
-	private ActionBotones action;
+	private ActionEscene action;
 	private ArrayList<BotonAlgomon> algomones;
 	private int botonesColumna = 3;
 	
-	public BotonesDeAlgomones(ActionBotones actionBotones, Group root) {
+	public BotonesDeAlgomones(ActionEscene actionBotones, Group root) {
 		this.action = actionBotones;
 		
 		UbicacionControles ubicacion = new UbicacionControles();

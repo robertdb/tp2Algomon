@@ -8,12 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 public class BotonAlgomon {
-	private ActionBotones actionBotones;
+	private ActionEscene actionBotones;
 	private Button boton;
 	private Jugador jugador; 
 	private EspecieAlgomon algomon;
 	
-	public BotonAlgomon(ActionBotones Botones) {
+	public BotonAlgomon(ActionEscene Botones) {
 		this.actionBotones = Botones;
 		this.boton = new Button();
 		this.boton.setOnAction (new EventHandler <ActionEvent> () {

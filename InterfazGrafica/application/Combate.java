@@ -27,31 +27,19 @@ public class Combate {
 
 	private Juego juego;
 	private Stage stage;
-	private ActionBotones botones;
+	private ActionEscene botones;
+	private ImagenesDeEstado estatus;
 	
 	public Combate(Stage stage,Juego juego ){
 		this.juego = juego;
 		this.stage = stage;
+		this.estatus = new ImagenesDeEstado();
 	}
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
-		Image image = new Image(getClass().getResource("charmander.gif").toExternalForm());
-		ImageView iv1 = new ImageView();
-		iv1.setImage(image);
 		
-		Image image2 = new Image(getClass().getResource("chansey.gif").toExternalForm());
-		ImageView iv2 = new ImageView();
-		iv2.setImage(image2);
-		iv2.setLayoutX(600);
-		iv2.setLayoutY(200);
 		
 		Group root = new Group();
-		this.botones = new ActionBotones(root);
-	
-		
-		root.getChildren().add(iv1);
-		root.getChildren().add(iv2);
-		
-		
+		this.botones = new ActionEscene(root,this.estatus);
 		Scene scene = new Scene(root,1200,700);
 		return scene;
 	}
