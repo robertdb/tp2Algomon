@@ -1,5 +1,6 @@
 package fiuba.algo3.algomones;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Set;
@@ -94,8 +95,9 @@ public class Algomon {
 	}
 
 	public Set<NombreDelAtaque> getAtaques() {
-		// TODO Auto-generated method stub
+		
 		return ataques.keySet();
+		
 	}
 	public int ataqueRestantes(NombreDelAtaque nombre){
 		return this.ataques.get(nombre).cantidadDeAtaqueRestantes();

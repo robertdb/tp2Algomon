@@ -22,15 +22,16 @@ public class BotonesDeElementos {
 			BotonElemento boton = new BotonElemento(actionBotones);
 			ubicacion.controlerPorColumnba2(null, boton.getBoton());
 			root.getChildren().add(boton.getBoton());
+			botones.add(boton);
 		}
 	}
 
 	public void actualizarBotonesElementos(Set<TipoElemento> elementos, Jugador jugador) {
-		Iterator<BotonElemento> it = this.botones.iterator();
-		
-		for (TipoElemento nombre: elementos){
-			BotonElemento boton = it.next();
-			boton.insertarJugadoresYNombreAtaque(jugador,nombre);
+		Iterator<TipoElemento> it = elementos.iterator();
+		for (BotonElemento botn : this.botones){
+			if (it.hasNext()){
+				botn.insertarJugadoresYNombreAtaque(jugador, it.next());
+			}
 		}
 		
 	}

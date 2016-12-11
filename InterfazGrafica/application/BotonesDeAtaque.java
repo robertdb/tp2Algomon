@@ -21,17 +21,18 @@ public class BotonesDeAtaque {
 			BotonDeAtaque boton = new BotonDeAtaque(actionBotones);
 			ubicacion.controlerProColumna(null, boton);
 			root.getChildren().add(boton.getBoton());
+			this.list.add(boton);
 		}
 
 	}
 
-	public void actualizarBotonesAtaque(Set<NombreDelAtaque> ataqueAlgomon, Jugador jugador, Jugador jugador2) {
-			Iterator<BotonDeAtaque> it = this.list.iterator();
-			
-			for (NombreDelAtaque nombre: ataqueAlgomon){
-				BotonDeAtaque boton = it.next();
-				boton.insertarJugadoresYNombreAtaque(jugador,jugador2,nombre);
+	public void actualizarBotonesAtaque(Set<NombreDelAtaque> set, Jugador jugador, Jugador jugador2) {
+		Iterator<NombreDelAtaque> it = set.iterator();
+		for (BotonDeAtaque botn : this.list){
+			if (it.hasNext()){
+				botn.insertarJugadoresYNombreAtaque(jugador, jugador2, it.next());
 			}
+		}
 		
 	}
 	

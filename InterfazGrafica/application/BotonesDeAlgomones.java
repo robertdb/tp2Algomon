@@ -7,6 +7,7 @@ import java.util.Set;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.Jugador;
 import fiuba.algo3.algomones.NombreDelAtaque;
+import fiuba.algo3.algomones.TipoElemento;
 import javafx.scene.Group;
 
 public class BotonesDeAlgomones {
@@ -25,17 +26,17 @@ public class BotonesDeAlgomones {
 			BotonAlgomon boton = new BotonAlgomon(actionBotones);
 			ubicacion.controlerPorColumna3(null, boton);
 			root.getChildren().add(boton.getBoton());
+			algomones.add(boton);
 		}
 	}
 
 	public void actualizarBotonesAlgomones(Set<EspecieAlgomon> algomones2, Jugador jugador) {
-		Iterator<BotonAlgomon> it = this.algomones.iterator();
-		
-		for (EspecieAlgomon nombre: algomones2){
-			BotonAlgomon boton = it.next();
-			boton.insertarJugadoresYNombreAlgomon(jugador,nombre);
+		Iterator<EspecieAlgomon> it =algomones2.iterator();
+		for (BotonAlgomon botn : this.algomones){
+			if (it.hasNext()){
+				botn.insertarJugadoresYNombreAlgomon(jugador, it.next());
+			}
 		}
-	
 		
 	}
 
