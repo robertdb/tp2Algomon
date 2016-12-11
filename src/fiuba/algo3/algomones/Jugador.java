@@ -8,6 +8,7 @@ public class Jugador {
 	EnumMap<EspecieAlgomon, Algomon> algomones;
 	EnumMap<TipoElemento,Elemento> elementos;
 	private Algomon algomonActual;
+	private EspecieAlgomon actual;
 	private String nombre;
 
 	public Jugador() {
@@ -33,6 +34,7 @@ public class Jugador {
 
 	public void elegirAlgomon(EspecieAlgomon charmander) {
 		algomonActual = algomones.get(charmander);
+		actual = charmander;
 		
 	}
 
@@ -61,6 +63,7 @@ public class Jugador {
 	public void ingresarAlgomon(EspecieAlgomon nombreAlgomon, Algomon algomon) {
 		if (algomones.isEmpty()){
 			algomonActual = algomon;
+			actual = nombreAlgomon;
 		}
 		
 		algomones.put(nombreAlgomon, algomon);
@@ -83,6 +86,9 @@ public class Jugador {
 	}
 	public void setNombre(String nombre){
 		this.nombre = nombre;
+	}
+	public EspecieAlgomon getAlgomonActual(){
+		return actual;
 	}
 
 }

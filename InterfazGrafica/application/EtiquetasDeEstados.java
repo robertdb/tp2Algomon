@@ -30,7 +30,7 @@ public class EtiquetasDeEstados {
 		
 		
 		this.estado1 = new LabelEstados();
-		this.estado1.posicionarLabelEstado(300,600);
+		this.estado1.posicionarLabelEstado(300,400);
 		this.estado1.colocarLabel(root);
 		
 		

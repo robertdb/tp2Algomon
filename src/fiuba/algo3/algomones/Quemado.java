@@ -3,6 +3,7 @@ package fiuba.algo3.algomones;
 public class Quemado implements Efecto{
 	  
 	  private final double porcetajeDeQuemadura  = 0.10;
+	  public String nombre = "Quemado";
 	  
 	  public void agregar(ContextoEstado contexto){
 	    
@@ -19,4 +20,10 @@ public class Quemado implements Efecto{
 	    algomon.reducirSalud( danio);
 	    
 	  }
+
+	@Override
+	public String nombreDeEstado() {
+		// TODO Auto-generated method stub
+		return this.nombre;
+	}
 }

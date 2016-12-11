@@ -63,6 +63,11 @@ public class ContextoEstado {
 	  this.desactivarDormido();
 	  
   }
+
+public String nombreEstado() {
+	// TODO Auto-generated method stub
+	return quemado.nombreDeEstado() + "  " +dormido.nombreDeEstado();
+}
   
   
 }

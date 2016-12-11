@@ -103,7 +103,7 @@ public class Algomon {
 
 	public String nombreDeEstado() {
 		
-		return this.estado.toString();
+		return this.estado.nombreEstado();
 	}
 
 }

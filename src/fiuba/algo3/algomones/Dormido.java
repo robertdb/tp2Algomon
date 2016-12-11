@@ -7,6 +7,7 @@ public class Dormido implements Efecto{
   
   private int tiempo;
   private ContextoEstado contexto;
+  public String nombre = "Dormido" ;
   
   public Dormido() {
     tiempo = 3;
@@ -39,4 +40,10 @@ public class Dormido implements Efecto{
       return tiempo == 0;
     
   }
+
+@Override
+public String nombreDeEstado() {
+	// TODO Auto-generated method stub
+	return this.nombre;
+}
 }

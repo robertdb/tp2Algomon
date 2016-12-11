@@ -33,5 +33,8 @@ public class Juego {
 	public Jugador setPasivo(){
 		return  pasivo;
 	}
+	public void introducirAlgomon(EspecieAlgomon algomon){
+		this.activo.ingresarAlgomon(algomon,algomon.nuevo());
+	}
 
 }

@@ -1,5 +1,6 @@
 package application;
 	
+import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.Juego;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,16 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try{
-			Combate combate = new Combate(primaryStage, new Juego());
+			Juego juego = new Juego();
+			juego.introducirAlgomon(EspecieAlgomon.BULBASOUR);
+			juego.introducirAlgomon(EspecieAlgomon.CHANSEY);
+			juego.introducirAlgomon(EspecieAlgomon.CHARMANDER);
+			juego.siguienteTruno();
+			juego.introducirAlgomon(EspecieAlgomon.JIGGLYPUFF);
+			juego.introducirAlgomon(EspecieAlgomon.RATTATA);
+			juego.introducirAlgomon(EspecieAlgomon.SQUIRTLE);
+			
+			Combate combate = new Combate(primaryStage,juego);
 			combate.iniciarCombate();
 		} catch(Exception e) {
 			e.printStackTrace();

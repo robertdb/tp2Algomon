@@ -33,11 +33,7 @@ public class ImagenesDeEstado {
 		image2.setLayoutX(800);
 		image2.setLayoutY(200);
 		image1.setLayoutX(50);
-		Image imag1 = new Image(especies.get(EspecieAlgomon.BULBASOUR));
-		Image imag2 = new Image(especies.get(EspecieAlgomon.CHANSEY));
-		
-		this.image1.setImage(imag1);
-		this.image2.setImage(imag2);
+
 		
  		root.getChildren().add(image1);
  		root.getChildren().add(image2);
@@ -45,13 +41,13 @@ public class ImagenesDeEstado {
 		
 	}
 	public void actualizarEstadosDelCombate(Jugador setActivo, Jugador setPasivo) {
-		Image imag1 = new Image(especies.get(EspecieAlgomon.BULBASOUR));
-		Image imag2 = new Image(especies.get(EspecieAlgomon.CHANSEY));
+		Image imag1 = new Image(especies.get(setActivo.getAlgomonActual()));
+		Image imag2 = new Image(especies.get(setPasivo.getAlgomonActual()));
 		
 		this.image1.setImage(imag1);
 		this.image2.setImage(imag2);
 		
-		root.getChildren().addAll(this.image1,this.image2);
+		this.label.actualizarEtiquetas(setActivo, setPasivo);
 	}
 
 }

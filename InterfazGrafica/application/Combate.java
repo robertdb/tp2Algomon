@@ -40,6 +40,7 @@ public class Combate {
 		Group root = new Group();
 		this.estatus = new ImagenesDeEstado(root);
 		this.botones = new ActionEscene(root,this.estatus,this.juego);
+		this.botones.actualizarBotones();
 		Scene scene = new Scene(root,1200,700);
 		return scene;
 	}
