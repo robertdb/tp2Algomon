@@ -35,8 +35,8 @@ public class Jugador {
 	public Algomon statusAlgomonActual() {
 		if(algomonActual.salud() == 0){
 			
-			dead.remove(dead.indexOf(algomonActual));
-			this.elegirAlgomon(dead.get(dead.size()-1));
+			dead.remove(actual);
+			this.elegirAlgomon(dead.get(0));
 		}
 		return algomonActual;
 	}
@@ -74,7 +74,7 @@ public class Jugador {
 			algomonActual = algomon;
 			actual = nombreAlgomon;
 		}
-		
+		dead.add(nombreAlgomon);
 		algomones.put(nombreAlgomon, algomon);
 		
 	}
@@ -99,11 +99,4 @@ public class Jugador {
 	public EspecieAlgomon getAlgomonActual(){
 		return actual;
 	}
-
-	public void copiarAlgomonesVivos() {
-		dead.addAll(algomones.keySet());
-		
-	}
-	
-	
 }

@@ -108,4 +108,9 @@ public class Algomon {
 		return this.estado.nombreEstado();
 	}
 
+	public String especieAlgomon() {
+		// TODO Auto-generated method stub
+		return this.nombreAlgomon;
+	}
+
 }

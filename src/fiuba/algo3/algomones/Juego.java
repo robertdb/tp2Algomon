@@ -15,11 +15,6 @@ public class Juego {
 		Jugador aux = activo;
 		activo = pasivo;
 		pasivo = aux;
-		
-	}
-	public void iniciarJuego(){
-		activo.copiarAlgomonesVivos();
-		pasivo.copiarAlgomonesVivos();
 	}
 	public Jugador setActivo(){
 		return  activo;

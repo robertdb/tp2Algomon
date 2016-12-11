@@ -9,10 +9,12 @@ import javafx.scene.text.Font;
 public class LabelEstados {
 	private Label salud;
 	private Label estado;
+	private Label nombre;
 
 	public LabelEstados() {
 		this.salud = new Label();
 		this.estado = new Label();
+		this.nombre = new Label();
 		
 	}
 	public void posicionarLabelEstado(double i, double j){
@@ -26,14 +28,20 @@ public class LabelEstados {
 		this.estado.setLayoutY(i+30);
 		this.estado.setLayoutX(j);
 		
+		this.nombre.setText("Nombre");
+		this.nombre.setFont(new Font("Arial",30));
+		this.nombre.setLayoutY(i+60);
+		this.nombre.setLayoutX(j);
+		
 	}
 	public void colocarLabel(Group root) {
-		root.getChildren().addAll(this.estado,this.salud);
+		root.getChildren().addAll(this.estado,this.salud,this.nombre);
 		
 	}
 	public void cambiarEstados(Algomon statusAlgomonActual) {
 		this.salud.setText("SALUD : "+statusAlgomonActual.salud());
 		this.estado.setText("ESTADO : " +statusAlgomonActual.nombreDeEstado());
+		this.nombre.setText(statusAlgomonActual.especieAlgomon());
 		
 	}
 

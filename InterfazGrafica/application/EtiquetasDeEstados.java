@@ -35,7 +35,7 @@ public class EtiquetasDeEstados {
 		
 		
 		this.activo = new LabelEstados();
-		this.activo.posicionarLabelEstado(0,300);
+		this.activo.posicionarLabelEstado(0,400);
 		this.activo.colocarLabel(root);
 		
 		root.getChildren().addAll(this.turnoJugador);
