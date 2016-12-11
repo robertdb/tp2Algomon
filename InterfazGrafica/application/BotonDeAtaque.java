@@ -1,9 +1,13 @@
 package application;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import fiuba.algo3.algomones.Algomon;
+import fiuba.algo3.algomones.Dormido;
+import fiuba.algo3.algomones.Efecto;
 import fiuba.algo3.algomones.Juego;
 import fiuba.algo3.algomones.Jugador;
 import fiuba.algo3.algomones.NombreDelAtaque;
@@ -41,7 +45,9 @@ public class BotonDeAtaque {
 		this.ofensivo = activo;
 		
 		boton.setText(ataque.name()+" Restantes: "+activo.statusAlgomonActual().ataqueRestantes(ataque) );
-		if (activo.statusAlgomonActual().ataqueRestantes(ataque) == 0){
+		int restantes = activo.statusAlgomonActual().ataqueRestantes(ataque);
+		
+		if (restantes == 0 || activo.statusAlgomonActual().estadoEfimero() == "Dormido"){
 			boton.setDisable(true);
 		}
 		else{boton.setDisable(false);}

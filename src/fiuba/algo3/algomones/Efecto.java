@@ -7,4 +7,6 @@ public interface Efecto {
 	public void agregar(ContextoEstado contextoEstado);
 
 	public String nombreDeEstado();
+
+	void reducirTiempo();
 }

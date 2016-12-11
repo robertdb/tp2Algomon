@@ -26,4 +26,10 @@ public class Quemado implements Efecto{
 		// TODO Auto-generated method stub
 		return this.nombre;
 	}
+
+	@Override
+	public void reducirTiempo() {
+		// TODO Auto-generated method stub
+		
+	}
 }

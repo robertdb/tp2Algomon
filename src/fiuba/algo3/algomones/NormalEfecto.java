@@ -21,4 +21,10 @@ public class NormalEfecto implements Efecto {
 		return this.nombre;
 	}
 
+	@Override
+	public void reducirTiempo() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

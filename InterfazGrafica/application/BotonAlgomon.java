@@ -26,13 +26,13 @@ public class BotonAlgomon {
 	}
 
 	public Button getBoton() {
-		// TODO Auto-generated method stub
 		return this.boton;
 	}
 
 	public void insertarJugadoresYNombreAlgomon(Jugador jugador, EspecieAlgomon nombre) {
 		this.jugador = jugador;
 		this.algomon = nombre;
+		
 		
 		boton.setText(nombre.name()+"Vida: "+jugador.vidaDeAlogmon(nombre));
 		if (jugador.vidaDeAlogmon(nombre)==0){

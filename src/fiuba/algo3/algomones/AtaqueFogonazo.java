@@ -16,7 +16,7 @@ public class AtaqueFogonazo extends AtaqueEspecial {
 	@Override
 	public int cantidadDeAtaqueRestantes() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.getAtaque().cantidadDeAtaqueRestantes();
 	}
 
 }

@@ -1,5 +1,9 @@
 package fiuba.algo3.algomones;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 public class ContextoEstado {
   
   private Efecto quemado;
@@ -64,10 +68,22 @@ public class ContextoEstado {
 	  
   }
 
-public String nombreEstado() {
-	// TODO Auto-generated method stub
-	return quemado.nombreDeEstado() + "  " +dormido.nombreDeEstado();
-}
-  
+  public String nombreEstado() {
+	
+	return dormido.nombreDeEstado()+" "+quemado.nombreDeEstado();
+  }
+
+  public String nombreEstadoEfimero() {
+	return dormido.nombreDeEstado();
+  }
+  public void reducirEstadoEfimero(){
+	  dormido.reducirTiempo();
+  }
+
+  public void aplicarPersistente(Algomon algomon) {
+	quemado.aplicarEfecto(algomon);
+	
+  }
+   
   
 }

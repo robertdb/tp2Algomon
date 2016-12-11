@@ -10,7 +10,7 @@ public class Dormido implements Efecto{
   public String nombre = "Dormido" ;
   
   public Dormido() {
-    tiempo = 3;
+    tiempo = 2;
   }
   
   public void agregar(ContextoEstado contexto){
@@ -40,10 +40,21 @@ public class Dormido implements Efecto{
       return tiempo == 0;
     
   }
+  @Override
+  public  void reducirTiempo(){
 
-@Override
-public String nombreDeEstado() {
-	// TODO Auto-generated method stub
+	    if (efectoCaducado()){
+	    	
+	    		contexto.desactivarDormido();
+	    		
+	    		return;
+	    }
+	      
+	    
+	    this.tiempo -= 1;
+  }
+  @Override
+  public String nombreDeEstado() {
 	return this.nombre;
-}
+  }
 }

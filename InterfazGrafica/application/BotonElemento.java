@@ -17,6 +17,7 @@ public class BotonElemento {
 		     @Override 
 		     public void handle (ActionEvent e) {
 		    	activo.aplicarElemento(element);
+		    	activo.statusAlgomonActual().reducirTiempoDeEstado();
 		    	 actionBotones.actualizarBotones();
 		     }
 		 });

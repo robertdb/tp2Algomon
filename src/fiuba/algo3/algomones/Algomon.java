@@ -83,7 +83,7 @@ public class Algomon {
 	}
 
 	public void aplicarElementoAlaSalud(int aumentoDeVida) {
-		
+		this.estado.aplicarPersistente(this);
 		this.aumentoDeSalud(aumentoDeVida);
 		
 	}
@@ -105,12 +105,19 @@ public class Algomon {
 
 	public String nombreDeEstado() {
 		
-		return this.estado.nombreEstado();
+		return estado.nombreEstado();
 	}
 
 	public String especieAlgomon() {
 		// TODO Auto-generated method stub
 		return this.nombreAlgomon;
+	}
+
+	public String estadoEfimero() {
+		return estado.nombreEstadoEfimero();
+	}
+	public void reducirTiempoDeEstado(){
+		 estado.reducirEstadoEfimero();
 	}
 
 }
