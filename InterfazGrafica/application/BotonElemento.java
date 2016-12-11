@@ -32,6 +32,7 @@ public class BotonElemento {
 		if (jugador.elementosRestantes(nombre) == 0){
 			boton.setDisable(true);
 		}
+		else{boton.setDisable(false);}
 	}
 
 }

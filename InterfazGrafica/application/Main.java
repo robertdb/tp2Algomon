@@ -23,6 +23,7 @@ public class Main extends Application {
 			juego.introducirAlgomon(EspecieAlgomon.JIGGLYPUFF);
 			juego.introducirAlgomon(EspecieAlgomon.RATTATA);
 			juego.introducirAlgomon(EspecieAlgomon.SQUIRTLE);
+			juego.iniciarJuego();
 			
 			Combate combate = new Combate(primaryStage,juego);
 			combate.iniciarCombate();

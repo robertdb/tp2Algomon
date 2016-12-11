@@ -23,15 +23,23 @@ public class ActionEscene {
 		this.elementos = new BotonesDeElementos(this,root);
 		this.algomones = new BotonesDeAlgomones(this,root);
 		this.estatus = estatus;
-	}
-
-	public void actualizarBotones() {
-		juego.siguienteTruno();
+		
 		this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
 	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
 	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
 	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
-	   
-	}	
+		
+	}
+
+	public void actualizarBotones() {
+		juego.siguienteTruno();
+		
 	
+	    this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
+	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
+	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
+	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
+		   
+	   
+	}
 }

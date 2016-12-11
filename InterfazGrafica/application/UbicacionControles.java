@@ -26,10 +26,10 @@ public class UbicacionControles{
 		
 	}
 	public void  controlerPorColumnba2(String text,Button boton){
-		 boton.setPrefSize(ancho, alto);
+		 boton.setPrefSize(ancho, alto-20);
 		 boton.setLayoutX(columna2);
 		 boton.setLayoutY(fila2);
-		 fila2 = fila2+  alto;
+		 fila2 = fila2+  alto-20;
 		
 	}
 	public void controlerPorColumna3(String text, BotonAlgomon boton){

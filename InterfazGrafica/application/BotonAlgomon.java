@@ -37,6 +37,8 @@ public class BotonAlgomon {
 		boton.setText(nombre.name()+"Vida: "+jugador.vidaDeAlogmon(nombre));
 		if (jugador.vidaDeAlogmon(nombre)==0){
 			boton.setDisable(true);
+		}else{
+			boton.setDisable(false);
 		}
 		
 	}

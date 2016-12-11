@@ -44,6 +44,7 @@ public class BotonDeAtaque {
 		if (activo.statusAlgomonActual().ataqueRestantes(ataque) == 0){
 			boton.setDisable(true);
 		}
+		else{boton.setDisable(false);}
 	}
 	
 }

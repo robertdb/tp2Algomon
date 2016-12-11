@@ -40,14 +40,12 @@ public class Combate {
 		Group root = new Group();
 		this.estatus = new ImagenesDeEstado(root);
 		this.botones = new ActionEscene(root,this.estatus,this.juego);
-		this.botones.actualizarBotones();
 		Scene scene = new Scene(root,1200,700);
 		return scene;
 	}
 	public void iniciarCombate(){
 		
 		Scene scene = creadorVentanasjuego(juego.setActivo(), juego.setPasivo());
-		juego.siguienteTruno();
 		stage.setScene(scene);
 		stage.show();
 	}

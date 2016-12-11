@@ -17,15 +17,9 @@ public class Juego {
 		pasivo = aux;
 		
 	}
-	public void seleccionDeAlgomon(){
-		//Deveriamos pasar por parametro una ventana : seleccion
-		
-		int cantAlgomones = 0;
-		while(cantAlgomones <= 6){
-			//seleccion.seleccionarAlgomon (activo );
-			this.siguienteTruno();
-			cantAlgomones = cantAlgomones + 1;
-		}
+	public void iniciarJuego(){
+		activo.copiarAlgomonesVivos();
+		pasivo.copiarAlgomonesVivos();
 	}
 	public Jugador setActivo(){
 		return  activo;

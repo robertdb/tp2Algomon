@@ -42,6 +42,7 @@ public class EtiquetasDeEstados {
  		
 	}
 	public void actualizarEtiquetas(Jugador activo,Jugador pasivo){
+			
 		this.activo.cambiarEstados(activo.statusAlgomonActual());
 		this.pasivo.cambiarEstados(pasivo.statusAlgomonActual());
 		this.turnoJugador.setText(activo.nombreJugador());

@@ -2,8 +2,10 @@ package fiuba.algo3.algomones;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 
 public class Jugador {
 	EnumMap<EspecieAlgomon, Algomon> algomones;
@@ -11,11 +13,13 @@ public class Jugador {
 	private Algomon algomonActual;
 	private EspecieAlgomon actual;
 	private String nombre;
+	private ArrayList<EspecieAlgomon> dead;
 
 	public Jugador() {
 		algomones = new EnumMap<EspecieAlgomon,Algomon >(EspecieAlgomon.class);
 		elementos = crearHashMap();
 		algomonActual = null;
+		dead = new ArrayList<EspecieAlgomon>();
 	}
 
 	private EnumMap<TipoElemento, Elemento> crearHashMap() {
@@ -29,7 +33,11 @@ public class Jugador {
 	}
 
 	public Algomon statusAlgomonActual() {
-		// TODO Auto-generated method stub
+		if(algomonActual.salud() == 0){
+			
+			dead.remove(dead.indexOf(algomonActual));
+			this.elegirAlgomon(dead.get(dead.size()-1));
+		}
 		return algomonActual;
 	}
 
@@ -50,7 +58,7 @@ public class Jugador {
 	}
 
 	public Set<NombreDelAtaque> getAtaqueAlgomon() {
-		// TODO Auto-generated method stub
+
 		return algomonActual.getAtaques();
 	}
 	public void aplicarElemento(TipoElemento element){
@@ -92,4 +100,10 @@ public class Jugador {
 		return actual;
 	}
 
+	public void copiarAlgomonesVivos() {
+		dead.addAll(algomones.keySet());
+		
+	}
+	
+	
 }

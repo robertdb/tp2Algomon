@@ -41,13 +41,13 @@ public class ImagenesDeEstado {
 		
 	}
 	public void actualizarEstadosDelCombate(Jugador setActivo, Jugador setPasivo) {
+		
+		this.label.actualizarEtiquetas(setActivo, setPasivo);
 		Image imag1 = new Image(especies.get(setActivo.getAlgomonActual()));
 		Image imag2 = new Image(especies.get(setPasivo.getAlgomonActual()));
 		
 		this.image1.setImage(imag1);
 		this.image2.setImage(imag2);
-		
-		this.label.actualizarEtiquetas(setActivo, setPasivo);
 	}
 
 }

@@ -11,7 +11,7 @@ import javafx.scene.Group;
 
 public class BotonesDeElementos {
 	private ArrayList<BotonElemento> botones;
-	private int botonesColumna = 3 ;
+	private int botonesColumna = 4 ;
 	
 	public BotonesDeElementos(ActionEscene actionBotones, Group root) {
 		UbicacionControles ubicacion = new UbicacionControles();
