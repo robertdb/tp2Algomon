@@ -32,7 +32,7 @@ public class ImagenesDeEstado {
 		this.image2 = new ImageView();
 		image2.setLayoutX(800);
 		image2.setLayoutY(200);
-		image1.setLayoutX(50);
+		image1.setLayoutX(10);
 
 		
  		root.getChildren().add(image1);

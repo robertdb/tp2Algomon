@@ -36,5 +36,9 @@ public class Juego {
 	public void introducirAlgomon(EspecieAlgomon algomon){
 		this.activo.ingresarAlgomon(algomon,algomon.nuevo());
 	}
+	public void introducirNombre(String nombre){
+		activo.setNombre(nombre);
+		
+	}
 
 }

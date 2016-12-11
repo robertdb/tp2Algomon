@@ -15,6 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try{
 			Juego juego = new Juego();
+			juego.introducirNombre("gabriela");
 			juego.introducirAlgomon(EspecieAlgomon.BULBASOUR);
 			juego.introducirAlgomon(EspecieAlgomon.CHANSEY);
 			juego.introducirAlgomon(EspecieAlgomon.CHARMANDER);

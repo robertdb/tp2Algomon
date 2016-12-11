@@ -18,17 +18,16 @@ public class BotonDeAtaque {
 	private NombreDelAtaque ataque;
 	private Jugador ofensivo;
 	private Jugador defensivo;
-	private ActionEscene actionBotones;
-	
+	private ActionEscene action;
 	
 	public BotonDeAtaque(ActionEscene actionBotones){
 		boton = new Button();
-		this.actionBotones = actionBotones;
+		this.action = actionBotones;
 		this.boton.setOnAction (new EventHandler <ActionEvent> () {
 		     @Override 
 		     public void handle (ActionEvent e) {
 		    	ofensivo.aplicarAtaque(ataque, defensivo);
-		    	 actionBotones.actualizarBotones();
+		    	 action.actualizarBotones();
 		     }
 		 });
 		
@@ -38,10 +37,10 @@ public class BotonDeAtaque {
 	}
 	public void insertarJugadoresYNombreAtaque(Jugador activo, Jugador pasivo,NombreDelAtaque ataque){
 		this.ataque = ataque;
-		this.defensivo = activo;
-		this.ofensivo = pasivo;
+		this.defensivo = pasivo;
+		this.ofensivo = activo;
 		
-		boton.setText(ataque.name()+"Restantes: "+activo.statusAlgomonActual().ataqueRestantes(ataque) );
+		boton.setText(ataque.name()+" Restantes: "+activo.statusAlgomonActual().ataqueRestantes(ataque) );
 		if (activo.statusAlgomonActual().ataqueRestantes(ataque) == 0){
 			boton.setDisable(true);
 		}

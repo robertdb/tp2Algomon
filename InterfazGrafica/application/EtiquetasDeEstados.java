@@ -14,36 +14,36 @@ public class EtiquetasDeEstados {
 	private EtiquetaSimple elementos;
 	private EtiquetaSimple algomones;
 	private Group root;
-	private LabelEstados estado1;
-	private LabelEstados estado2;
+	private LabelEstados pasivo;
+	private LabelEstados activo;
 	public EtiquetasDeEstados(Group root) {
 		
 		this.turnoJugador = new Label("jugador1");
 		this.turnoJugador.setFont(new Font("Arial",40));
 		this.turnoJugador.setLayoutY(400);
 		
-		this.algomones = new EtiquetaSimple(-60,root,"ALGOMONES");
+		this.algomones = new EtiquetaSimple(-40,root,"ATAQUES");
 		
-		this.ataques = new EtiquetaSimple(360,root,"ATAQUES");
+		this.ataques = new EtiquetaSimple(360,root,"ELEMENTOS");
 		
-		this.elementos = new EtiquetaSimple(740,root,"ELEMENTOS");
-		
-		
-		this.estado1 = new LabelEstados();
-		this.estado1.posicionarLabelEstado(300,400);
-		this.estado1.colocarLabel(root);
+		this.elementos = new EtiquetaSimple(740,root,"ALGOMONES");
 		
 		
-		this.estado2 = new LabelEstados();
-		this.estado2.posicionarLabelEstado(0,300);
-		this.estado2.colocarLabel(root);
+		this.pasivo = new LabelEstados();
+		this.pasivo.posicionarLabelEstado(300,400);
+		this.pasivo.colocarLabel(root);
+		
+		
+		this.activo = new LabelEstados();
+		this.activo.posicionarLabelEstado(0,300);
+		this.activo.colocarLabel(root);
 		
 		root.getChildren().addAll(this.turnoJugador);
  		
 	}
 	public void actualizarEtiquetas(Jugador activo,Jugador pasivo){
-		this.estado1.cambiarEstados(activo.statusAlgomonActual());
-		this.estado2.cambiarEstados(pasivo.statusAlgomonActual());
+		this.activo.cambiarEstados(activo.statusAlgomonActual());
+		this.pasivo.cambiarEstados(pasivo.statusAlgomonActual());
 		this.turnoJugador.setText(activo.nombreJugador());
 	}
 

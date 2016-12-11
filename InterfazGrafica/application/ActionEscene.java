@@ -26,11 +26,12 @@ public class ActionEscene {
 	}
 
 	public void actualizarBotones() {
-	juego.siguienteTruno();
+		juego.siguienteTruno();
 		this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
 	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
 	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
 	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
+	   
 	}	
 	
 }
