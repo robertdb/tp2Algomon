@@ -24,7 +24,7 @@ public class Jugador {
 
 	private EnumMap<TipoElemento, Elemento> crearHashMap() {
 		EnumMap<TipoElemento,Elemento> elementos = new EnumMap<TipoElemento,Elemento>(TipoElemento.class);
-		
+
 		elementos.put(TipoElemento.POCION, TipoElemento.POCION.nuevo());
 		elementos.put(TipoElemento.SUPERPOCION, TipoElemento.SUPERPOCION.nuevo());
 		elementos.put(TipoElemento.VITAMINA, TipoElemento.VITAMINA.nuevo());
@@ -33,8 +33,11 @@ public class Jugador {
 	}
 
 	public Algomon statusAlgomonActual() {
+		if (algomonActual == null)
+			return null;
+
 		if(algomonActual.salud() == 0){
-			
+
 			dead.remove(actual);
 			this.elegirAlgomon(dead.get(0));
 		}
@@ -44,16 +47,16 @@ public class Jugador {
 	public void elegirAlgomon(EspecieAlgomon charmander) {
 		algomonActual = algomones.get(charmander);
 		actual = charmander;
-		
+
 	}
 
 	public Set<TipoElemento> getElementos() {
-		
+
 		return elementos.keySet();
 	}
 
 	public Set<EspecieAlgomon> getAlgomones() {
-		
+
 		return algomones.keySet();
 	}
 
@@ -76,7 +79,7 @@ public class Jugador {
 		}
 		dead.add(nombreAlgomon);
 		algomones.put(nombreAlgomon, algomon);
-		
+
 	}
 
 	public int elementosRestantes(TipoElemento nombre) {
@@ -90,7 +93,7 @@ public class Jugador {
 	}
 
 	public String nombreJugador() {
-		
+
 		return this.nombre;
 	}
 	public void setNombre(String nombre){
