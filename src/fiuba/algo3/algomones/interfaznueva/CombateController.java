@@ -1,5 +1,7 @@
 package fiuba.algo3.algomones.interfaznueva;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
 import javafx.event.ActionEvent;
@@ -92,23 +94,20 @@ public class CombateController {
 	
 		//TODO bindings
 		
-		MenuItem ataque11 = new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre());
-        MenuItem ataque12 = new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre());
-        MenuItem ataque13 = new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre());
+		ArrayList<MenuItem> listaAtaques1 = new ArrayList<MenuItem>();
+		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
+		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
+		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
         
-		MenuItem ataque21 = new MenuItem(this.jugador2.getAlgomonActivo().getListadoAtaques().get(0).getNombre());
-        MenuItem ataque22 = new MenuItem(this.jugador2.getAlgomonActivo().getListadoAtaques().get(1).getNombre());
-        MenuItem ataque23 = new MenuItem(this.jugador2.getAlgomonActivo().getListadoAtaques().get(2).getNombre());
+        this.botonMenuAtacar1.getItems().addAll(listaAtaques1);
         
-        this.botonMenuAtacar1.getItems().add(ataque11);
-        this.botonMenuAtacar1.getItems().add(ataque12);
-        this.botonMenuAtacar1.getItems().add(ataque13);
+        ArrayList<MenuItem> listaAtaques2 = new ArrayList<MenuItem>();
+		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
+		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
+		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
         
-        this.botonMenuAtacar2.getItems().add(ataque21);
-        this.botonMenuAtacar2.getItems().add(ataque22);
-        this.botonMenuAtacar2.getItems().add(ataque23);
+        this.botonMenuAtacar2.getItems().addAll(listaAtaques2);
         
-        //TODO lo de arriba agregar todo junto desde lista
         
         if (this.jugadorActivo == this.jugador1) {
         	botonMenuAtacar1.setDisable(false);
