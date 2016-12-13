@@ -1,7 +1,6 @@
 package fiuba.algo3.algomones.logica;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
 import fiuba.algo3.algomones.logica.excepciones.AtaqueNoDisponibleException;

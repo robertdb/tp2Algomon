@@ -1,12 +1,9 @@
 package fiuba.algo3.algomones.logica;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-
 import fiuba.algo3.algomones.logica.elementos.*;
 import fiuba.algo3.algomones.logica.excepciones.CadaJugadorNoPuedeElegirMasDe3AlgomonesException;
-import javafx.beans.property.ObjectProperty;
 
 
 public class Jugador {
