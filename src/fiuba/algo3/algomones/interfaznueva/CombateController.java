@@ -73,6 +73,9 @@ public class CombateController {
 
     @FXML
     private Label puntosSalud2;
+    
+    @FXML
+    private Label mensaje;
 
 	public void setJuego(Juego juego) {
 		this.juego = juego;
@@ -150,6 +153,7 @@ public class CombateController {
 		ataque1.textProperty().bind(listaAtaques.get(0).getCantidadRestanteProperty());
 		ataque1.setOnAction((ActionEvent e) -> {
 			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque1);
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " ataco a " + oponente.getAlgomonActivo().getNombre() + " con " + nombreAtaque1 + "!");
 			this.siguienteTurno();
 		});
 		
@@ -157,6 +161,7 @@ public class CombateController {
 		ataque2.textProperty().bind(listaAtaques.get(1).getCantidadRestanteProperty());
 		ataque2.setOnAction((ActionEvent e) -> {
 			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque2);
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " ataco a " + oponente.getAlgomonActivo().getNombre() + " con " + nombreAtaque2 + "!");
 			this.siguienteTurno();
 		});
 		
@@ -164,6 +169,7 @@ public class CombateController {
 		ataque3.textProperty().bind(listaAtaques.get(2).getCantidadRestanteProperty());
 		ataque3.setOnAction((ActionEvent e) -> {
 			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque3);
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " ataco a " + oponente.getAlgomonActivo().getNombre() + " con " + nombreAtaque3 + "!");
 			this.siguienteTurno();
 		});
 			
@@ -191,6 +197,7 @@ public class CombateController {
 		elemento1.textProperty().bind(listaElementos.get(0).getCantidadRestanteProperty());
 		elemento1.setOnAction((ActionEvent e) -> {
 			jugador.usarElemento(nombreElemento1, jugador.getAlgomonActivo());
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " uso " + nombreElemento1 + "!");
 			this.siguienteTurno();
 		});
 		
@@ -198,6 +205,7 @@ public class CombateController {
 		elemento2.textProperty().bind(listaElementos.get(1).getCantidadRestanteProperty());
 		elemento2.setOnAction((ActionEvent e) -> {
 			jugador.usarElemento(nombreElemento2, jugador.getAlgomonActivo());
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " uso " + nombreElemento2 + "!");
 			this.siguienteTurno();
 		});
 		
@@ -205,6 +213,7 @@ public class CombateController {
 		elemento3.textProperty().bind(listaElementos.get(2).getCantidadRestanteProperty());
 		elemento3.setOnAction((ActionEvent e) -> {
 			jugador.usarElemento(nombreElemento3, jugador.getAlgomonActivo());
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " uso " + nombreElemento3 + "!");
 			this.siguienteTurno();
 		});
 			
@@ -212,6 +221,7 @@ public class CombateController {
 		elemento4.textProperty().bind(listaElementos.get(3).getCantidadRestanteProperty());
 		elemento4.setOnAction((ActionEvent e) -> {
 			jugador.usarElemento(nombreElemento4, jugador.getAlgomonActivo());
+			this.mostrarMensaje(jugador.getAlgomonActivo().getNombre() + " uso " + nombreElemento4 + "!");
 			this.siguienteTurno();
 		});
 		
@@ -223,6 +233,10 @@ public class CombateController {
 		boton.getItems().clear();
         boton.getItems().addAll(listaMenuDeElementos);
         
+	}
+	
+	private void mostrarMensaje(String mensaje) {
+		this.mensaje.setText(mensaje);
 	}
 	
 	@FXML
