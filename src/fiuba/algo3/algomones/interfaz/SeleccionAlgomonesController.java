@@ -114,13 +114,10 @@ public class SeleccionAlgomonesController {
     	
     	Stage stage = (Stage) nombreJugador.getScene().getWindow();
     	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Combate.fxml"));
-    	      
-    	Combate controller = fxmlLoader.<Combate>getController();
-  	
-    	Scene escena = controller.creadorVentanasjuego(juego.getActivo(), juego.getPasivo());
-    	
-    	stage.setScene(escena);
+    	Combate combate = new Combate(stage,this.juego);
+		combate.creadorVentanasjuego(juego.getActivo(), juego.getPasivo());
+    	combate.iniciarCombate();
+
 	}
 
 
