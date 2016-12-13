@@ -2,12 +2,18 @@ package fiuba.algo3.algomones.interfaznueva;
 
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class CombateController {
 	
@@ -32,7 +38,7 @@ public class CombateController {
     private MenuButton botonMenuElementos1;
 
     @FXML
-    private MenuButton botonMenuCambiar1;
+    private Button botonCambiar1;
 
     @FXML
     private MenuButton botonMenuAtacar2;
@@ -41,7 +47,7 @@ public class CombateController {
     private MenuButton botonMenuElementos2;
 
     @FXML
-    private MenuButton botonMenuCambiar2;
+    private Button botonCambiar2;
 
     @FXML
     private Label nombreJugador1;
@@ -103,8 +109,44 @@ public class CombateController {
         this.botonMenuAtacar2.getItems().add(ataque23);
         
         //TODO lo de arriba agregar todo junto desde lista
+        
+        if (this.jugadorActivo == this.jugador1) {
+        	botonMenuAtacar1.setDisable(false);
+        	botonMenuElementos1.setDisable(false);
+        	botonCambiar1.setDisable(false);
+        	botonMenuAtacar2.setDisable(true);
+        	botonMenuElementos2.setDisable(true);
+        	botonCambiar2.setDisable(true);
+        }
+        else {
+        	botonMenuAtacar2.setDisable(false);
+        	botonMenuElementos2.setDisable(false);
+        	botonCambiar2.setDisable(false);
+        	botonMenuAtacar1.setDisable(true);
+        	botonMenuElementos1.setDisable(true);
+        	botonCambiar1.setDisable(true);
+        }
 		
 		
 	}
+	
+	@FXML
+    void cambiarAlgomonActivo(ActionEvent event) throws Exception {
+    	
+    	Stage stage = (Stage) botonCambiar1.getScene().getWindow();
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomonActivo.fxml"));
+    	
+    	Parent root = (Parent)fxmlLoader.load();
+         
+    	SeleccionAlgomonActivoController controller = fxmlLoader.<SeleccionAlgomonActivoController>getController();
+
+    	controller.setJuego(juego);
+    	controller.setEscenaSiguiente(botonCambiar1.getScene(), this);
+    	
+    	Scene escena = new Scene(root);
+    	
+    	stage.setScene(escena);
+    }
 
 }

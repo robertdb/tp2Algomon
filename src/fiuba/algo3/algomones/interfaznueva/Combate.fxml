@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.image.Image?>
@@ -41,14 +42,14 @@
                <children>
                   <MenuButton fx:id="botonMenuAtacar1" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Atacar" />
                   <MenuButton fx:id="botonMenuElementos1" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Elementos" />
-                  <MenuButton fx:id="botonMenuCambiar1" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Cambiar" />
+                  <Button fx:id="botonCambiar1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cambiarAlgomonActivo" prefWidth="220.0" styleClass="botonchico" text="Cambiar" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <children>
                   <MenuButton fx:id="botonMenuAtacar2" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Atacar" />
                   <MenuButton fx:id="botonMenuElementos2" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="botonchico" text="Elementos" />
-                  <MenuButton fx:id="botonMenuCambiar2" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Cambiar" />
+                  <Button fx:id="botonCambiar2" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cambiarAlgomonActivo" prefWidth="220.0" styleClass="botonchico" text="Cambiar" />
                </children>
             </VBox>
             <Label fx:id="nombreJugador1" styleClass="titulo" text="Jugador 1" />
