@@ -99,7 +99,7 @@ public class Jugador {
 	public void setNombre(String nombre){
 		this.nombre = nombre;
 	}
-	public EspecieAlgomon getAlgomonActual(){
-		return actual;
+	public Algomon getAlgomonActual(){
+		return algomonActual;
 	}
 }

@@ -125,4 +125,8 @@ public class Algomon {
 		 estado.reducirEstadoEfimero();
 	}
 
+	public String nombre() {
+		return nombreAlgomon;
+	}
+
 }
