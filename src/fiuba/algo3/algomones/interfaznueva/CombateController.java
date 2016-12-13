@@ -2,6 +2,7 @@ package fiuba.algo3.algomones.interfaznueva;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.algomones.logica.Ataque;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
 import javafx.event.ActionEvent;
@@ -26,6 +27,9 @@ public class CombateController {
 	Jugador jugador2;
 	
 	Jugador jugadorActivo;
+	
+	ArrayList<Ataque> listaAtaquesJugador1;
+	ArrayList<Ataque> listaAtaquesJugador2;
 
     @FXML
     private ImageView imagenAlgomon1;
@@ -92,19 +96,22 @@ public class CombateController {
 		this.puntosSalud1.textProperty().bind(this.jugador1.getAlgomonActivo().getVidaProperty());
 		this.puntosSalud2.textProperty().bind(this.jugador2.getAlgomonActivo().getVidaProperty());
 		
-		ArrayList<MenuItem> listaAtaques1 = new ArrayList<MenuItem>();
-		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
-		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
-		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
+		this.listaAtaquesJugador1 = this.jugador1.getAlgomonActivo().getListadoAtaques();
+		this.listaAtaquesJugador2 = this.jugador2.getAlgomonActivo().getListadoAtaques();
+		
+		ArrayList<MenuItem> listaNombresDeAtaques1 = new ArrayList<MenuItem>();
+		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(0).getNombre()));
+		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(1).getNombre()));
+		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(2).getNombre()));
         
-        this.botonMenuAtacar1.getItems().addAll(listaAtaques1);
+        this.botonMenuAtacar1.getItems().addAll(listaNombresDeAtaques1);
         
-        ArrayList<MenuItem> listaAtaques2 = new ArrayList<MenuItem>();
-		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
-		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
-		listaAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
+		ArrayList<MenuItem> listaNombresDeAtaques2 = new ArrayList<MenuItem>();
+		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
+		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
+		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
         
-        this.botonMenuAtacar2.getItems().addAll(listaAtaques2);
+        this.botonMenuAtacar2.getItems().addAll(listaNombresDeAtaques2);
         
         
         if (this.jugadorActivo == this.jugador1) {
@@ -145,5 +152,10 @@ public class CombateController {
     	
     	stage.setScene(escena);
     }
+	
+	@FXML
+    void ataque1Jugador1(ActionEvent event) {
+		
+	}
 
 }

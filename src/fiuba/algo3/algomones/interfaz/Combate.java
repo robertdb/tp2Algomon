@@ -49,7 +49,7 @@ public class Combate {
 	}
 	
 	public void iniciarCombate(){
-		Scene scene = creadorVentanasjuego(juego.setActivo(), juego.setPasivo());
+		Scene scene = creadorVentanasjuego(juego.getActivo(), juego.getPasivo());
 		stage.setScene(scene);
 		stage.show();
 	}

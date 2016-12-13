@@ -24,10 +24,10 @@ public class ActionEscene {
 		this.algomones = new BotonesDeAlgomones(this,root);
 		this.estatus = estatus;
 		
-		this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
-	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
-	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
-	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
+		this.estatus.actualizarEstadosDelCombate(juego.getActivo(),juego.getPasivo());
+	    this.ataques.actualizarBotonesAtaque(juego.getActivo().getAtaqueAlgomon(),juego.getActivo(),juego.getPasivo());
+	    this.elementos.actualizarBotonesElementos(juego.getActivo().getElementos(),juego.getActivo());
+	    this.algomones.actualizarBotonesAlgomones(juego.getActivo().getAlgomones(),juego.getActivo());
 		
 	}
 
@@ -35,10 +35,10 @@ public class ActionEscene {
 		juego.siguienteTurno();
 		
 	
-	    this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
-	    this.algomones.actualizarBotonesAlgomones(juego.setActivo().getAlgomones(),juego.setActivo());
-	    this.elementos.actualizarBotonesElementos(juego.setActivo().getElementos(),juego.setActivo());
-	    this.ataques.actualizarBotonesAtaque(juego.setActivo().getAtaqueAlgomon(),juego.setActivo(),juego.setPasivo());
+	    this.estatus.actualizarEstadosDelCombate(juego.getActivo(),juego.getPasivo());
+	    this.algomones.actualizarBotonesAlgomones(juego.getActivo().getAlgomones(),juego.getActivo());
+	    this.elementos.actualizarBotonesElementos(juego.getActivo().getElementos(),juego.getActivo());
+	    this.ataques.actualizarBotonesAtaque(juego.getActivo().getAtaqueAlgomon(),juego.getActivo(),juego.getPasivo());
 		   
 	   
 	}

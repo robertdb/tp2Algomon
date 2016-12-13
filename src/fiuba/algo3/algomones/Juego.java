@@ -1,11 +1,14 @@
 package fiuba.algo3.algomones;
 
-import fiuba.algo3.algomones.excepciones.AlgomonesDeJugadorMuertosExeption;
-import fiuba.algo3.algomones.interfaz.Ventana;
+import java.util.Random;
+
+import javafx.beans.property.SimpleStringProperty;
 
 public class Juego {
 	private Jugador activo;
 	private Jugador pasivo;
+	
+	private final SimpleStringProperty nombreJugadorActivoProperty = new SimpleStringProperty();
 
 	public Juego() {
 		activo = new Jugador();
@@ -15,11 +18,12 @@ public class Juego {
 		Jugador aux = activo;
 		activo = pasivo;
 		pasivo = aux;
+		nombreJugadorActivoProperty.setValue(activo.getNombre());
 	}
-	public Jugador setActivo(){
+	public Jugador getActivo(){
 		return  activo;
 	}
-	public Jugador setPasivo(){
+	public Jugador getPasivo(){
 		return  pasivo;
 	}
 	public void introducirAlgomon(EspecieAlgomon algomon){
@@ -28,6 +32,17 @@ public class Juego {
 	public void introducirNombre(String nombre){
 		activo.setNombre(nombre);
 		
+	}
+
+	public void setJugadorActivoRandom() {
+		Random random = new Random();
+		if (random.nextBoolean()) {
+			siguienteTurno();
+		}
+	}
+	
+	public SimpleStringProperty getNombreJugadorActivoProperty() {
+		return nombreJugadorActivoProperty;
 	}
 
 }

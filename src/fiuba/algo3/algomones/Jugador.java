@@ -102,4 +102,8 @@ public class Jugador {
 	public Algomon getAlgomonActual(){
 		return algomonActual;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
 }
