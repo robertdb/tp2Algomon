@@ -1,4 +1,4 @@
-package application;
+package fiuba.algo3.algomones.interfaz;
 
 import java.net.URL;
 import java.util.ArrayList;

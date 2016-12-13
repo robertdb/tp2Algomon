@@ -1,4 +1,4 @@
-package application;
+package fiuba.algo3.algomones.interfaz;
 
 import fiuba.algo3.algomones.Algomon;
 import javafx.scene.Group;
