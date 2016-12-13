@@ -103,7 +103,7 @@ public class CombateController {
 		this.cargarAtaques(jugador2, jugador1, botonMenuAtacar2);
 		
 		this.cargarElementos(jugador1, botonMenuElementos1);
-		this.cargarElementos(jugador1, botonMenuElementos2);
+		this.cargarElementos(jugador2, botonMenuElementos2);
         
         this.deshabilitarBotonesDelJugadorInactivo();
 		
