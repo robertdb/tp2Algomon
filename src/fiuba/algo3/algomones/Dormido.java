@@ -10,7 +10,7 @@ public class Dormido implements Efecto{
   public String nombre = "Dormido" ;
   
   public Dormido() {
-    tiempo = 2;
+    tiempo = 3;
   }
   
   public void agregar(ContextoEstado contexto){
