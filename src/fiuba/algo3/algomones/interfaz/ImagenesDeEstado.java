@@ -23,9 +23,9 @@ public class ImagenesDeEstado {
 		
 		this.image1= new ImageView();
 		this.image2 = new ImageView();
-		image2.setLayoutX(800);
+		image2.setLayoutX(900);
 		image2.setLayoutY(0);
-		image1.setLayoutX(30);
+		image1.setLayoutX(150);
 		image1.setLayoutY(250);
 
  		root.getChildren().add(image1);
@@ -44,11 +44,11 @@ public class ImagenesDeEstado {
 
 	private Image imagenFrontAlgomon(Algomon a){
 		String path = "images/" + a.nombre().toLowerCase() + ".gif";
-		return new Image(path);
+		return new Image(path, 200, 200, true, false, false);
 	}
 
 	private Image imagenBackAlgomon(Algomon a){
 		String path = "images/" + a.nombre().toLowerCase() + "-back.gif";
-		return new Image(path);
+		return new Image(path, 200, 200, true, false, false);
 	}
 }
