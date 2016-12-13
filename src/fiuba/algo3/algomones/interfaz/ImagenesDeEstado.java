@@ -21,12 +21,12 @@ public class ImagenesDeEstado {
 		pathsAImagenes =  new HashMap<EspecieAlgomon,String >();
 		this.root = root;
 		this.label = new EtiquetasDeEstados(root);
-		pathsAImagenes.put(EspecieAlgomon.BULBASOUR, "file:///home/orlando/tp2Algomon/images/bulbasaur.gif");
-		pathsAImagenes.put(EspecieAlgomon.CHANSEY,"file:///home/orlando/tp2Algomon/images/chansey.gif");
-		pathsAImagenes.put(EspecieAlgomon.CHARMANDER, "file:///home/orlando/tp2Algomon/images/charmander.gif");
-		pathsAImagenes.put(EspecieAlgomon.JIGGLYPUFF, "file:///home/orlando/tp2Algomon/images/jigglypuff.gif");
-		pathsAImagenes.put(EspecieAlgomon.RATTATA,"file:///home/orlando/tp2Algomon/images/rattata.gif");
-		pathsAImagenes.put(EspecieAlgomon.SQUIRTLE, "file:///home/orlando/tp2Algomon/images/squirtle.gif");
+		pathsAImagenes.put(EspecieAlgomon.BULBASOUR, "images/bulbasaur.gif");
+		pathsAImagenes.put(EspecieAlgomon.CHANSEY, "images/chansey.gif");
+		pathsAImagenes.put(EspecieAlgomon.CHARMANDER, "images/charmander.gif");
+		pathsAImagenes.put(EspecieAlgomon.JIGGLYPUFF, "images/jigglypuff.gif");
+		pathsAImagenes.put(EspecieAlgomon.RATTATA, "images/rattata.gif");
+		pathsAImagenes.put(EspecieAlgomon.SQUIRTLE, "images/squirtle.gif");
 		
 		this.image1= new ImageView();
 		this.image2 = new ImageView();

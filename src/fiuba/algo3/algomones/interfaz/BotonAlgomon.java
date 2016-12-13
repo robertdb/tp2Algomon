@@ -16,13 +16,11 @@ public class BotonAlgomon {
 	public BotonAlgomon(ActionEscene Botones) {
 		this.actionBotones = Botones;
 		this.boton = new Button();
-		this.boton.setOnAction (new EventHandler <ActionEvent> () {
-		     @Override 
-		     public void handle (ActionEvent e) {
-		    	jugador.elegirAlgomon(algomon);
-		    	 actionBotones.actualizarBotones();
-		     }
-		 });
+		this.boton.setOnAction ((ActionEvent e) -> {
+			jugador.elegirAlgomon(algomon);
+			actionBotones.actualizarBotones();
+			jugador.statusAlgomonActual().reducirTiempoDeEstado();
+		});
 	}
 
 	public Button getBoton() {
