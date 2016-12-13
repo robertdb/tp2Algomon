@@ -41,7 +41,7 @@ public class Combate {
 		root.getTransforms().add(new Scale(0.75, 0.75));
 		this.estatus = new ImagenesDeEstado(root);
 		this.botones = new ActionEscene(root, this.estatus, this.juego);
-		return new Scene(root);
+		return new Scene(root, 950, 540);
 	}
 	
 	public void iniciarCombate(){

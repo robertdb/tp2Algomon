@@ -30,12 +30,12 @@ public class EtiquetasDeEstados {
 		
 		
 		this.pasivo = new LabelEstados();
-		this.pasivo.posicionarLabelEstado(300,400);
+		this.pasivo.posicionarLabelEstado(30, 400);
 		this.pasivo.colocarLabel(root);
 		
 		
 		this.activo = new LabelEstados();
-		this.activo.posicionarLabelEstado(0,400);
+		this.activo.posicionarLabelEstado(300, 400);
 		this.activo.colocarLabel(root);
 		
 		root.getChildren().addAll(this.turnoJugador);
