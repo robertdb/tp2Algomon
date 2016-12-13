@@ -318,48 +318,22 @@ public class AlgomonTest {
 	@Test
 	public void testJigglypuffAtacanConCantoAlgomonNormalPierdeTresTurnos() {
 		Algomon jigglypuff = EspecieAlgomon.JIGGLYPUFF.nuevo();
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
-		AtacarDormidoNoPuedeRealizarseException err1 = null;
-		int CantidadTurnosDormidos = 0;
-		
+
 		jigglypuff.atacar(rattata, NombreDelAtaque.CANTO);
-		
-		while (CantidadTurnosDormidos <3){
+
+		//~ trata de atacar tres veces con el algomon dormido
+		//~ si no tira excepcion en todas, el test falla
+		for (int i = 0; i < 3; i++) {
 			try {
 				rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
-				
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){
-				
-				err1 = exep;
-				CantidadTurnosDormidos = CantidadTurnosDormidos + 1;
+			} catch (AtacarDormidoNoPuedeRealizarseException e) {
+				continue;
 			}
+			fail();
 		}
-		
-		assertTrue (err1 instanceof AtacarDormidoNoPuedeRealizarseException);
+
 		rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
-		assertEquals(3,CantidadTurnosDormidos);
-		/////////////////////////////////////////////////////////////////////
-		//chansey ataca a rattata con canto
-		chansey.atacar(rattata, NombreDelAtaque.CANTO);
-		
-		CantidadTurnosDormidos = 0;
-		err1 = null;
-		
-		while (CantidadTurnosDormidos <3){
-			try {
-				rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
-				
-			}catch(AtacarDormidoNoPuedeRealizarseException exep){
-				err1 = exep;
-				CantidadTurnosDormidos = CantidadTurnosDormidos + 1;
-			}
-		}
-		
-		assertTrue (err1 instanceof AtacarDormidoNoPuedeRealizarseException);
-		
-		rattata.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
-		assertEquals(3,CantidadTurnosDormidos);
 	}
 
 	@Test
