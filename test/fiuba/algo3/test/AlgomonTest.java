@@ -330,7 +330,7 @@ public class AlgomonTest {
 			} catch (AtacarDormidoNoPuedeRealizarseException e) {
 				continue;
 			}
-			fail();
+			fail("rattata durmio " + i + " turnos antes de despertarse");
 		}
 
 		rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
