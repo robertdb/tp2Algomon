@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 
@@ -38,6 +39,7 @@ public class Combate {
 	
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		Group root = new Group();
+		root.setFill(Color.LEMONCHIFFON);
 		root.getTransforms().add(new Scale(0.75, 0.75));
 		root.getChildren().add(new ImageView(new Image("images/fondo.png", 1260, 480, false, false)));
 		this.estatus = new ImagenesDeEstado(root);
