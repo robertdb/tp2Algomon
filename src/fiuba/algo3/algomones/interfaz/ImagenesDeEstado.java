@@ -24,9 +24,9 @@ public class ImagenesDeEstado {
 		this.image1= new ImageView();
 		this.image2 = new ImageView();
 		image2.setLayoutX(900);
-		image2.setLayoutY(0);
+		image2.setLayoutY(70);
 		image1.setLayoutX(150);
-		image1.setLayoutY(250);
+		image1.setLayoutY(270);
 
  		root.getChildren().add(image1);
  		root.getChildren().add(image2);

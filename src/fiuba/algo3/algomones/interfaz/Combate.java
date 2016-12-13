@@ -39,6 +39,7 @@ public class Combate {
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		Group root = new Group();
 		root.getTransforms().add(new Scale(0.75, 0.75));
+		root.getChildren().add(new ImageView(new Image("images/fondo.png", 1260, 480, false, false)));
 		this.estatus = new ImagenesDeEstado(root);
 		this.botones = new ActionEscene(root, this.estatus, this.juego);
 		return new Scene(root, 950, 540);
