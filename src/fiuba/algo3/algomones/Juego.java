@@ -11,7 +11,7 @@ public class Juego {
 		activo = new Jugador();
 		pasivo = new Jugador();
 	}
-	public void siguienteTruno() {
+	public void siguienteTurno() {
 		Jugador aux = activo;
 		activo = pasivo;
 		pasivo = aux;

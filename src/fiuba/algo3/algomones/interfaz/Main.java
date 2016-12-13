@@ -19,7 +19,7 @@ public class Main extends Application {
 			juego.introducirAlgomon(EspecieAlgomon.BULBASOUR);
 			juego.introducirAlgomon(EspecieAlgomon.CHANSEY);
 			juego.introducirAlgomon(EspecieAlgomon.CHARMANDER);
-			juego.siguienteTruno();
+			juego.siguienteTurno();
 			juego.introducirAlgomon(EspecieAlgomon.JIGGLYPUFF);
 			juego.introducirAlgomon(EspecieAlgomon.RATTATA);
 			juego.introducirAlgomon(EspecieAlgomon.SQUIRTLE);

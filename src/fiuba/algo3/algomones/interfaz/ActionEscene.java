@@ -32,7 +32,7 @@ public class ActionEscene {
 	}
 
 	public void actualizarBotones() {
-		juego.siguienteTruno();
+		juego.siguienteTurno();
 		
 	
 	    this.estatus.actualizarEstadosDelCombate(juego.setActivo(),juego.setPasivo());
