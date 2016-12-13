@@ -69,7 +69,8 @@ public class SeleccionAlgomonActivoController {
     	}
     	else {	
     	   	Stage stage = (Stage) botonContinuar.getScene().getWindow();
-        	this.controllerSiguiente.setJuego(this.juego);
+    	   	this.juego.cambiarTurno();
+    	   	this.controllerSiguiente.setJuego(this.juego);
     	   	stage.setScene(this.escenaSiguiente);
     	} 	
     	
