@@ -1,5 +1,6 @@
 package fiuba.algo3.algomones.logica;
 import fiuba.algo3.algomones.logica.excepciones.AtaqueAgotadoException;
+import javafx.beans.property.SimpleStringProperty;
 
 public abstract class Ataque {
 
@@ -7,6 +8,7 @@ public abstract class Ataque {
 	private int cantidad;
 	private String nombre;
 	private TipoDeAtaque tipo;
+	private final SimpleStringProperty cantidadRestanteProperty = new SimpleStringProperty();
 	
 	public int getPotencia() {
 		return this.potencia;
@@ -30,6 +32,7 @@ public abstract class Ataque {
 	
 	protected void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+		this.cantidadRestanteProperty.setValue(this.getNombre() + "(" + String.valueOf(cantidad) + ")");
 	}
 	
 	public void aumentarCantidad(int cantidad) {
@@ -66,6 +69,10 @@ public abstract class Ataque {
 		}
 		algomonAtacado.recibirAtaque(this);
 		this.cantidad--;
+	}
+
+	public SimpleStringProperty getCantidadRestanteProperty() {
+		return this.cantidadRestanteProperty;
 	}
 	
 }

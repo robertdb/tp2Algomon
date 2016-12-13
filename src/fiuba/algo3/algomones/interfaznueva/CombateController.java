@@ -3,8 +3,10 @@ package fiuba.algo3.algomones.interfaznueva;
 import java.util.ArrayList;
 
 import fiuba.algo3.algomones.logica.Ataque;
+import fiuba.algo3.algomones.logica.Elemento;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,8 +30,7 @@ public class CombateController {
 	
 	Jugador jugadorActivo;
 	
-	ArrayList<Ataque> listaAtaquesJugador1;
-	ArrayList<Ataque> listaAtaquesJugador2;
+	Jugador jugadorInactivo;
 
     @FXML
     private ImageView imagenAlgomon1;
@@ -75,15 +76,17 @@ public class CombateController {
 
 	public void setJuego(Juego juego) {
 		this.juego = juego;
-		this.jugador1 = juego.getJugador1();
-		this.jugador2 = juego.getJugador2();
-		this.jugadorActivo = juego.getJugadorActivo();
 		this.inicializar();
 
 	}
 	
 	public void inicializar() {
 			
+		this.jugador1 = juego.getJugador1();
+		this.jugador2 = juego.getJugador2();
+		this.jugadorActivo = juego.getJugadorActivo();
+		this.jugadorInactivo = juego.getJugadorInactivo();
+		
 		this.nombreJugador1.setText(this.jugador1.getNombre());
 		this.nombreJugador2.setText(this.jugador2.getNombre());
 		
@@ -96,31 +99,32 @@ public class CombateController {
 		this.puntosSalud1.textProperty().bind(this.jugador1.getAlgomonActivo().getVidaProperty());
 		this.puntosSalud2.textProperty().bind(this.jugador2.getAlgomonActivo().getVidaProperty());
 		
-		this.listaAtaquesJugador1 = this.jugador1.getAlgomonActivo().getListadoAtaques();
-		this.listaAtaquesJugador2 = this.jugador2.getAlgomonActivo().getListadoAtaques();
+		this.cargarAtaques(jugador1, jugador2, botonMenuAtacar1);
+		this.cargarAtaques(jugador2, jugador1, botonMenuAtacar2);
 		
-		ArrayList<MenuItem> listaNombresDeAtaques1 = new ArrayList<MenuItem>();
-		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(0).getNombre()));
-		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(1).getNombre()));
-		listaNombresDeAtaques1.add(new MenuItem(this.listaAtaquesJugador1.get(2).getNombre()));
+		this.cargarElementos(jugador1, botonMenuElementos1);
+		this.cargarElementos(jugador1, botonMenuElementos2);
         
-        this.botonMenuAtacar1.getItems().addAll(listaNombresDeAtaques1);
-        
-		ArrayList<MenuItem> listaNombresDeAtaques2 = new ArrayList<MenuItem>();
-		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));
-		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(1).getNombre()));
-		listaNombresDeAtaques2.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(2).getNombre()));
-        
-        this.botonMenuAtacar2.getItems().addAll(listaNombresDeAtaques2);
-        
-        
-        if (this.jugadorActivo == this.jugador1) {
+        this.deshabilitarBotonesDelJugadorInactivo();
+		
+ 
+	}
+	
+	private void siguienteTurno() {
+		this.juego.cambiarTurno();
+		this.jugadorActivo = juego.getJugadorActivo();
+		this.jugadorInactivo = juego.getJugadorInactivo();
+		this.deshabilitarBotonesDelJugadorInactivo();
+	}
+	
+	private void deshabilitarBotonesDelJugadorInactivo() {
+		if (this.jugadorActivo == this.jugador1) {
         	botonMenuAtacar1.setDisable(false);
         	botonMenuElementos1.setDisable(false);
         	botonCambiar1.setDisable(false);
         	botonMenuAtacar2.setDisable(true);
         	botonMenuElementos2.setDisable(true);
-        	botonCambiar2.setDisable(true);
+        	botonCambiar2.setDisable(true);     	
         }
         else {
         	botonMenuAtacar2.setDisable(false);
@@ -130,8 +134,95 @@ public class CombateController {
         	botonMenuElementos1.setDisable(true);
         	botonCambiar1.setDisable(true);
         }
+	}
+
+	private void cargarAtaques(Jugador jugador, Jugador oponente, MenuButton boton) {
 		
+		ArrayList<Ataque> listaAtaques = jugador.getAlgomonActivo().getListadoAtaques();
 		
+		String nombreAtaque1 = listaAtaques.get(0).getNombre();
+		String nombreAtaque2 = listaAtaques.get(1).getNombre();
+		String nombreAtaque3 = listaAtaques.get(2).getNombre();
+		
+		ArrayList<MenuItem> listaMenuDeAtaques = new ArrayList<MenuItem>();
+		
+		MenuItem ataque1 = new MenuItem();
+		ataque1.textProperty().bind(listaAtaques.get(0).getCantidadRestanteProperty());
+		ataque1.setOnAction((ActionEvent e) -> {
+			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque1);
+			this.siguienteTurno();
+		});
+		
+		MenuItem ataque2 = new MenuItem();
+		ataque2.textProperty().bind(listaAtaques.get(1).getCantidadRestanteProperty());
+		ataque2.setOnAction((ActionEvent e) -> {
+			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque2);
+			this.siguienteTurno();
+		});
+		
+		MenuItem ataque3 = new MenuItem();
+		ataque3.textProperty().bind(listaAtaques.get(2).getCantidadRestanteProperty());
+		ataque3.setOnAction((ActionEvent e) -> {
+			jugador.getAlgomonActivo().atacar(oponente.getAlgomonActivo(), nombreAtaque3);
+			this.siguienteTurno();
+		});
+			
+		listaMenuDeAtaques.add(ataque1);
+		listaMenuDeAtaques.add(ataque2);
+		listaMenuDeAtaques.add(ataque3);
+        
+		boton.getItems().clear();
+        boton.getItems().addAll(listaMenuDeAtaques);
+        
+	}
+
+	private void cargarElementos(Jugador jugador, MenuButton boton) {
+		
+		ArrayList<Elemento> listaElementos = jugador.getListadoElementos();
+		
+		String nombreElemento1 = listaElementos.get(0).getNombre();
+		String nombreElemento2 = listaElementos.get(1).getNombre();
+		String nombreElemento3 = listaElementos.get(2).getNombre();
+		String nombreElemento4 = listaElementos.get(3).getNombre();
+		
+		ArrayList<MenuItem> listaMenuDeElementos = new ArrayList<MenuItem>();
+		
+		MenuItem elemento1 = new MenuItem();
+		elemento1.textProperty().bind(listaElementos.get(0).getCantidadRestanteProperty());
+		elemento1.setOnAction((ActionEvent e) -> {
+			jugador.usarElemento(nombreElemento1, jugador.getAlgomonActivo());
+			this.siguienteTurno();
+		});
+		
+		MenuItem elemento2 = new MenuItem();
+		elemento2.textProperty().bind(listaElementos.get(1).getCantidadRestanteProperty());
+		elemento2.setOnAction((ActionEvent e) -> {
+			jugador.usarElemento(nombreElemento2, jugador.getAlgomonActivo());
+			this.siguienteTurno();
+		});
+		
+		MenuItem elemento3 = new MenuItem();
+		elemento3.textProperty().bind(listaElementos.get(2).getCantidadRestanteProperty());
+		elemento3.setOnAction((ActionEvent e) -> {
+			jugador.usarElemento(nombreElemento3, jugador.getAlgomonActivo());
+			this.siguienteTurno();
+		});
+			
+		MenuItem elemento4 = new MenuItem();
+		elemento4.textProperty().bind(listaElementos.get(3).getCantidadRestanteProperty());
+		elemento4.setOnAction((ActionEvent e) -> {
+			jugador.usarElemento(nombreElemento4, jugador.getAlgomonActivo());
+			this.siguienteTurno();
+		});
+		
+		listaMenuDeElementos.add(elemento1);
+		listaMenuDeElementos.add(elemento2);
+		listaMenuDeElementos.add(elemento3);
+		listaMenuDeElementos.add(elemento4);
+        
+		boton.getItems().clear();
+        boton.getItems().addAll(listaMenuDeElementos);
+        
 	}
 	
 	@FXML
@@ -153,9 +244,5 @@ public class CombateController {
     	stage.setScene(escena);
     }
 	
-	@FXML
-    void ataque1Jugador1(ActionEvent event) {
-		
-	}
 
 }

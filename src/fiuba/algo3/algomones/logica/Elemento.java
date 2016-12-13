@@ -1,10 +1,14 @@
 package fiuba.algo3.algomones.logica;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public abstract class Elemento {
 	
 	private int cantidad;
 	
 	private String nombre;
+
+	private SimpleStringProperty cantidadRestanteProperty = new SimpleStringProperty();
 	
 	public int getCantidadRestante() {
 		return this.cantidad;
@@ -12,6 +16,7 @@ public abstract class Elemento {
 	
 	protected void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+		this.cantidadRestanteProperty.setValue(this.nombre + "(" + String.valueOf(cantidad) + ")");
 	}
 	
 	public String getNombre() {
@@ -27,5 +32,9 @@ public abstract class Elemento {
 	}
 	
 	public abstract void aplicar(Algomon algomon);
+
+	public SimpleStringProperty getCantidadRestanteProperty() {
+		return this.cantidadRestanteProperty;
+	}
 
 }
