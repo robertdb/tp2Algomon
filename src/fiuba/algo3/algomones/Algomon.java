@@ -99,8 +99,13 @@ public class Algomon {
 		return ataques.keySet();
 		
 	}
+	
 	public int ataqueRestantes(NombreDelAtaque nombre){
 		return this.ataques.get(nombre).cantidadDeAtaqueRestantes();
+	}
+
+	public int ataqueMaximos(NombreDelAtaque nombre){
+		return this.ataques.get(nombre).cantidadDeAtaqueMaximos();
 	}
 
 	public String nombreDeEstado() {

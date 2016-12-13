@@ -12,11 +12,4 @@ public class AtaqueFogonazo extends AtaqueEspecial {
 		atacado.alterarEstado(efecto);
 		return getAtaque().atacar(atacante, atacado);
 	}
-
-	@Override
-	public int cantidadDeAtaqueRestantes() {
-		// TODO Auto-generated method stub
-		return this.getAtaque().cantidadDeAtaqueRestantes();
-	}
-
 }

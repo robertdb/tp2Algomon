@@ -48,7 +48,7 @@ public class AlgomonTest {
 
 		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		double vidaOriginal = bulbasaur.salud();
 
@@ -63,7 +63,7 @@ public class AlgomonTest {
 
 		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		double vidaOriginal = bulbasaur.salud();
 
@@ -104,7 +104,7 @@ public class AlgomonTest {
 
 		Algomon squirtle2 = EspecieAlgomon.SQUIRTLE.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 
@@ -130,7 +130,7 @@ public class AlgomonTest {
 
 		Algomon charmi2= EspecieAlgomon.CHARMANDER.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 
@@ -156,7 +156,7 @@ public class AlgomonTest {
 
 		Algomon jiggly2 = EspecieAlgomon.JIGGLYPUFF.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 
@@ -194,7 +194,7 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConBrasasQuita8ptsAunAlgomonTipoPlanta() {
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
@@ -229,7 +229,7 @@ public class AlgomonTest {
 
 		Algomon jiggly2 = EspecieAlgomon.JIGGLYPUFF.nuevo();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
 
@@ -250,7 +250,7 @@ public class AlgomonTest {
 	@Test(expected = CantidadDeAtaquesAgotadosException .class)
 	public void testAlgomonAgotoLaCantidadDeAtaquesLatigoCepaYnoPuedeUtilizarElAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
@@ -268,7 +268,7 @@ public class AlgomonTest {
 	@Test(expected = CantidadDeAtaquesAgotadosException .class)
 	public void testAlgomonAgotoLaCantidadDeAtaquesbrasasYnoPuedeUtilizarElAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
@@ -286,7 +286,7 @@ public class AlgomonTest {
 	@Test(expected = CantidadDeAtaquesAgotadosException .class)
 	public void testAlgomonAgotoLaCantidadDeAtaquesFogonazoYnoPuedeUtilizarElAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
@@ -307,7 +307,7 @@ public class AlgomonTest {
 	@Test(expected = AtaqueNoPertenecienteAalgomonException.class)
 	public void testAlgomonNoPuedeAtacarSiNotieneEseAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
 
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
@@ -339,7 +339,7 @@ public class AlgomonTest {
 	@Test
 	public void testBulbasourAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
 
-		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 
 		charmander.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
@@ -353,7 +353,7 @@ public class AlgomonTest {
 	}
 	@Test
 	public void testBulbasourAtacaSquartleConChupavidasRecupera9Vida(){
-		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
 		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
 
 		squartle.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
@@ -364,7 +364,7 @@ public class AlgomonTest {
 	}
 	@Test
 	public void testBulbasourAtacaAlgomonNormalConChupavidasRecupera4Vida(){
-		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 
 		rattata.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
@@ -382,7 +382,7 @@ public class AlgomonTest {
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
 		//Algomones a atacar
 		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
-		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
 
 		rattata.atacar(squartle, NombreDelAtaque.FOGONAZO);
 		assertEquals(149,squartle.salud(),0.001D);

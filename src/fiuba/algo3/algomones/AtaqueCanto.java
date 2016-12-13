@@ -13,11 +13,4 @@ public class AtaqueCanto extends AtaqueEspecial {
 		atacado.alterarEstado(efecto);
 		return 0;
 	}
-
-	@Override
-	public int cantidadDeAtaqueRestantes() {
-		// TODO Auto-generated method stub
-		return this.getAtaque().cantidadDeAtaqueRestantes();
-	}
-
 }

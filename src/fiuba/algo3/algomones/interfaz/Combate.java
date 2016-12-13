@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 
 public class Combate {
@@ -37,9 +38,10 @@ public class Combate {
 	
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		Group root = new Group();
+		root.getTransforms().add(new Scale(0.75, 0.75));
 		this.estatus = new ImagenesDeEstado(root);
 		this.botones = new ActionEscene(root, this.estatus, this.juego);
-		return new Scene(root, 1200, 700);
+		return new Scene(root);
 	}
 	
 	public void iniciarCombate(){

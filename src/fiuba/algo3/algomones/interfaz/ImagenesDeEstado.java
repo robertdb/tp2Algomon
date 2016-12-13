@@ -21,7 +21,7 @@ public class ImagenesDeEstado {
 		pathsAImagenes =  new HashMap<EspecieAlgomon,String >();
 		this.root = root;
 		this.label = new EtiquetasDeEstados(root);
-		pathsAImagenes.put(EspecieAlgomon.BULBASOUR, "images/bulbasaur.gif");
+		pathsAImagenes.put(EspecieAlgomon.BULBASAUR, "images/bulbasaur.gif");
 		pathsAImagenes.put(EspecieAlgomon.CHANSEY, "images/chansey.gif");
 		pathsAImagenes.put(EspecieAlgomon.CHARMANDER, "images/charmander.gif");
 		pathsAImagenes.put(EspecieAlgomon.JIGGLYPUFF, "images/jigglypuff.gif");

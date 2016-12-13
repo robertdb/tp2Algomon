@@ -21,5 +21,15 @@ public abstract class AtaqueEspecial implements Ataque{
 		this.ataque.aumentarAtaques();
 		
 	}
-	
+
+	@Override
+	public int cantidadDeAtaqueRestantes() {
+		
+		return this.getAtaque().cantidadDeAtaqueRestantes();
+	}
+
+	@Override
+	public int cantidadDeAtaqueMaximos() {
+		return getAtaque().cantidadDeAtaqueMaximos();
+	}
 }

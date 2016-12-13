@@ -23,7 +23,7 @@ public class jugadorTest {
 		
 		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
 		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
-		Algomon bulbasour = EspecieAlgomon.BULBASOUR.nuevo();
+		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
 		
 		
 		Jugador jugador = new Jugador();
@@ -32,7 +32,7 @@ public class jugadorTest {
 		
 		jugador.ingresarAlgomon(EspecieAlgomon.RATTATA,rattata);
 		jugador.ingresarAlgomon(EspecieAlgomon.CHARMANDER,charmander);
-		jugador.ingresarAlgomon(EspecieAlgomon.BULBASOUR,bulbasour);
+		jugador.ingresarAlgomon(EspecieAlgomon.BULBASAUR,bulbasour);
 		
 		assertEquals(rattata,jugador.statusAlgomonActual());
 		
@@ -41,7 +41,7 @@ public class jugadorTest {
 		assertEquals(charmander,jugador.statusAlgomonActual());
 		
 		
-		jugador.elegirAlgomon(EspecieAlgomon.BULBASOUR);
+		jugador.elegirAlgomon(EspecieAlgomon.BULBASAUR);
 		
 		assertEquals(bulbasour,jugador.statusAlgomonActual());
 		

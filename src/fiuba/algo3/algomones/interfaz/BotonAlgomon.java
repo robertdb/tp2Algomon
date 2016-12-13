@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 
 public class BotonAlgomon {
 	private ActionEscene actionBotones;
@@ -32,8 +33,9 @@ public class BotonAlgomon {
 		this.algomon = nombre;
 		
 		
-		boton.setText(nombre.name()+"Vida: "+jugador.vidaDeAlogmon(nombre));
-		if (jugador.vidaDeAlogmon(nombre)==0){
+		boton.setText(nombre.name() + " " + "Vida: " + jugador.vidaDeAlogmon(nombre));
+		boton.setFont(new Font(20));
+		if (jugador.vidaDeAlogmon(nombre) == 0){
 			boton.setDisable(true);
 		}else{
 			boton.setDisable(false);

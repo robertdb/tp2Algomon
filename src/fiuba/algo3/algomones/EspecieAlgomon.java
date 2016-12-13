@@ -67,7 +67,7 @@ public enum EspecieAlgomon {
 		}
 	}, 
 	
-	BULBASOUR
+	BULBASAUR
 	{
 		public Algomon nuevo()
 		{
@@ -95,7 +95,7 @@ public enum EspecieAlgomon {
 			
 			Salud salud = new Salud(140);
 			Tipo planta = new TipoPlanta();
-			return new Algomon("Bulbasour", planta, ataques, salud);
+			return new Algomon("Bulbasaur", planta, ataques, salud);
 		}
 	}, 
 	

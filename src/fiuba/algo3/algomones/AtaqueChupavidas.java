@@ -24,11 +24,4 @@ public class AtaqueChupavidas extends AtaqueEspecial {
 		return danio;
 		
 	}
-
-	@Override
-	public int cantidadDeAtaqueRestantes() {
-		
-		return this.getAtaque().cantidadDeAtaqueRestantes();
-	}
-
 }

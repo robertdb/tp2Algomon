@@ -16,7 +16,7 @@ public class Main extends Application {
 		try{
 			Juego juego = new Juego();
 			juego.introducirNombre("ash");
-			juego.introducirAlgomon(EspecieAlgomon.BULBASOUR);
+			juego.introducirAlgomon(EspecieAlgomon.BULBASAUR);
 			juego.introducirAlgomon(EspecieAlgomon.CHANSEY);
 			juego.introducirAlgomon(EspecieAlgomon.CHARMANDER);
 			juego.siguienteTurno();

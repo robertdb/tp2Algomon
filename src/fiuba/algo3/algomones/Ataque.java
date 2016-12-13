@@ -7,5 +7,6 @@ public interface Ataque {
 	public void aumentarAtaques();
 	
 	public int cantidadDeAtaqueRestantes();
-	
+
+	public int cantidadDeAtaqueMaximos();
 }

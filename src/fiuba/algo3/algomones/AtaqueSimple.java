@@ -56,4 +56,8 @@ public class AtaqueSimple implements Ataque {
 		return this.cantidadDeAtaquesRestantes;
 	}
 
+	@Override
+	public int cantidadDeAtaqueMaximos() {
+		return cantidadOriginalDeAtaque;
+	}
 }

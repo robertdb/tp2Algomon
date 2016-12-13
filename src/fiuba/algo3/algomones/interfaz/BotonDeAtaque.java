@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 
 public class BotonDeAtaque {
 	
@@ -36,13 +37,17 @@ public class BotonDeAtaque {
 	public Button getBoton(){
 		return this.boton;
 	}
-	public void insertarJugadoresYNombreAtaque(Jugador activo, Jugador pasivo,NombreDelAtaque ataque){
-		this.ataque = ataque;
+	public void insertarJugadoresYNombreAtaque(Jugador activo, Jugador pasivo,
+			NombreDelAtaque nombre){
+		this.ataque = nombre;
 		this.defensivo = pasivo;
 		this.ofensivo = activo;
 		
-		boton.setText(ataque.name()+" Restantes: "+activo.statusAlgomonActual().ataqueRestantes(ataque) );
-		int restantes = activo.statusAlgomonActual().ataqueRestantes(ataque);
+		boton.setText(nombre.name()
+					+ " (" + activo.statusAlgomonActual().ataqueRestantes(nombre)
+					+ "/" + activo.statusAlgomonActual().ataqueMaximos(nombre) + ")");
+		boton.setFont(new Font(20));
+		int restantes = activo.statusAlgomonActual().ataqueRestantes(nombre);
 		
 		if (restantes == 0 || activo.statusAlgomonActual().estadoEfimero() == "Dormido"){
 			boton.setDisable(true);

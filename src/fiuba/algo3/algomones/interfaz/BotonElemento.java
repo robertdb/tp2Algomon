@@ -5,6 +5,7 @@ import fiuba.algo3.algomones.TipoElemento;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 
 public class BotonElemento {
 	private Button boton;
@@ -29,7 +30,9 @@ public class BotonElemento {
 		this.activo = jugador;
 		this.element = nombre;
 		
-		boton.setText(nombre.NombreElemento()+ "Restantes"+jugador.elementosRestantes(nombre));
+		boton.setText(nombre.NombreElemento()
+				      + " Restantes: " + jugador.elementosRestantes(nombre));
+		boton.setFont(new Font(20));
 		if (jugador.elementosRestantes(nombre) == 0){
 			boton.setDisable(true);
 		}
