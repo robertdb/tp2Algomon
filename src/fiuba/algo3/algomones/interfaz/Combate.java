@@ -39,7 +39,8 @@ public class Combate {
 	
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
 		Group root = new Group();
-		root.setFill(Color.LEMONCHIFFON);
+		//esto da error
+		//root.setFill(Color.LEMONCHIFFON);
 		root.getTransforms().add(new Scale(0.75, 0.75));
 		root.getChildren().add(new ImageView(new Image("images/fondo.png", 1260, 480, false, false)));
 		this.estatus = new ImagenesDeEstado(root);
