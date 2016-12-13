@@ -115,6 +115,11 @@ public class SeleccionAlgomonActivoController {
 		this.imagenAlgomon2.setImage(new Image(getClass().getResourceAsStream(algomones.get(1).getImagenFrente())));
 		this.imagenAlgomon3.setImage(new Image(getClass().getResourceAsStream(algomones.get(2).getImagenFrente())));
 		
+		this.puntosSaludAlgomon1.setText(String.valueOf(algomones.get(0).getVida()));
+		this.puntosSaludAlgomon2.setText(String.valueOf(algomones.get(1).getVida()));
+		this.puntosSaludAlgomon3.setText(String.valueOf(algomones.get(2).getVida()));
+		
+		
 	}
 
 	public void setEscenaSiguiente(Scene escena, CombateController controller) {
