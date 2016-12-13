@@ -41,6 +41,7 @@ public abstract class Ataque {
 	
 	protected void setNombre(String nombre) {
 		this.nombre = nombre;
+		this.cantidadRestanteProperty.setValue(nombre + "(" + String.valueOf(this.getCantidadRestante()) + ")");
 	}
 	
 	public int getDanioContraAgua() {

@@ -16,7 +16,7 @@ public abstract class Elemento {
 	
 	protected void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
-		this.cantidadRestanteProperty.setValue(this.nombre + "(" + String.valueOf(cantidad) + ")");
+		this.cantidadRestanteProperty.setValue(this.getNombre() + "(" + String.valueOf(cantidad) + ")");
 	}
 	
 	public String getNombre() {
@@ -25,6 +25,7 @@ public abstract class Elemento {
 	
 	protected void setNombre(String nombre) {
 		this.nombre = nombre;
+		this.cantidadRestanteProperty.setValue(nombre + "(" + String.valueOf(this.getCantidadRestante()) + ")");
 	}
 	
 	protected boolean elementoAgotado(){
