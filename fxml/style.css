@@ -1,0 +1,87 @@
+.ventana{
+    -fx-background-image: url("images/fondo.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1024 768;
+    -fx-background-position: center center; 
+}
+
+.titulo{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 48;
+}
+
+.subtitulo{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 36;
+}
+
+.titulochico{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 24;
+}
+
+.subtitulo{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 36;
+}
+
+.button{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 48;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 6 6 6 6;
+}
+
+.button:hover{
+    -fx-border-color: #f1f1f1;
+    -fx-border-width: 6 6 6 6;
+}
+
+.button:pressed{
+    -fx-border-color: #c1c1c1;
+    -fx-border-width: 6 6 6 6;
+}
+
+.pokemon{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.charmanderfrente{
+    -fx-background-image: url("images/charmander.gif");
+    -fx-background-size: 200 200;
+}
+
+.squirtlefrente{
+    -fx-background-image: url("images/squirtle.gif");
+    -fx-background-size: 187 205;
+}
+
+.bulbasaurfrente{
+    -fx-background-image: url("images/bulbasaur.gif");
+    -fx-background-size: 177 182;
+}
+
+.jigglypufffrente{
+    -fx-background-image: url("images/jigglypuff.gif");
+    -fx-background-size: 234 215;
+}
+
+.chanseyfrente{
+    -fx-background-image: url("images/chansey.gif");
+    -fx-background-size: 255 196;
+}
+
+.rattatafrente{
+    -fx-background-image: url("images/rattata.gif");
+    -fx-background-size: 205 205;
+}
+
+.botonchico{
+    -fx-font-family: "minecraft";
+    -fx-font-size: 24;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 3 3 3 3;
+}

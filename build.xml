@@ -198,7 +198,6 @@
 		</pmd>
 	</target>
 
-
 	<target name="empaquetar.con.imagenes" depends="compilar.paquete">
 		<copydir
 			src="images"
@@ -206,8 +205,32 @@
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
+	
+	<target name="empaquetar.con.imagenes2" depends="empaquetar.con.imagenes">
+		<copydir
+			src="images"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaz/images"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+	
+	<target name="empaquetar.con.fuentes" depends="empaquetar.con.imagenes2">
+		<copydir
+			src="fonts"
+			dest="${build}/classes/fonts"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+			
+	<target name="empaquetar.con.fxml" depends="empaquetar.con.fuentes">
+		<copydir
+			src="fxml"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaz"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>	
 
-	<target name="ejecutar.aplicacion" depends="empaquetar.con.imagenes">
+	<target name="ejecutar.aplicacion" depends="empaquetar.con.fxml">
 		<java classname="fiuba.algo3.algomones.interfaz.Main" fork="true">
 			<classpath refid="classpath" />
 			<classpath location="${build}/dist/algo3.jar" />

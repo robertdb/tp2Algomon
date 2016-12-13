@@ -48,7 +48,7 @@ public class ImagenesDeEstado {
 	}
 
 	private Image imagenBackAlgomon(Algomon a){
-		String path = "images/" + a.nombre().toLowerCase() + "-back.gif";
+		String path = "images/" + a.nombre().toLowerCase() + "back.gif";
 		return new Image(path, 200, 200, true, false, false);
 	}
 }
