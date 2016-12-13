@@ -12,21 +12,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 
 public class ImagenesDeEstado {
-	private HashMap<EspecieAlgomon,String > especies;
+	private HashMap<EspecieAlgomon,String > pathsAImagenes;
 	private ImageView image1;
 	private ImageView image2;
 	private Group root;
 	private EtiquetasDeEstados label;
 	public ImagenesDeEstado(Group root){
-		especies =  new HashMap<EspecieAlgomon,String >();
+		pathsAImagenes =  new HashMap<EspecieAlgomon,String >();
 		this.root = root;
 		this.label = new EtiquetasDeEstados(root);
-		especies.put(EspecieAlgomon.BULBASOUR, "file:///home/orlando/tp2Algomon/images/bulbasaur.gif");
-		especies.put(EspecieAlgomon.CHANSEY,"file:///home/orlando/tp2Algomon/images/chansey.gif");
-		especies.put(EspecieAlgomon.CHARMANDER, "file:///home/orlando/tp2Algomon/images/charmander.gif");
-		especies.put(EspecieAlgomon.JIGGLYPUFF, "file:///home/orlando/tp2Algomon/images/jigglypuff.gif");
-		especies.put(EspecieAlgomon.RATTATA,"file:///home/orlando/tp2Algomon/images/rattata.gif");
-		especies.put(EspecieAlgomon.SQUIRTLE, "file:///home/orlando/tp2Algomon/images/squirtle.gif");
+		pathsAImagenes.put(EspecieAlgomon.BULBASOUR, "file:///home/orlando/tp2Algomon/images/bulbasaur.gif");
+		pathsAImagenes.put(EspecieAlgomon.CHANSEY,"file:///home/orlando/tp2Algomon/images/chansey.gif");
+		pathsAImagenes.put(EspecieAlgomon.CHARMANDER, "file:///home/orlando/tp2Algomon/images/charmander.gif");
+		pathsAImagenes.put(EspecieAlgomon.JIGGLYPUFF, "file:///home/orlando/tp2Algomon/images/jigglypuff.gif");
+		pathsAImagenes.put(EspecieAlgomon.RATTATA,"file:///home/orlando/tp2Algomon/images/rattata.gif");
+		pathsAImagenes.put(EspecieAlgomon.SQUIRTLE, "file:///home/orlando/tp2Algomon/images/squirtle.gif");
 		
 		this.image1= new ImageView();
 		this.image2 = new ImageView();
@@ -43,8 +43,8 @@ public class ImagenesDeEstado {
 	public void actualizarEstadosDelCombate(Jugador setActivo, Jugador setPasivo) {
 		
 		this.label.actualizarEtiquetas(setActivo, setPasivo);
-		Image imag1 = new Image(especies.get(setActivo.getAlgomonActual()));
-		Image imag2 = new Image(especies.get(setPasivo.getAlgomonActual()));
+		Image imag1 = new Image(pathsAImagenes.get(setActivo.getAlgomonActual()));
+		Image imag2 = new Image(pathsAImagenes.get(setPasivo.getAlgomonActual()));
 		
 		this.image1.setImage(imag1);
 		this.image2.setImage(imag2);

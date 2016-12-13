@@ -15,11 +15,12 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try{
 			Juego juego = new Juego();
-			juego.introducirNombre("gabriela");
+			juego.introducirNombre("ash");
 			juego.introducirAlgomon(EspecieAlgomon.BULBASOUR);
 			juego.introducirAlgomon(EspecieAlgomon.CHANSEY);
 			juego.introducirAlgomon(EspecieAlgomon.CHARMANDER);
 			juego.siguienteTurno();
+			juego.introducirNombre("gary");
 			juego.introducirAlgomon(EspecieAlgomon.JIGGLYPUFF);
 			juego.introducirAlgomon(EspecieAlgomon.RATTATA);
 			juego.introducirAlgomon(EspecieAlgomon.SQUIRTLE);

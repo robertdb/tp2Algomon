@@ -27,13 +27,10 @@ public class BotonDeAtaque {
 	public BotonDeAtaque(ActionEscene actionBotones){
 		boton = new Button();
 		this.action = actionBotones;
-		this.boton.setOnAction (new EventHandler <ActionEvent> () {
-		     @Override 
-		     public void handle (ActionEvent e) {
-		    	ofensivo.aplicarAtaque(ataque, defensivo);
-		    	 action.actualizarBotones();
-		     }
-		 });
+		this.boton.setOnAction((ActionEvent e) -> {
+			ofensivo.aplicarAtaque(ataque, defensivo);
+			action.actualizarBotones();
+		});
 		
 	}
 	public Button getBoton(){

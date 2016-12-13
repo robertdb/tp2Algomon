@@ -34,17 +34,15 @@ public class Combate {
 		this.juego = juego;
 		this.stage = stage;
 	}
+	
 	public Scene creadorVentanasjuego(Jugador actual,Jugador pasivo){
-		
-		
 		Group root = new Group();
 		this.estatus = new ImagenesDeEstado(root);
-		this.botones = new ActionEscene(root,this.estatus,this.juego);
-		Scene scene = new Scene(root,1200,700);
-		return scene;
+		this.botones = new ActionEscene(root, this.estatus, this.juego);
+		return new Scene(root, 1200, 700);
 	}
+	
 	public void iniciarCombate(){
-		
 		Scene scene = creadorVentanasjuego(juego.setActivo(), juego.setPasivo());
 		stage.setScene(scene);
 		stage.show();
