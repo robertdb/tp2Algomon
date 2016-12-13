@@ -21,6 +21,7 @@ public class BotonAlgomon {
 		     public void handle (ActionEvent e) {
 		    	jugador.elegirAlgomon(algomon);
 		    	 actionBotones.actualizarBotones();
+		    	 jugador.statusAlgomonActual().reducirTiempoDeEstado();
 		     }
 		 });
 	}
