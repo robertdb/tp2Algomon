@@ -88,11 +88,9 @@ public class CombateController {
 		
 		this.imagenAlgomon1.setImage(new Image(getClass().getResourceAsStream(jugador1.getAlgomonActivo().getImagenEspalda())));
 		this.imagenAlgomon2.setImage(new Image(getClass().getResourceAsStream(jugador2.getAlgomonActivo().getImagenFrente())));
-		
-		this.puntosSalud1.setText(String.valueOf(this.jugador1.getAlgomonActivo().getVida()));
-		this.puntosSalud2.setText(String.valueOf(this.jugador2.getAlgomonActivo().getVida()));
-	
-		//TODO bindings
+			
+		this.puntosSalud1.textProperty().bind(this.jugador1.getAlgomonActivo().getVidaProperty());
+		this.puntosSalud2.textProperty().bind(this.jugador2.getAlgomonActivo().getVidaProperty());
 		
 		ArrayList<MenuItem> listaAtaques1 = new ArrayList<MenuItem>();
 		listaAtaques1.add(new MenuItem(this.jugador1.getAlgomonActivo().getListadoAtaques().get(0).getNombre()));

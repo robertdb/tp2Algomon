@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import fiuba.algo3.algomones.logica.excepciones.AtaqueNoDisponibleException;
+import javafx.beans.property.SimpleStringProperty;
 
 public abstract class Algomon {
 
 	private int vida;
 	private int vidaOriginal = -1;
+	
+	private final SimpleStringProperty vidaProperty = new SimpleStringProperty();
 	
 	private String nombre;
 	
@@ -27,6 +30,7 @@ public abstract class Algomon {
 			this.vidaOriginal = vida;
 		}
 		this.vida = vida;
+		this.vidaProperty.setValue(String.valueOf(vida));
 	}
 	
 	public void aumentarVida(int puntos) {
@@ -92,7 +96,7 @@ public abstract class Algomon {
 	}
 	
 	public void recibirDanio(int danio) {
-		this.vida = this.vida - danio;
+		this.setVida(this.getVida() - danio);
 	}
 
 	public void setEstadoPersistente(EstadoAlgomon estado) {
@@ -105,6 +109,10 @@ public abstract class Algomon {
 
 	public void aplicarElemento(Elemento elemento) {
 		elemento.aplicar(this);
+	}
+
+	public SimpleStringProperty getVidaProperty() {
+		return vidaProperty;
 	}
 
 }
