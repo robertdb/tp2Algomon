@@ -115,7 +115,6 @@ public class SeleccionAlgomonesController {
     	Stage stage = (Stage) nombreJugador.getScene().getWindow();
     	
     	Combate combate = new Combate(stage,this.juego);
-		combate.creadorVentanasjuego(juego.getActivo(), juego.getPasivo());
     	combate.iniciarCombate();
 
 	}
