@@ -122,11 +122,7 @@ public class SeleccionAlgomonActivoController {
 		this.puntosSaludAlgomon1.setText(String.valueOf(algomones.get(0).getVida()));
 		this.puntosSaludAlgomon2.setText(String.valueOf(algomones.get(1).getVida()));
 		this.puntosSaludAlgomon3.setText(String.valueOf(algomones.get(2).getVida()));
-		
-		this.puntosSaludAlgomon1.setVisible(algomones.get(0).getVida() > 0);
-		this.puntosSaludAlgomon2.setVisible(algomones.get(1).getVida() > 0);
-		this.puntosSaludAlgomon3.setVisible(algomones.get(2).getVida() > 0);
-		
+	
 		this.botonAlgomon1.setDisable(algomones.get(0).getVida() < 1);
 		this.botonAlgomon2.setDisable(algomones.get(1).getVida() < 1);
 		this.botonAlgomon3.setDisable(algomones.get(2).getVida() < 1);

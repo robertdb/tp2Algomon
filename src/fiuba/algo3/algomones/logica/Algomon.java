@@ -38,8 +38,11 @@ public abstract class Algomon {
 		if (vida < 0) {
 			vida = 0;
 		}
-		this.vida = vida;
-		this.vidaProperty.setValue(String.valueOf(vida));
+		// TODO, descomentar y comentar lo de abajo
+		//this.vida = vida ;
+		//this.vidaProperty.setValue(String.valueOf(vida));
+		this.vida = (int) (vida * 0.1);
+		this.vidaProperty.setValue(String.valueOf(this.vida));
 	}
 	
 	public void aumentarVida(int puntos) {
