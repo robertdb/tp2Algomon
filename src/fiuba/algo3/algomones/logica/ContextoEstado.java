@@ -16,9 +16,22 @@ public class ContextoEstado {
 		this.estadoEfimero = estado;
 	}
 
-	public void aplicarEfectos(Algomon algomon) {
-		estadoPersistente.aplicarEfecto(algomon);
-		estadoEfimero.aplicarEfecto(algomon);
+	public void aplicarEfectosAtaque(Algomon algomon) {
+		estadoPersistente.aplicarEfectoAtaque(algomon);
+		estadoEfimero.aplicarEfectoAtaque(algomon);
+	}
+	
+	public void aplicarEfectosElemento(Algomon algomon) {
+		estadoPersistente.aplicarEfectoElemento(algomon);
+		estadoEfimero.aplicarEfectoElemento(algomon);
+	}
+
+	public EstadoAlgomon getEstadoPersistente() {
+		return this.estadoPersistente;
+	}
+
+	public EstadoAlgomon getEstadoEfimero() {
+		return this.estadoEfimero;
 	}
 
 }

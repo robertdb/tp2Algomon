@@ -3,6 +3,7 @@ package fiuba.algo3.algomones.logica;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
 import fiuba.algo3.algomones.logica.excepciones.AtaqueNoDisponibleException;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -11,8 +12,6 @@ public abstract class Algomon {
 	private int vida;
 	private int vidaOriginal = -1;
 	
-	private final SimpleStringProperty vidaProperty = new SimpleStringProperty();
-	
 	private String nombre;
 	
 	private ArrayList<String> imagenes = new ArrayList<String>();
@@ -20,6 +19,8 @@ public abstract class Algomon {
 	private HashMap<String, Ataque> ataques = new HashMap<String, Ataque>();
 	
 	private ContextoEstado estado = new ContextoEstado();
+	
+	private final SimpleStringProperty vidaProperty = new SimpleStringProperty();
 	
 	public int getVida() {
 		return vida;
@@ -81,7 +82,7 @@ public abstract class Algomon {
 	}
 	
 	public void atacar(Algomon algomon, String nombreAtaque) {
-		estado.aplicarEfectos(this);
+		this.estado.aplicarEfectosAtaque(this);
 		Ataque ataque = ataques.get(nombreAtaque);
 		if (ataque == null) {
 			throw new AtaqueNoDisponibleException();
@@ -106,13 +107,22 @@ public abstract class Algomon {
 	public void setEstadoEfimero(EstadoAlgomon estado) {
 		this.estado.setEstadoEfimero(estado);
 	}
+	
+	public EstadoAlgomon getEstadoPersistente() {
+		return this.estado.getEstadoPersistente();
+	}
+	
+	public EstadoAlgomon getEstadoEfimero() {
+		return this.estado.getEstadoEfimero();
+	}
 
 	public void aplicarElemento(Elemento elemento) {
+		this.estado.aplicarEfectosElemento(this);
 		elemento.aplicar(this);
 	}
 
 	public SimpleStringProperty getVidaProperty() {
-		return vidaProperty;
+		return this.vidaProperty;
 	}
 
 }
