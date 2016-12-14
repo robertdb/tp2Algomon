@@ -6,6 +6,7 @@ import fiuba.algo3.algomones.logica.Ataque;
 import fiuba.algo3.algomones.logica.Elemento;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
+import fiuba.algo3.algomones.logica.estadosdealgomones.*;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -118,6 +119,54 @@ public class CombateController {
 		this.jugadorActivo = juego.getJugadorActivo();
 		this.jugadorInactivo = juego.getJugadorInactivo();
 		this.deshabilitarBotonesDelJugadorInactivo();
+		this.deshabilitarBotonAtacarAlgomonDormido();
+		this.mostrarCartelAlgomonDormido();
+		this.mostrarCartelAlgomonQuemado();
+			
+	}
+	
+	private void mostrarCartelAlgomonQuemado() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void mostrarCartelAlgomonDormido() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void deshabilitarBotonAtacarAlgomonDormido() {
+		
+		if (this.jugadorActivo == jugador1) {
+			if (this.algomonActivoEstaDormido()) {
+				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "esta dormido");
+				this.botonMenuAtacar1.setDisable(true);
+			}
+			else {
+				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "no esta dormido");
+				this.botonMenuAtacar1.setDisable(false);
+			}
+		}
+		else {
+			if (this.algomonActivoEstaDormido()) {
+				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "esta dormido");
+				this.botonMenuAtacar2.setDisable(true);
+			}
+			else {
+				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "no esta dormido");
+				this.botonMenuAtacar2.setDisable(false);
+			}	
+		}
+		
+	}
+		
+	
+	private boolean algomonActivoEstaDormido() {
+		return (this.jugadorActivo.getAlgomonActivo().getEstadoEfimero().getClass().equals(EstadoDormido.class));
+	}
+	
+	private boolean algomonActivoEstaQuemado() {
+		return (this.jugadorActivo.getAlgomonActivo().getEstadoPersistente().getClass().equals(EstadoQuemado.class));
 	}
 	
 	private void deshabilitarBotonesDelJugadorInactivo() {

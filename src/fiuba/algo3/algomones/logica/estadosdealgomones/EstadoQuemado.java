@@ -5,8 +5,13 @@ import fiuba.algo3.algomones.logica.Algomon;
 public class EstadoQuemado extends EstadoPersistente {
 
 	@Override
-	public void aplicarEfecto(Algomon algomon) {
-		algomon.recibirDanio((int) (algomon.getVidaOriginal() * 0.1)); 
+	public void aplicarEfectoAtaque(Algomon algomon) {
+		algomon.recibirDanio((int) (algomon.getVidaOriginal() * 0.1));
+	}
+
+	@Override
+	public void aplicarEfectoElemento(Algomon algomon) {
+		algomon.recibirDanio((int) (algomon.getVidaOriginal() * 0.1));
 	}
 
 }

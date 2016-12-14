@@ -5,7 +5,11 @@ import fiuba.algo3.algomones.logica.Algomon;
 public class EstadoNoDormido extends EstadoEfimero {
 
 	@Override
-	public void aplicarEfecto(Algomon algomon) {
+	public void aplicarEfectoAtaque(Algomon algomon) {
+	}
+
+	@Override
+	public void aplicarEfectoElemento(Algomon algomon) {		
 	}
 
 }

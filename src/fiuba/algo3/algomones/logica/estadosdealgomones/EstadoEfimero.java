@@ -6,6 +6,9 @@ import fiuba.algo3.algomones.logica.EstadoAlgomon;
 public abstract class EstadoEfimero implements EstadoAlgomon {
 
 	@Override
-	public abstract void aplicarEfecto(Algomon algomon);
+	public abstract void aplicarEfectoAtaque(Algomon algomon);
+	
+	@Override
+	public abstract void aplicarEfectoElemento(Algomon algomon);
 
 }

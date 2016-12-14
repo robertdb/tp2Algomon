@@ -18,7 +18,7 @@ public class Restaurador extends Elemento {
 			throw new ElementoAgotadoException();
 		}
 		algomon.setEstadoPersistente(new EstadoNoQuemado());
-		algomon.setEstadoPersistente(new EstadoNoDormido());
+		algomon.setEstadoEfimero(new EstadoNoDormido());
 		this.setCantidad(this.getCantidadRestante() - 1);
 	}
 
