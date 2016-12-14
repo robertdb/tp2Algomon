@@ -6,7 +6,6 @@ import fiuba.algo3.algomones.logica.Ataque;
 import fiuba.algo3.algomones.logica.Elemento;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
-import fiuba.algo3.algomones.logica.estadosdealgomones.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,15 +74,27 @@ public class CombateController {
     private Label puntosSalud2;
     
     @FXML
+    private Label etiquetaDormido1;
+    
+    @FXML
+    private Label etiquetaDormido2;
+    
+    @FXML
+    private Label etiquetaQuemado1;
+    
+    @FXML
+    private Label etiquetaQuemado2;
+    
+    @FXML
     private Label mensaje;
 
-	public void setJuego(Juego juego) {
+	public void setJuego(Juego juego) throws Exception {
 		this.juego = juego;
 		this.inicializar();
 
 	}
 	
-	public void inicializar() {
+	public void inicializar() throws Exception {
 			
 		this.jugador1 = juego.getJugador1();
 		this.jugador2 = juego.getJugador2();
@@ -102,6 +113,12 @@ public class CombateController {
 		this.puntosSalud1.textProperty().bind(this.jugador1.getAlgomonActivo().getVidaProperty());
 		this.puntosSalud2.textProperty().bind(this.jugador2.getAlgomonActivo().getVidaProperty());
 		
+		this.etiquetaDormido1.visibleProperty().bind(this.jugador1.getAlgomonActivo().getEstaDormidoProperty());
+		this.etiquetaDormido2.visibleProperty().bind(this.jugador2.getAlgomonActivo().getEstaDormidoProperty());
+		
+		this.etiquetaQuemado1.visibleProperty().bind(this.jugador1.getAlgomonActivo().getEstaQuemadoProperty());
+		this.etiquetaQuemado2.visibleProperty().bind(this.jugador2.getAlgomonActivo().getEstaQuemadoProperty());
+
 		this.cargarAtaques(jugador1, jugador2, botonMenuAtacar1);
 		this.cargarAtaques(jugador2, jugador1, botonMenuAtacar2);
 		
@@ -110,7 +127,6 @@ public class CombateController {
         
         this.deshabilitarBotonesDelJugadorInactivo();
 		
- 
 	}
 	
 	private void siguienteTurno() {
@@ -118,59 +134,28 @@ public class CombateController {
 		this.jugadorActivo = juego.getJugadorActivo();
 		this.jugadorInactivo = juego.getJugadorInactivo();
 		this.deshabilitarBotonesDelJugadorInactivo();
-		this.deshabilitarBotonAtacarAlgomonDormido();
-		this.mostrarCartelAlgomonDormido();
-		this.mostrarCartelAlgomonQuemado();
-			
-	}
-	
-	private void mostrarCartelAlgomonQuemado() {
-		// TODO Auto-generated method stub
 		
-	}
-
-	private void mostrarCartelAlgomonDormido() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void deshabilitarBotonAtacarAlgomonDormido() {
-		
-		if (this.jugadorActivo == jugador1) {
-			if (this.algomonActivoEstaDormido()) {
-				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "esta dormido");
-				this.botonMenuAtacar1.setDisable(true);
+		if (this.jugadorActivo.getAlgomonActivo().getVida() < 1) {
+			try {
+				this.cambiarAlgomonActivo(null);
 			}
-			else {
-				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "no esta dormido");
-				this.botonMenuAtacar1.setDisable(false);
+			catch (Exception e) {
+				System.err.println("Excepcion capturada: " + e.getMessage());
 			}
 		}
-		else {
-			if (this.algomonActivoEstaDormido()) {
-				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "esta dormido");
-				this.botonMenuAtacar2.setDisable(true);
-			}
-			else {
-				System.out.println(this.jugadorActivo.getAlgomonActivo().getNombre() + "no esta dormido");
-				this.botonMenuAtacar2.setDisable(false);
-			}	
-		}
 		
 	}
-		
 	
-	private boolean algomonActivoEstaDormido() {
-		return (this.jugadorActivo.getAlgomonActivo().getEstadoEfimero().getClass().equals(EstadoDormido.class));
-	}
-	
-	private boolean algomonActivoEstaQuemado() {
-		return (this.jugadorActivo.getAlgomonActivo().getEstadoPersistente().getClass().equals(EstadoQuemado.class));
+
+	private boolean jugadorEstaActivo(Jugador jugador) {
+		return jugador == this.jugadorActivo;
 	}
 	
 	private void deshabilitarBotonesDelJugadorInactivo() {
-		if (this.jugadorActivo == this.jugador1) {
-        	botonMenuAtacar1.setDisable(false);
+		if (jugadorEstaActivo(this.jugador1)) {
+        	if (!this.jugador1.getAlgomonActivo().getEstaDormidoProperty().getValue()) {
+        		botonMenuAtacar1.setDisable(false);
+        	}
         	botonMenuElementos1.setDisable(false);
         	botonCambiar1.setDisable(false);
         	botonMenuAtacar2.setDisable(true);
@@ -178,7 +163,9 @@ public class CombateController {
         	botonCambiar2.setDisable(true);     	
         }
         else {
-        	botonMenuAtacar2.setDisable(false);
+        	if (!this.jugador2.getAlgomonActivo().getEstaDormidoProperty().getValue()) {
+        		botonMenuAtacar2.setDisable(false);
+        	}
         	botonMenuElementos2.setDisable(false);
         	botonCambiar2.setDisable(false);
         	botonMenuAtacar1.setDisable(true);
@@ -290,7 +277,7 @@ public class CombateController {
 	@FXML
     void cambiarAlgomonActivo(ActionEvent event) throws Exception {
     	
-    	Stage stage = (Stage) botonCambiar1.getScene().getWindow();
+    	Stage stage = (Stage) this.botonCambiar1.getScene().getWindow();
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomonActivo.fxml"));
     	
@@ -298,8 +285,8 @@ public class CombateController {
          
     	SeleccionAlgomonActivoController controller = fxmlLoader.<SeleccionAlgomonActivoController>getController();
 
-    	controller.setJuego(juego);
-    	controller.setEscenaSiguiente(botonCambiar1.getScene(), this);
+    	controller.setJuego(this.juego);
+    	controller.setEscenaSiguiente(this.botonCambiar1.getScene(), this);
     	
     	Scene escena = new Scene(root);
     	

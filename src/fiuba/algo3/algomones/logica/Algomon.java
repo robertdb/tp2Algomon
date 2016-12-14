@@ -3,8 +3,9 @@ package fiuba.algo3.algomones.logica;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
+import fiuba.algo3.algomones.logica.estadosdealgomones.*;
 import fiuba.algo3.algomones.logica.excepciones.AtaqueNoDisponibleException;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public abstract class Algomon {
@@ -22,6 +23,10 @@ public abstract class Algomon {
 	
 	private final SimpleStringProperty vidaProperty = new SimpleStringProperty();
 	
+	private final SimpleBooleanProperty estaDormidoProperty = new SimpleBooleanProperty();
+	
+	private final SimpleBooleanProperty estaQuemadoProperty = new SimpleBooleanProperty();
+	
 	public int getVida() {
 		return vida;
 	}
@@ -29,6 +34,9 @@ public abstract class Algomon {
 	public void setVida(int vida) {
 		if (this.vidaOriginal == -1) {
 			this.vidaOriginal = vida;
+		}
+		if (vida < 0) {
+			vida = 0;
 		}
 		this.vida = vida;
 		this.vidaProperty.setValue(String.valueOf(vida));
@@ -102,10 +110,12 @@ public abstract class Algomon {
 
 	public void setEstadoPersistente(EstadoAlgomon estado) {
 		this.estado.setEstadoPersistente(estado);
+		this.estaQuemadoProperty.setValue(estado.getClass().equals(EstadoQuemado.class));
 	}
 	
 	public void setEstadoEfimero(EstadoAlgomon estado) {
 		this.estado.setEstadoEfimero(estado);
+		this.estaDormidoProperty.setValue(estado.getClass().equals(EstadoDormido.class));
 	}
 	
 	public EstadoAlgomon getEstadoPersistente() {
@@ -123,6 +133,14 @@ public abstract class Algomon {
 
 	public SimpleStringProperty getVidaProperty() {
 		return this.vidaProperty;
+	}
+	
+	public SimpleBooleanProperty getEstaDormidoProperty() {
+		return this.estaDormidoProperty;
+	}
+
+	public SimpleBooleanProperty getEstaQuemadoProperty() {
+		return this.estaQuemadoProperty;
 	}
 
 }

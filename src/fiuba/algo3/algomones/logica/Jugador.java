@@ -69,7 +69,7 @@ public class Jugador {
 	}
 
 	public boolean tieneAlgomonActivo() {
-		return (this.algomonActivo != null);
+		return (this.algomonActivo != null && this.algomonActivo.getVida() > 0);
 	}
 	
 	public ArrayList<Algomon> getListadoAlgomones() {

@@ -21,7 +21,7 @@ public class AtaqueFogonazo extends AtaqueEspecial {
 			throw new AtaqueAgotadoException();
 		}
 		algomonAtacado.recibirAtaque(this);
-		algomonAtacado.setEstadoEfimero(new EstadoQuemado());
+		algomonAtacado.setEstadoPersistente(new EstadoQuemado());
 		setCantidad(getCantidadRestante() - 1);
 	}
 	

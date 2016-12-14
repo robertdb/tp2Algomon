@@ -13,39 +13,40 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaznueva.CombateController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventanacombate" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaznueva.CombateController">
    <children>
-      <GridPane layoutX="71.0" layoutY="79.0" prefHeight="575.0" prefWidth="882.0">
+      <GridPane layoutX="71.0" layoutY="73.0" prefHeight="597.0" prefWidth="882.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="408.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="58.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="497.0" minWidth="10.0" prefWidth="416.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="255.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="256.0" minHeight="0.0" prefHeight="77.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="177.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="272.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="255.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="256.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="170.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="246.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="imagenAlgomon1" scaleX="0.8" scaleY="0.8" GridPane.rowIndex="3">
+            <ImageView fx:id="imagenAlgomon1" scaleX="0.8" scaleY="0.8" GridPane.rowIndex="4">
                <image>
                   <Image url="@images/squirtleback.gif" />
                </image>
             </ImageView>
-            <ImageView fx:id="imagenAlgomon2" scaleX="0.6" scaleY="0.6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <ImageView fx:id="imagenAlgomon2" scaleX="0.6" scaleY="0.6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <image>
                   <Image url="@images/bulbasaur.gif" />
                </image>
             </ImageView>
-            <VBox alignment="BOTTOM_CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <children>
                   <MenuButton fx:id="botonMenuAtacar1" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Atacar" />
                   <MenuButton fx:id="botonMenuElementos1" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Elementos" />
                   <Button fx:id="botonCambiar1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cambiarAlgomonActivo" prefWidth="220.0" styleClass="botonchico" text="Cambiar" />
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
                   <MenuButton fx:id="botonMenuAtacar2" mnemonicParsing="false" prefWidth="220.0" styleClass="botonchico" text="Atacar" />
                   <MenuButton fx:id="botonMenuElementos2" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="botonchico" text="Elementos" />
@@ -68,6 +69,20 @@
                   <Region prefHeight="77.0" prefWidth="22.0" />
                   <Label fx:id="puntosSalud2" styleClass="titulochico" text="100" />
                   <Label styleClass="titulochico" text="PS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <children>
+                  <Label fx:id="etiquetaDormido1" styleClass="titulochico" text="Dormido!" textFill="BLUE" />
+                  <Region prefWidth="25.0" />
+                  <Label fx:id="etiquetaQuemado1" styleClass="titulochico" text="Quemado!" textFill="RED" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="etiquetaDormido2" styleClass="titulochico" text="Dormido!" textFill="BLUE" />
+                  <Region prefWidth="25.0" />
+                  <Label fx:id="etiquetaQuemado2" styleClass="titulochico" text="Quemado!" textFill="RED" />
                </children>
             </HBox>
          </children>
