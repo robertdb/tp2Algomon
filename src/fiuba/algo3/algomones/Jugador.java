@@ -1,6 +1,7 @@
 package fiuba.algo3.algomones;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
@@ -105,5 +106,10 @@ public class Jugador {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public Collection<Algomon> setAlgomones() {
+		// TODO Auto-generated method stub
+		return this.algomones.values();
 	}
 }

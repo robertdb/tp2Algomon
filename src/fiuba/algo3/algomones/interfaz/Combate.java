@@ -44,7 +44,7 @@ public class Combate {
 		root.getTransforms().add(new Scale(0.75, 0.75));
 		root.getChildren().add(new ImageView(new Image("images/arenaDeCombate.png", 1260, 480, false, false)));
 		this.estatus = new ImagenesDeEstado(root);
-		this.botones = new ActionEscene(root, this.estatus, this.juego);
+		this.botones = new ActionEscene(root, this.estatus, this.juego,stage);
 		return new Scene(root, 950, 540);
 	}
 	
