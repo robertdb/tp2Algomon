@@ -1,5 +1,7 @@
 package fiuba.algo3.algomones.interfaz;
 
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -8,6 +10,11 @@ import fiuba.algo3.algomones.Juego;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 
 public class ActionEscene {
 	private int botonesColumna = 3;
@@ -16,9 +23,11 @@ public class ActionEscene {
 	private BotonesDeElementos elementos;
 	private BotonesDeAlgomones algomones;
 	private ImagenesDeEstado estatus;
+	private Stage stage;
 	
-	public ActionEscene(Group root, ImagenesDeEstado estatus ,Juego juego){
+	public ActionEscene(Group root, ImagenesDeEstado estatus ,Juego juego,Stage stage){
 		this.juego = juego;
+		this.stage = stage;
 		this.ataques = new BotonesDeAtaque(this,root);
 		this.elementos = new BotonesDeElementos(this,root);
 		this.algomones = new BotonesDeAlgomones(this,root);
@@ -28,18 +37,19 @@ public class ActionEscene {
 	    this.ataques.actualizarBotonesAtaque(juego.getActivo().getAtaqueAlgomon(),juego.getActivo(),juego.getPasivo());
 	    this.elementos.actualizarBotonesElementos(juego.getActivo().getElementos(),juego.getActivo());
 	    this.algomones.actualizarBotonesAlgomones(juego.getActivo().getAlgomones(),juego.getActivo());
-		
+	    
 	}
 
 	public void actualizarBotones() {
-		juego.siguienteTurno();
-		
-	
-	    this.estatus.actualizarEstadosDelCombate(juego.getActivo(),juego.getPasivo());
-	    this.algomones.actualizarBotonesAlgomones(juego.getActivo().getAlgomones(),juego.getActivo());
-	    this.elementos.actualizarBotonesElementos(juego.getActivo().getElementos(),juego.getActivo());
-	    this.ataques.actualizarBotonesAtaque(juego.getActivo().getAtaqueAlgomon(),juego.getActivo(),juego.getPasivo());
-		   
+		try{
+			juego.siguienteTurno();
+			this.estatus.actualizarEstadosDelCombate(juego.getActivo(),juego.getPasivo());
+			this.algomones.actualizarBotonesAlgomones(juego.getActivo().getAlgomones(),juego.getActivo());
+			this.elementos.actualizarBotonesElementos(juego.getActivo().getElementos(),juego.getActivo());
+			this.ataques.actualizarBotonesAtaque(juego.getActivo().getAtaqueAlgomon(),juego.getActivo(),juego.getPasivo());
+		}catch(IndexOutOfBoundsException e ){
+			SceneFinaly fynal = new SceneFinaly (stage,juego.getActivo()); 
+		}
 	   
 	}
 }

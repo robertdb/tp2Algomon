@@ -42,9 +42,9 @@ public class Combate {
 		//esto da error
 		//root.setFill(Color.LEMONCHIFFON);
 		root.getTransforms().add(new Scale(0.75, 0.75));
-		//root.getChildren().add(new ImageView(new Image("images/fondo.png", 1260, 480, false, false)));
+		root.getChildren().add(new ImageView(new Image("images/arenaDeCombate.png", 1260, 480, false, false)));
 		this.estatus = new ImagenesDeEstado(root);
-		this.botones = new ActionEscene(root, this.estatus, this.juego);
+		this.botones = new ActionEscene(root, this.estatus, this.juego,stage);
 		return new Scene(root, 950, 540);
 	}
 	
