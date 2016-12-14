@@ -7,7 +7,6 @@ import fiuba.algo3.algomones.logica.Elemento;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
 import fiuba.algo3.algomones.logica.estadosdealgomones.*;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

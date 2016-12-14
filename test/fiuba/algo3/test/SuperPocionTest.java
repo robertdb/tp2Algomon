@@ -11,15 +11,13 @@ import fiuba.algo3.algomones.Ataque;
 import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.Elemento;
 import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.Pocion;
 import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.SuperPocion;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
 import fiuba.algo3.algomones.excepciones.SuperPocionAgotadaException;
 
-public class SuperPosionTest {
+public class SuperPocionTest {
 
 	@Test
 	public void testUsarSuperPosionEnAlgomonCon40ptsDeDanioRecuperaTodaSuVida() {
@@ -50,9 +48,9 @@ public class SuperPosionTest {
 				
 		assertEquals(vidaOriginalRaticate - 40,  raticate.salud() );
 				
-		Elemento superPosion = new SuperPocion();
+		Elemento superPocion = new SuperPocion();
 				
-		superPosion.aplicarElemento(raticate);
+		superPocion.aplicarElemento(raticate);
 				
 		assertEquals(vidaOriginalRaticate , raticate.salud() );
 				

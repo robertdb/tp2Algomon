@@ -8,19 +8,13 @@ import org.junit.Test;
 
 import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.Ataque;
-import fiuba.algo3.algomones.AtaqueCanto;
-import fiuba.algo3.algomones.AtaqueChupavidas;
 import fiuba.algo3.algomones.AtaqueFogonazo;
 import fiuba.algo3.algomones.AtaqueSimple;
-import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.Tipo;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoFuego;
 import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.TipoPlanta;
-import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 
 public class AtaqueFogonazoTest {
 

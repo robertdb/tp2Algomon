@@ -18,7 +18,6 @@ import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoFuego;
 import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.Vitamina;
 import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
 import fiuba.algo3.algomones.excepciones.RestauradorAgotadoException;
 

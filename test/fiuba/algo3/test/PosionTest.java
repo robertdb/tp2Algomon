@@ -10,13 +10,11 @@ import fiuba.algo3.algomones.Algomon;
 import fiuba.algo3.algomones.Ataque;
 import fiuba.algo3.algomones.AtaqueSimple;
 import fiuba.algo3.algomones.Elemento;
-import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.NombreDelAtaque;
 import fiuba.algo3.algomones.Pocion;
 import fiuba.algo3.algomones.Salud;
 import fiuba.algo3.algomones.TipoAgua;
 import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
 import fiuba.algo3.algomones.excepciones.PocionAgotadaException;
 
 public class PosionTest {

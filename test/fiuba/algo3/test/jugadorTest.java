@@ -2,15 +2,11 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
 
 import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.Elemento;
 import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.Jugador;
 import fiuba.algo3.algomones.NombreDelAtaque;
