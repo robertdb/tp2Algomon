@@ -8,10 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
 	
 	private Juego juego;
+	
+	private MusicaDeFondo musica = new MusicaDeFondo();
 	
 	public static void main(String[] args) {
         launch(args);
@@ -45,6 +46,8 @@ public class Main extends Application {
     	stage.show();
     	
     	controller.setVentanaActual(stage);
+    	
+    	musica.run();
     	
     }
     
