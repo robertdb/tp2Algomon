@@ -23,11 +23,6 @@ public class Main extends Application {
 
     	stage.setTitle("ALGOMON");
     
-    //	Font.loadFont(
-    //			this.getClass().getResource("fonts/minecraft.ttf").toExternalForm(), 
-    //			10
-    //			);
-
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Inicio.fxml"));
     	
     	Parent root = (Parent)fxmlLoader.load();
