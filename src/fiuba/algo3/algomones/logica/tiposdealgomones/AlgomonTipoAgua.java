@@ -7,9 +7,10 @@ public class AlgomonTipoAgua extends Algomon {
 	
 	@Override
 	public int recibirAtaque(Ataque ataque) {
+		int vidaAntes = this.getVida();
 		int danio = ataque.getDanioContraAgua();
-		this.setVida(this.getVida() - danio);
-		return danio;
+		this.recibirDanio(danio);
+		return (vidaAntes - this.getVida());
 	}
 	
 }

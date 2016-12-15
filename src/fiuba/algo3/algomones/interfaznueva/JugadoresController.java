@@ -3,16 +3,14 @@ package fiuba.algo3.algomones.interfaznueva;
 import fiuba.algo3.algomones.logica.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-public class JugadoresController {
+public class JugadoresController implements Controller  {
 	
 	private Juego juego;
+	
+	private InicioController inicioController;
 
     @FXML
     private TextField inputNombreJugador1;
@@ -30,23 +28,17 @@ public class JugadoresController {
     	this.juego.setJugador2(inputNombreJugador2.getText());
     	this.juego.setJugadorActivoRandom();
     	
-    	Stage stage = (Stage) botonContinuar.getScene().getWindow();
+    	this.inicioController.mostrarEscena(this.inicioController.cargarEscena("SeleccionAlgomones.fxml"));
     	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomones.fxml"));
-    	
-    	Parent root = (Parent)fxmlLoader.load();
-         
-    	SeleccionAlgomonesController controller = fxmlLoader.<SeleccionAlgomonesController>getController();
-
-    	controller.setJuego(juego);
-    	
-    	Scene escena = new Scene(root);
-    	
-    	stage.setScene(escena);
     }
 
 	public void setJuego(Juego juego) {
 		this.juego = juego;
+	}
+
+	@Override
+	public void setInicioController(InicioController controller) {
+		this.inicioController = controller;
 	}
 
 }

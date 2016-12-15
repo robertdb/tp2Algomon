@@ -47,6 +47,7 @@ public class Juego {
 		else {
 			setJugadorActivo(jugador1);
 		}
+		System.out.println("Turno de " + this.jugadorActivo.getNombre());
 	}
 
 	public void setJugadorActivoRandom() {

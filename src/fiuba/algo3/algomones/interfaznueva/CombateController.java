@@ -1,25 +1,21 @@
 package fiuba.algo3.algomones.interfaznueva;
 
 import java.util.ArrayList;
-
 import fiuba.algo3.algomones.logica.Ataque;
 import fiuba.algo3.algomones.logica.Elemento;
 import fiuba.algo3.algomones.logica.Juego;
 import fiuba.algo3.algomones.logica.Jugador;
+import fiuba.algo3.algomones.interfaznueva.CombateController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
-public class CombateController {
+public class CombateController implements Controller {
 	
 	Juego juego;
 	
@@ -30,6 +26,8 @@ public class CombateController {
 	Jugador jugadorActivo;
 	
 	Jugador jugadorInactivo;
+	
+	InicioController inicioController;
 
     @FXML
     private ImageView imagenAlgomon1;
@@ -88,14 +86,16 @@ public class CombateController {
     @FXML
     private Label mensaje;
 
+    @Override
 	public void setJuego(Juego juego) throws Exception {
 		this.juego = juego;
 		this.inicializar();
-
 	}
 	
 	public void inicializar() throws Exception {
-			
+		
+		this.inicioController.setCombate(this);
+		
 		this.jugador1 = juego.getJugador1();
 		this.jugador2 = juego.getJugador2();
 		this.jugadorActivo = juego.getJugadorActivo();
@@ -126,26 +126,46 @@ public class CombateController {
 		this.cargarElementos(jugador2, botonMenuElementos2);
         
         this.deshabilitarBotonesDelJugadorInactivo();
-		
+        
+        
 	}
 	
-	private void siguienteTurno() {
+	public void siguienteTurno() {
 		this.juego.cambiarTurno();
 		this.jugadorActivo = juego.getJugadorActivo();
 		this.jugadorInactivo = juego.getJugadorInactivo();
 		this.deshabilitarBotonesDelJugadorInactivo();
 		
-		if (this.jugadorActivo.getAlgomonActivo().getVida() < 1) {
+		if (this.jugadorInactivo.derrotado() || this.jugadorActivo.derrotado()) {
+			try {
+				this.inicioController.mostrarEscena(this.inicioController.cargarEscena("AnunciarGanador.fxml"));
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			return;	
+		}
+		
+		if (this.jugadorActivo.getAlgomonActivo().estaDerrotado()) {
+			
 			try {
 				this.cambiarAlgomonActivo(null);
 			}
 			catch (Exception e) {
-				System.err.println("Excepcion capturada: " + e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		if (this.jugadorInactivo.getAlgomonActivo().estaDerrotado()) {
+			this.juego.cambiarTurno();
+			try {
+				this.cambiarAlgomonActivo(null);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		
 	}
-	
 
 	private boolean jugadorEstaActivo(Jugador jugador) {
 		return jugador == this.jugadorActivo;
@@ -277,21 +297,16 @@ public class CombateController {
 	@FXML
     void cambiarAlgomonActivo(ActionEvent event) throws Exception {
     	
-    	Stage stage = (Stage) this.botonCambiar1.getScene().getWindow();
+		this.inicioController.mostrarSeleccionAlgomonActivo();
     	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomonActivo.fxml"));
-    	
-    	Parent root = (Parent)fxmlLoader.load();
-         
-    	SeleccionAlgomonActivoController controller = fxmlLoader.<SeleccionAlgomonActivoController>getController();
-
-    	controller.setJuego(this.juego);
-    	controller.setEscenaSiguiente(this.botonCambiar1.getScene(), this);
-    	
-    	Scene escena = new Scene(root);
-    	
-    	stage.setScene(escena);
     }
+
+	@Override
+	public void setInicioController(InicioController controller) {
+		
+		this.inicioController = controller;
+		
+	}
 	
 
 }

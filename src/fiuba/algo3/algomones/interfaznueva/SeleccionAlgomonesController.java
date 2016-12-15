@@ -9,11 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
-public class SeleccionAlgomonesController {
+public class SeleccionAlgomonesController implements Controller {
 	
 	private Juego juego;
+	
+	private InicioController inicioController;
 	
 	private int contadorSeleccionados = 0;
 
@@ -113,22 +114,25 @@ public class SeleccionAlgomonesController {
 
     	this.juego.cambiarTurno();
     	
-    	Stage stage = (Stage) nombreJugador.getScene().getWindow();
-    	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomonActivo.fxml"));
-    	
     	Parent root = (Parent)fxmlLoader.load();
          
     	SeleccionAlgomonActivoController controller = fxmlLoader.<SeleccionAlgomonActivoController>getController();
 
-    	FXMLLoader fxmlLoaderCombate = new FXMLLoader(getClass().getResource("Combate.fxml"));
-    	Parent rootCombate = (Parent)fxmlLoaderCombate.load();
+    	controller.setInicioController(this.inicioController);
     	controller.setJuego(juego);
-    	controller.setEscenaSiguiente(new Scene(rootCombate), fxmlLoaderCombate.<CombateController>getController());
     	
     	Scene escena = new Scene(root);
     	
-    	stage.setScene(escena);
+    	this.inicioController.mostrarEscena(escena);
+    	
+    	this.inicioController.setSeleccionAlgomonActivo(escena, controller);
+    	
+	}
+
+	@Override
+	public void setInicioController(InicioController controller) {
+		this.inicioController = controller;
 	}
 
 

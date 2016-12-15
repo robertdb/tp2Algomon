@@ -14,6 +14,7 @@ public class Jugador {
 	private HashMap<String, Algomon> algomones = new HashMap<String, Algomon>();
 	private HashMap<String, Elemento> elementos = new HashMap<String, Elemento>();
 	private Algomon algomonActivo;
+	private int cantidadDeAlgomonesDerrotados = 0;
 	
 	public Jugador(String nombre) {
 		setNombre(nombre);
@@ -40,6 +41,7 @@ public class Jugador {
 			throw new CadaJugadorNoPuedeElegirMasDe3AlgomonesException();
 		}
 		this.algomones.put(algomon.getNombre(), algomon);
+		algomon.setJugador(this);
 	}
 	
 	public Algomon getAlgomonActivo() {
@@ -70,6 +72,15 @@ public class Jugador {
 
 	public boolean tieneAlgomonActivo() {
 		return (this.algomonActivo != null && this.algomonActivo.getVida() > 0);
+	}
+	
+	public boolean derrotado() {
+		return (this.cantidadDeAlgomonesDerrotados == Jugador.cantidadDeAlgomonesPorJugador);
+	}
+	
+	public void sumarDerrota() {
+		this.cantidadDeAlgomonesDerrotados++;
+		System.out.println(this.getNombre() + " - algomones derrotados: " + this.cantidadDeAlgomonesDerrotados);
 	}
 	
 	public ArrayList<Algomon> getListadoAlgomones() {

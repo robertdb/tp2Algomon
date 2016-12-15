@@ -12,14 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
-public class SeleccionAlgomonActivoController {
+public class SeleccionAlgomonActivoController implements Controller  {
 
 	private Juego juego;
 	
 	private Scene escenaSiguiente;
-	private CombateController controllerSiguiente;
+	
+	private InicioController inicioController; 
 	
 	Jugador jugador;
 	ArrayList<Algomon> algomones;
@@ -72,10 +72,12 @@ public class SeleccionAlgomonActivoController {
     		this.inicializar();
     	}
     	else {	
-    	   	Stage stage = (Stage) botonContinuar.getScene().getWindow();
     	   	this.juego.cambiarTurno();
-    	   	this.controllerSiguiente.setJuego(this.juego);
-    	   	stage.setScene(this.escenaSiguiente);
+    	   	if (this.escenaSiguiente == null) {
+    	   		this.escenaSiguiente = this.inicioController.cargarEscena("Combate.fxml");
+    	   	}
+    	   	this.inicioController.getCombate().inicializar();
+    	   	this.inicioController.mostrarEscena(this.escenaSiguiente);
     	} 	
     	
     }
@@ -101,9 +103,15 @@ public class SeleccionAlgomonActivoController {
     	this.nombreAlgomonActivo.setText(algomonActivo.getNombre());
     }
 
-	public void setJuego(Juego juego) {
+    @Override
+	public void setJuego(Juego juego) throws Exception {
 		this.juego = juego;
-		this.inicializar();
+		if (juego.getJugadorActivo().derrotado()) {
+			this.continuar(null);
+		}
+		else {
+			this.inicializar();
+		}
 
 	}
 
@@ -129,8 +137,10 @@ public class SeleccionAlgomonActivoController {
 		
 	}
 
-	public void setEscenaSiguiente(Scene escena, CombateController controller) {
-		this.escenaSiguiente = escena;
-		this.controllerSiguiente = controller;
+	@Override
+	public void setInicioController(InicioController controller) {
+		this.inicioController = controller;
 	}
+
+
 }

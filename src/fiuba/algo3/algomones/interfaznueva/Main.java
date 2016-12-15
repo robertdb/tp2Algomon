@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	private Juego juego = new Juego();
+	private Juego juego;
 	
 	public static void main(String[] args) {
         launch(args);
@@ -43,17 +43,10 @@ public class Main extends Application {
     	stage.setResizable(false);
 
     	stage.show();
-    
+    	
+    	controller.setVentanaActual(stage);
+    	
     }
     
-//    public void juegoNuevo(Stage stage) throws Exception {
-//   	
-//    	Parent root = FXMLLoader.load(getClass().getResource("Jugadores.fxml"));
-//    	
-//    	Scene escena = new Scene(root);
-//    	
-//    	stage.setScene(escena);
-    	
-//    }
     
 }

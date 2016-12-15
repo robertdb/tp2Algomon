@@ -21,6 +21,10 @@ public abstract class Algomon {
 	
 	private ContextoEstado estado = new ContextoEstado();
 	
+	private Jugador jugador;
+	
+	private boolean derrotado = false;
+	
 	private final SimpleStringProperty vidaProperty = new SimpleStringProperty();
 	
 	private final SimpleBooleanProperty estaDormidoProperty = new SimpleBooleanProperty();
@@ -28,21 +32,19 @@ public abstract class Algomon {
 	private final SimpleBooleanProperty estaQuemadoProperty = new SimpleBooleanProperty();
 	
 	public int getVida() {
-		return vida;
+		return this.vida;
 	}
 
 	public void setVida(int vida) {
 		if (this.vidaOriginal == -1) {
 			this.vidaOriginal = vida;
 		}
-		if (vida < 0) {
-			vida = 0;
-		}
-		// TODO, descomentar y comentar lo de abajo
-		//this.vida = vida ;
-		//this.vidaProperty.setValue(String.valueOf(vida));
-		this.vida = (int) (vida * 0.1);
+		this.vida = vida;
 		this.vidaProperty.setValue(String.valueOf(this.vida));
+		if (this.vida < 1) {
+			this.derrotado = true;
+			this.jugador.sumarDerrota();
+		}
 	}
 	
 	public void aumentarVida(int puntos) {
@@ -102,13 +104,20 @@ public abstract class Algomon {
 	}
 
 	public int recibirAtaque(Ataque ataque) {
+		int vidaAntes = this.getVida();
 		int danio = ataque.getDanioContraNormal();
-		this.recibirDanio(danio);;
-		return danio;
+		this.recibirDanio(danio);
+		return (vidaAntes - this.getVida());
 	}
 	
 	public void recibirDanio(int danio) {
-		this.setVida(this.getVida() - danio);
+		
+		if ((this.getVida() - danio) < 1) {
+			this.setVida(0);
+		}
+		else {
+			this.setVida(this.getVida() - danio);
+		}
 	}
 
 	public void setEstadoPersistente(EstadoAlgomon estado) {
@@ -144,6 +153,18 @@ public abstract class Algomon {
 
 	public SimpleBooleanProperty getEstaQuemadoProperty() {
 		return this.estaQuemadoProperty;
+	}
+	
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+	
+	public Jugador getJugador() {
+		return this.jugador;
+	}
+
+	public boolean estaDerrotado() {
+		return this.derrotado;
 	}
 
 }
