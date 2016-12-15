@@ -2,10 +2,10 @@ package fiuba.algo3.test;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.logica.Algomon;
-import fiuba.algo3.algomones.logica.especiesdealgomones.*;
-import fiuba.algo3.algomones.logica.estadosdealgomones.EstadoDormido;
-import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
+import fiuba.algo3.algomones.Algomon;
+import fiuba.algo3.algomones.especiesdealgomones.*;
+import fiuba.algo3.algomones.estadosdealgomones.EstadoDormido;
+import fiuba.algo3.algomones.excepciones.AlgomonDormidoNoPuedeAtacarException;
 
 public class DormidoTest {
 

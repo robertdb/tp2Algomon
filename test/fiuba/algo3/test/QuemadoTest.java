@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.logica.Algomon;
-import fiuba.algo3.algomones.logica.ContextoEstado;
-import fiuba.algo3.algomones.logica.especiesdealgomones.Bulbasaur;
-import fiuba.algo3.algomones.logica.estadosdealgomones.EstadoQuemado;
+import fiuba.algo3.algomones.Algomon;
+import fiuba.algo3.algomones.ContextoEstado;
+import fiuba.algo3.algomones.especiesdealgomones.Bulbasaur;
+import fiuba.algo3.algomones.estadosdealgomones.EstadoQuemado;
 
 public class QuemadoTest {
 

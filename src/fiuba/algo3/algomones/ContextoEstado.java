@@ -1,89 +1,37 @@
 package fiuba.algo3.algomones;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import fiuba.algo3.algomones.estadosdealgomones.EstadoNoDormido;
+import fiuba.algo3.algomones.estadosdealgomones.EstadoNoQuemado;
 
 public class ContextoEstado {
-  
-  private Efecto quemado;
-  
-  private Efecto dormido;
-    
-  public ContextoEstado() {
-    
-	  quemado = new NormalEfecto();
 	
-	  dormido = new NormalEfecto();
-  
-  }
-  
-  public void nuevoEfecto(Efecto efecto) {
-      
-	  efecto.agregar(this);
-  
-  }
+	private EstadoAlgomon estadoPersistente = new EstadoNoQuemado();
+	private EstadoAlgomon estadoEfimero = new EstadoNoDormido();
 
-  public void setearQuemado(Efecto quemado){
-
-      this.quemado = quemado;
-      
-  }
-
-  public void setearDormido(Efecto dormido){
-  
-      this.dormido = dormido;
-      
-  }
-     
-  public void aplicarEfectos(Algomon algomon){
-
-      // el orden importa
-	  
-	  quemado.aplicarEfecto(algomon); 
-	  
-	  dormido.aplicarEfecto(algomon);
-           
-  }
-  
-  public void desactivarQuemado(){
-	  
-    quemado = new NormalEfecto();
-    
-  }
-
-  public void desactivarDormido(){
-	  
-    dormido = new NormalEfecto();
-    
-  }
-  
-  public void aplicarNormalizador(Algomon algomon){
-	  
-	  quemado.aplicarEfecto(algomon);
-	  
-	  this.desactivarQuemado();
-	  
-	  this.desactivarDormido();
-	  
-  }
-
-  public String nombreEstado() {
+	public void setEstadoPersistente(EstadoAlgomon estado) {
+		this.estadoPersistente = estado;
+	}
 	
-	return dormido.nombreDeEstado()+" "+quemado.nombreDeEstado();
-  }
+	public void setEstadoEfimero(EstadoAlgomon estado) {
+		this.estadoEfimero = estado;
+	}
 
-  public String nombreEstadoEfimero() {
-	return dormido.nombreDeEstado();
-  }
-  public void reducirEstadoEfimero(){
-	  dormido.reducirTiempo();
-  }
-
-  public void aplicarPersistente(Algomon algomon) {
-	quemado.aplicarEfecto(algomon);
+	public void aplicarEfectosAtaque(Algomon algomon) {
+		estadoPersistente.aplicarEfectoAtaque(algomon);
+		estadoEfimero.aplicarEfectoAtaque(algomon);
+	}
 	
-  }
-   
-  
+	public void aplicarEfectosElemento(Algomon algomon) {
+		estadoPersistente.aplicarEfectoElemento(algomon);
+		estadoEfimero.aplicarEfectoElemento(algomon);
+	}
+
+	public EstadoAlgomon getEstadoPersistente() {
+		return this.estadoPersistente;
+	}
+
+	public EstadoAlgomon getEstadoEfimero() {
+		return this.estadoEfimero;
+	}
+
 }

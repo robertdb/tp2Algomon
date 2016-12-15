@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaznueva.SeleccionAlgomonesController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaz.SeleccionAlgomonesController">
    <children>
       <Button fx:id="botonCharmander" contentDisplay="GRAPHIC_ONLY" layoutX="76.0" layoutY="231.0" mnemonicParsing="false" onAction="#seleccionarCharmander" prefHeight="220.0" prefWidth="270.0" stylesheets="@style.css" text="Charmander">
          <styleClass>

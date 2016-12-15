@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.logica.Algomon;
-import fiuba.algo3.algomones.logica.Elemento;
-import fiuba.algo3.algomones.logica.elementos.Restaurador;
-import fiuba.algo3.algomones.logica.especiesdealgomones.*;
-import fiuba.algo3.algomones.logica.excepciones.*;
+import fiuba.algo3.algomones.Algomon;
+import fiuba.algo3.algomones.Elemento;
+import fiuba.algo3.algomones.elementos.Restaurador;
+import fiuba.algo3.algomones.especiesdealgomones.*;
+import fiuba.algo3.algomones.excepciones.*;
 
 public class RestauradorTest {
 

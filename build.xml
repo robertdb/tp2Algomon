@@ -201,7 +201,7 @@
 	<target name="empaquetar.con.imagenes" depends="compilar.paquete">
 		<copydir
 			src="recursos/images"
-			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva/images"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaz/images"
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
@@ -209,7 +209,7 @@
 	<target name="empaquetar.con.fuentes" depends="empaquetar.con.imagenes">
 		<copydir
 			src="recursos/fonts"
-			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva/fonts"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaz/fonts"
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
@@ -217,7 +217,7 @@
 	<target name="empaquetar.con.fxml" depends="empaquetar.con.fuentes">
 		<copydir
 			src="recursos"
-			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaz"
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
@@ -231,7 +231,7 @@
 	</target>
 	
 	<target name="ejecutar.aplicacion" depends="empaquetar.con.sonidos">
-		<java classname="fiuba.algo3.algomones.interfaznueva.Main" fork="true">
+		<java classname="fiuba.algo3.algomones.interfaz.Main" fork="true">
 			<classpath refid="classpath" />
 			<classpath location="${build}/dist/algo3.jar" />
 		</java>

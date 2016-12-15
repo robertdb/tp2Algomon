@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaznueva.JugadoresController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algomones.interfaz.JugadoresController">
    <children>
       <Label layoutX="242.0" layoutY="76.0" styleClass="titulo" text="Ingresa tu nombre" />
       <GridPane layoutX="103.0" layoutY="190.0" prefHeight="388.0" prefWidth="818.0">

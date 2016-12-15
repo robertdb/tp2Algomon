@@ -1,18 +1,20 @@
 package fiuba.algo3.algomones.interfaz;
 
-import fiuba.algo3.algomones.EspecieAlgomon;
 import fiuba.algo3.algomones.Juego;
+import fiuba.algo3.algomones.especiesdealgomones.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
-public class SeleccionAlgomonesController {
+public class SeleccionAlgomonesController implements Controller {
 	
 	private Juego juego;
+	
+	private InicioController inicioController;
 	
 	private int contadorSeleccionados = 0;
 
@@ -39,8 +41,8 @@ public class SeleccionAlgomonesController {
 
     @FXML
     void seleccionarBulbasaur(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.BULBASAUR, EspecieAlgomon.BULBASAUR.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Bulbasaur());
+    	this.juego.cambiarTurno();
     	this.botonBulbasaur.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -50,8 +52,8 @@ public class SeleccionAlgomonesController {
 
 	@FXML
     void seleccionarChansey(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.CHANSEY, EspecieAlgomon.CHANSEY.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Chansey());
+    	this.juego.cambiarTurno();
     	this.botonChansey.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -61,8 +63,8 @@ public class SeleccionAlgomonesController {
 
     @FXML
     void seleccionarCharmander(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.CHARMANDER, EspecieAlgomon.CHARMANDER.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Charmander());
+    	this.juego.cambiarTurno();
     	this.botonCharmander.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -72,8 +74,8 @@ public class SeleccionAlgomonesController {
 
     @FXML
     void seleccionarJigglypuff(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.JIGGLYPUFF, EspecieAlgomon.JIGGLYPUFF.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Jigglypuff());
+    	this.juego.cambiarTurno();
     	this.botonJigglypuff.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -83,8 +85,8 @@ public class SeleccionAlgomonesController {
 
     @FXML
     void seleccionarRattata(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.RATTATA, EspecieAlgomon.RATTATA.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Rattata());
+    	this.juego.cambiarTurno();
     	this.botonRattata.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -94,8 +96,8 @@ public class SeleccionAlgomonesController {
 
     @FXML
     void seleccionarSquirtle(ActionEvent event) throws Exception {
-    	this.juego.getActivo().ingresarAlgomon(EspecieAlgomon.SQUIRTLE, EspecieAlgomon.SQUIRTLE.nuevo());
-    	this.juego.siguienteTurno();
+    	this.juego.getJugadorActivo().agregarAlgomon(new Squirtle());
+    	this.juego.cambiarTurno();
     	this.botonSquirtle.setDisable(true);
     	this.contadorSeleccionados++;
     	if (this.contadorSeleccionados > 5) {
@@ -110,13 +112,27 @@ public class SeleccionAlgomonesController {
 	
     private void continuar() throws Exception {
 
-    	this.juego.siguienteTurno();
+    	this.juego.cambiarTurno();
     	
-    	Stage stage = (Stage) nombreJugador.getScene().getWindow();
-    	
-    	Combate combate = new Combate(stage,this.juego);
-    	combate.iniciarCombate();
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SeleccionAlgomonActivo.fxml"));
+    	Parent root = (Parent)fxmlLoader.load();
+         
+    	SeleccionAlgomonActivoController controller = fxmlLoader.<SeleccionAlgomonActivoController>getController();
 
+    	controller.setInicioController(this.inicioController);
+    	controller.setJuego(juego);
+    	
+    	Scene escena = new Scene(root);
+    	
+    	this.inicioController.mostrarEscena(escena);
+    	
+    	this.inicioController.setSeleccionAlgomonActivo(escena, controller);
+    	
+	}
+
+	@Override
+	public void setInicioController(InicioController controller) {
+		this.inicioController = controller;
 	}
 
 

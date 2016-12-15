@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.logica.Algomon;
-import fiuba.algo3.algomones.logica.especiesdealgomones.*;
-import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
-import fiuba.algo3.algomones.logica.excepciones.AtaqueAgotadoException;
+import fiuba.algo3.algomones.Algomon;
+import fiuba.algo3.algomones.especiesdealgomones.*;
+import fiuba.algo3.algomones.excepciones.AlgomonDormidoNoPuedeAtacarException;
+import fiuba.algo3.algomones.excepciones.AtaqueAgotadoException;
 
 public class AlgomonTest {
 

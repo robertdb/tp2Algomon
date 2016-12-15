@@ -5,6 +5,13 @@
     -fx-background-position: center center; 
 }
 
+.ventanacombate{
+    -fx-background-image: url("images/fondocombate.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1024 768;
+    -fx-background-position: center center; 
+}
+
 .titulo{
     -fx-font-family: "minecraft";
     -fx-font-size: 48;

@@ -3,9 +3,9 @@ package fiuba.algo3.test;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.logica.Juego;
-import fiuba.algo3.algomones.logica.Jugador;
-import fiuba.algo3.algomones.logica.especiesdealgomones.*;
+import fiuba.algo3.algomones.Juego;
+import fiuba.algo3.algomones.Jugador;
+import fiuba.algo3.algomones.especiesdealgomones.*;
 
 public class JuegoTest {
 
