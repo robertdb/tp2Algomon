@@ -214,24 +214,63 @@
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
 	
-	<target name="empaquetar.con.fuentes" depends="empaquetar.con.imagenes2">
+	<target name="empaquetar.con.imagenes.nuevainterfaz" depends="empaquetar.con.imagenes2">
+		<copydir
+			src="recursos/images"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva/images"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+	
+	<target name="empaquetar.con.fuentes" depends="empaquetar.con.imagenes.nuevainterfaz">
 		<copydir
 			src="fonts"
 			dest="${build}/classes/fonts"
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
-			
-	<target name="empaquetar.con.fxml" depends="empaquetar.con.fuentes">
+	
+	<target name="empaquetar.con.fuentes.nuevainterfaz" depends="empaquetar.con.fuentes">
+		<copydir
+			src="recursos/fonts"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva/fonts"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+	
+	<target name="empaquetar.con.fxml" depends="empaquetar.con.fuentes.nuevainterfaz">
 		<copydir
 			src="fxml"
 			dest="${build}/classes/fiuba/algo3/algomones/interfaz"
 			includes="*"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
-	</target>	
+	</target>
+			
+	<target name="empaquetar.con.fxml.nuevainterfaz" depends="empaquetar.con.fxml">
+		<copydir
+			src="recursos"
+			dest="${build}/classes/fiuba/algo3/algomones/interfaznueva"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
+	
+	<target name="empaquetar.con.sonidos.nuevainterfaz" depends="empaquetar.con.fxml.nuevainterfaz">
+		<copydir
+			src="sounds"
+			dest="${build}/classes/sounds"
+			includes="*"/>
+		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
+	</target>
 
 	<target name="ejecutar.aplicacion" depends="empaquetar.con.fxml">
 		<java classname="fiuba.algo3.algomones.interfaz.Main" fork="true">
+			<classpath refid="classpath" />
+			<classpath location="${build}/dist/algo3.jar" />
+		</java>
+	</target>
+	
+	<target name="ejecutar.aplicacion.nuevainterfaz" depends="empaquetar.con.sonidos.nuevainterfaz">
+		<java classname="fiuba.algo3.algomones.interfaznueva.Main" fork="true">
 			<classpath refid="classpath" />
 			<classpath location="${build}/dist/algo3.jar" />
 		</java>
