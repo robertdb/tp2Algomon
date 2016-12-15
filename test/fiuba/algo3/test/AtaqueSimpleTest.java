@@ -2,8 +2,6 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 
-import java.util.EnumMap;
-
 import org.junit.Test;
 
 import fiuba.algo3.algomones.logica.Algomon;
