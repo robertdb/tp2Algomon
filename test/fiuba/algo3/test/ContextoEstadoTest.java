@@ -2,13 +2,12 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.ContextoEstado;
-import fiuba.algo3.algomones.Dormido;
-import fiuba.algo3.algomones.Quemado;
-import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.TipoPlanta;
-import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.ContextoEstado;
+import fiuba.algo3.algomones.logica.elementos.Restaurador;
+import fiuba.algo3.algomones.logica.especiesdealgomones.*;
+import fiuba.algo3.algomones.logica.estadosdealgomones.*;
+import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
 
 	public class ContextoEstadoTest {
 
@@ -16,25 +15,26 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 	@Test
 	public void testSeAplicanEfectosDormidoYQuemadoAlAlgomon(){
 		
-		AtacarDormidoNoPuedeRealizarseException err1 = null;
-		AtacarDormidoNoPuedeRealizarseException err2 = null;
-		AtacarDormidoNoPuedeRealizarseException err3 = null;
-		AtacarDormidoNoPuedeRealizarseException err4 = null;
+		AlgomonDormidoNoPuedeAtacarException err1 = null;
+		AlgomonDormidoNoPuedeAtacarException err2 = null;
+		AlgomonDormidoNoPuedeAtacarException err3 = null;
+		AlgomonDormidoNoPuedeAtacarException err4 = null;
 		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
+		Algomon bulbasaur = new Bulbasaur();
+
 		ContextoEstado contexto = new ContextoEstado(); 
 		
-		contexto.nuevoEfecto(new Dormido());
+		contexto.setEstadoEfimero(new EstadoDormido());
 		
-		contexto.nuevoEfecto(new Quemado());
+		contexto.setEstadoPersistente(new EstadoQuemado());
 		
 		
 		try{
 			
-			contexto.aplicarEfectos(venusaur);
+			contexto.aplicarEfectosAtaque(bulbasaur);
+			contexto.aplicarEfectosElemento(bulbasaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+		}catch(AlgomonDormidoNoPuedeAtacarException exep){
 			
 			err1 = exep;
 			
@@ -42,34 +42,38 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 		
 		try{
 			
-			contexto.aplicarEfectos(venusaur);
+			contexto.aplicarEfectosAtaque(bulbasaur);
+			contexto.aplicarEfectosElemento(bulbasaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+		}catch(AlgomonDormidoNoPuedeAtacarException exep){
 			
 			err2 = exep;
 			
 		}
 		try{
 			
-			contexto.aplicarEfectos(venusaur);
+			contexto.aplicarEfectosAtaque(bulbasaur);
+			contexto.aplicarEfectosElemento(bulbasaur);
 			
-		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+		}catch(AlgomonDormidoNoPuedeAtacarException exep){
 			
 			err3 = exep;
 		}
 
 		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exep){
+			contexto.aplicarEfectosAtaque(bulbasaur);
+			contexto.aplicarEfectosElemento(bulbasaur);
+			
+		}catch(AlgomonDormidoNoPuedeAtacarException exep){
 			
 			err4 = exep;
 		}
 		
-		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertTrue(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertFalse(err4 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertEquals(240,venusaur.salud(),0.01D);
+		assertTrue(err1 instanceof AlgomonDormidoNoPuedeAtacarException);
+		assertTrue(err2 instanceof AlgomonDormidoNoPuedeAtacarException);
+		assertTrue(err3 instanceof AlgomonDormidoNoPuedeAtacarException);
+		assertFalse(err4 instanceof AlgomonDormidoNoPuedeAtacarException);
+		assertEquals(70,bulbasaur.getVida(),0.01D);
 		
 		
 	}
@@ -79,112 +83,17 @@ import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException
 	public void testElEfectoQuemadoCausaDanioEnElAlgomonAntesDeDesactivarse(){
 		
 		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		Algomon bulbasaur = new Bulbasaur();
 		
-		ContextoEstado contexto = new ContextoEstado(); 
+		bulbasaur.setEstadoPersistente(new EstadoQuemado());
 		
-		contexto.nuevoEfecto(new Quemado());
+		Restaurador restaurador = new Restaurador();
 		
-		contexto.aplicarNormalizador(venusaur);
+		bulbasaur.aplicarElemento(restaurador);
 		
-		assertEquals(360,venusaur.salud(),0.01D);
-		
-	}
-	
-	
-	@Test
-	public void testEfectoDormidoEnAlgomonSeDesactiva(){
-		
-		AtacarDormidoNoPuedeRealizarseException err1 = null;
-		AtacarDormidoNoPuedeRealizarseException err2 = null;
-		AtacarDormidoNoPuedeRealizarseException err3 = null;
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		contexto.nuevoEfecto(new Dormido());
-					
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err1 = exception;
-			
-		}
-		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err2 = exception;
-			
-		}
-		
-		contexto.aplicarNormalizador(venusaur);
-		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err3 = exception;
-			
-		}
-		
-		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertFalse(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
-			
-	}
-	
-	@Test
-	public void testAplicarEfectosDormidoDevueleExceptionDeNoPoderAtacar3Veces(){
-		
-		AtacarDormidoNoPuedeRealizarseException err1 = null;
-		AtacarDormidoNoPuedeRealizarseException err2 = null;
-		AtacarDormidoNoPuedeRealizarseException err3 = null;
-		AtacarDormidoNoPuedeRealizarseException err4 = null;
-		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
-		
-		ContextoEstado contexto = new ContextoEstado(); 
-		
-		contexto.nuevoEfecto(new Dormido());
-	
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err1 = exception;
-			
-		}
-		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err2 = exception;
-			
-		}
-		
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err3 = exception;
-		}
-		try{
-			contexto.aplicarEfectos(venusaur);
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){
-			
-			err4 = exception;
-		}
-		
-		assertTrue(err1 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertTrue(err2 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertTrue(err3 instanceof AtacarDormidoNoPuedeRealizarseException);
-		assertFalse(err4 instanceof AtacarDormidoNoPuedeRealizarseException);
-		
+		assertEquals(126, bulbasaur.getVida(),0.01D);
 		
 	}
+	
+	
 }

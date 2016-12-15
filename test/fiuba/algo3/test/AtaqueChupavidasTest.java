@@ -2,139 +2,63 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 
-import java.util.EnumMap;
-
 import org.junit.Test;
 
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.Ataque;
-import fiuba.algo3.algomones.AtaqueChupavidas;
-import fiuba.algo3.algomones.AtaqueSimple;
-import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.Tipo;
-import fiuba.algo3.algomones.TipoAgua;
-import fiuba.algo3.algomones.TipoFuego;
-import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.TipoPlanta;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.especiesdealgomones.*;
 
 public class AtaqueChupavidasTest {
 
 	@Test
 	public void testAtacarConChupavidasAunAlgomontipoFuegoQuita7ptsYgana2ptsDeVida() {
+	
+		Algomon bulbasaur = new Bulbasaur();
+		Algomon charmander = new Charmander();
+		int vidaOriginalBulbasaur = bulbasaur.getVida();
+		int vidaOriginalCharmander = charmander.getVida();
+		bulbasaur.atacar(charmander, "Chupavidas");
+		assertEquals(charmander.getVida(), vidaOriginalCharmander - 7);
+		assertEquals(bulbasaur.getVida(), vidaOriginalBulbasaur + 2);
 		
-		// Se crea un algomon personalizado.
-		int potenciaChupavidas = 15;
-		int cantidadMaximaDeAtaquesChupavidas = 50;
-		Ataque chupavidas = new AtaqueChupavidas(new TipoPlanta(), potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas );
-		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataques.put(NombreDelAtaque.CHUPAVIDAS, chupavidas);
-		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, ataques, salud);
-		
-		// Se crea otro algomon personalizado.
-		int potenciaBrasas = 16;
-		Ataque brasas = new AtaqueSimple(new TipoFuego(), potenciaBrasas, 1);
-		EnumMap<NombreDelAtaque, Ataque> ataqs = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataqs.put(NombreDelAtaque.BRASAS, brasas);
-		Salud saludCharizard= new Salud(400);
-		Algomon charizard = new Algomon("Charizard", new TipoFuego(), ataqs , saludCharizard);
-		
-		double vidaOriginalCharizard = charizard.salud();
-		double vidaOriginalVenusaur  = venusaur.salud();
-		
-		venusaur.atacar(charizard, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalCharizard - 7,  charizard.salud() , 0.001D);
-		
-		charizard.atacar(venusaur, NombreDelAtaque.BRASAS);
-		
-		assertEquals(vidaOriginalVenusaur - 32, venusaur.salud(), 0.001D);
-		
-		venusaur.atacar(charizard, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalVenusaur - 32 + 2, venusaur.salud(), 0.001D);
-			
 	}
+		
 	
 	@Test
 	public void testAtacarConChupavidasAunAlgomontipoAguaQuita30ptsYgana9ptsDeVida() {
 		
-		// Se crea un algomon personalizado.
-		int potenciaChupavidas = 15;
-		int cantidadMaximaDeAtaquesChupavidas = 50;
-		Ataque chupavidas = new AtaqueChupavidas(new TipoPlanta(), potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas );
-		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataques.put(NombreDelAtaque.CHUPAVIDAS, chupavidas);
-		
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, ataques, salud);
-		
-		// Se crea otro algomon personalizado.
-		int potenciaBurbuja = 20;
-		int cantidadMaximaDeAtaquesBurbuja = 16;
-		Ataque burbuja = new AtaqueSimple(new TipoAgua(), potenciaBurbuja, cantidadMaximaDeAtaquesBurbuja);
-		EnumMap<NombreDelAtaque, Ataque> _ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		_ataques.put(NombreDelAtaque.BURBUJA, burbuja);
-		Salud saludBlastoise = new Salud(400);
-		Algomon blastoise = new Algomon("Blastoise", new TipoAgua(), _ataques , saludBlastoise);
-		
-		double vidaOriginalBlastoise  = blastoise.salud();
-		double vidaOriginalVenusaur  = venusaur.salud();
-		
-		venusaur.atacar(blastoise, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalBlastoise - 30,  blastoise.salud() , 0.001D);
-		
-		blastoise.atacar(venusaur, NombreDelAtaque.BURBUJA);
-		
-		assertEquals(vidaOriginalVenusaur - 10, venusaur.salud(), 0.001D);
-		
-		venusaur.atacar(blastoise, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalVenusaur - 10 + 9, venusaur.salud(), 0.001D);
+		Algomon bulbasaur = new Bulbasaur();
+		Algomon squirtle = new Squirtle();
+		int vidaOriginalBulbasaur = bulbasaur.getVida();
+		int vidaOriginalSquirtle = squirtle.getVida();
+		bulbasaur.atacar(squirtle, "Chupavidas");
+		assertEquals(squirtle.getVida(), vidaOriginalSquirtle - 30);
+		assertEquals(bulbasaur.getVida(), vidaOriginalBulbasaur + 9);
 
 	}
 	
 	@Test
 	public void testAtacarConChupavidasAunAlgomontipoNormalQuita15ptsYgana4ptsDeVida() {
 		
-		// Se crea un algomon personalizado.
-		int potenciaChupavidas = 15;
-		int cantidadMaximaDeAtaquesChupavidas = 50;
-		Ataque chupavidas = new AtaqueChupavidas(new TipoPlanta(), potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas );
-		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataques.put(NombreDelAtaque.CHUPAVIDAS, chupavidas);
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, ataques, salud);
+		Algomon bulbasaur = new Bulbasaur();
+		int vidaOriginalBulbasaur = bulbasaur.getVida();
 		
-		// Se crea un algomon personalizado.
-		int potenciaAtaqueRapido = 25;
-		int cantidadMaximaDeAtaquesAtaqueRapido = 16;
-		Ataque ataqueRapido = new AtaqueSimple(new TipoNormal(), potenciaAtaqueRapido , cantidadMaximaDeAtaquesAtaqueRapido );
-		EnumMap<NombreDelAtaque, Ataque> ataquesNormal = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataquesNormal.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
-		Salud saludRaticate = new Salud(300);
-		Algomon raticate = new Algomon("Raticate", new TipoNormal(), ataquesNormal, saludRaticate);
+		Algomon chansey = new Chansey();
+		int vidaOriginalChansey = chansey.getVida();
+		bulbasaur.atacar(chansey, "Chupavidas");
+		assertEquals(chansey.getVida(), vidaOriginalChansey - 15);
+		assertEquals(bulbasaur.getVida(), vidaOriginalBulbasaur + 4);
 		
-		double vidaOriginalRaticate  = raticate.salud();
-		double vidaOriginalVenusaur  = venusaur.salud();
+		Algomon rattata = new Rattata();
+		int vidaOriginalRattata = rattata.getVida();
+		bulbasaur.atacar(rattata, "Chupavidas");
+		assertEquals(rattata.getVida(), vidaOriginalRattata - 15);
+		assertEquals(bulbasaur.getVida(), vidaOriginalBulbasaur + 4 + 4);
 		
-		venusaur.atacar(raticate, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalRaticate - 15,  raticate.salud() , 0.001D);
-		
-		raticate.atacar(venusaur, NombreDelAtaque.ATAQUE_RAPIDO);
-		
-		assertEquals(vidaOriginalVenusaur - 25, venusaur.salud(), 0.001D);
-		
-		venusaur.atacar(raticate, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalVenusaur - 25 + 4, venusaur.salud(), 0.001D);
+		Algomon jigglypuff = new Jigglypuff();
+		int vidaOriginalJigglypuff = jigglypuff.getVida();
+		bulbasaur.atacar(jigglypuff, "Chupavidas");
+		assertEquals(jigglypuff.getVida(), vidaOriginalJigglypuff - 15);
+		assertEquals(bulbasaur.getVida(), vidaOriginalBulbasaur + 4 + 4 + 4);
 
 	}
 
@@ -142,39 +66,18 @@ public class AtaqueChupavidasTest {
 	@Test
 	public void testAtacarConChupavidasAunAlgomontipoPlantaQuita7ptsYgana2ptsDeVida() {
 		
-		// Se crea un algomon personalizado.
-		int potenciaChupavidas = 15;
-		int cantidadMaximaDeAtaquesChupavidas = 50;
-		Ataque chupavidas = new AtaqueChupavidas(new TipoPlanta(), potenciaChupavidas, cantidadMaximaDeAtaquesChupavidas );
-		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataques.put(NombreDelAtaque.CHUPAVIDAS, chupavidas);
-		Salud salud = new Salud(400);
-		Tipo planta = new TipoPlanta();
-		Algomon venusaur = new Algomon("Venusaur", planta, ataques, salud);
+		Algomon bulbasaur = new Bulbasaur();
 		
-		// Se crea un algomon personalizado.
-		int potenciaLatigoCepa = 25;
-		int cantidadMaximaDeAtaquesLatigoCepa = 16;
-		Ataque ataqueLatigoCepa = new AtaqueSimple(new TipoPlanta(), potenciaLatigoCepa , cantidadMaximaDeAtaquesLatigoCepa );
-		EnumMap<NombreDelAtaque, Ataque> ataquesPlanta = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataquesPlanta.put(NombreDelAtaque.LATIGO_CEPA, ataqueLatigoCepa);
-		Salud saludIvysaur = new Salud(300);
-		Algomon ivysaur = new Algomon("Ivysaur", new TipoPlanta(), ataquesPlanta, saludIvysaur);
+		Algomon bulbasaur2 = new Bulbasaur();
 		
-		double vidaOriginalIvysaur  = ivysaur.salud();
-		double vidaOriginalVenusaur  = venusaur.salud();
+		int vidaOriginalBulbasaur  = bulbasaur.getVida();
+		int vidaOriginalBulbasaur2  = bulbasaur2.getVida();
 		
-		venusaur.atacar(ivysaur, NombreDelAtaque.CHUPAVIDAS);
+		bulbasaur.atacar(bulbasaur2, "Chupavidas");
 		
-		assertEquals(vidaOriginalIvysaur - 7,  ivysaur.salud() , 0.001D);
+		assertEquals(vidaOriginalBulbasaur2 - 7,  bulbasaur2.getVida() , 0.001D);
 		
-		ivysaur.atacar(venusaur, NombreDelAtaque.LATIGO_CEPA);
-		
-		assertEquals(vidaOriginalVenusaur - 12, venusaur.salud(), 0.001D);
-		
-		venusaur.atacar(ivysaur, NombreDelAtaque.CHUPAVIDAS);
-		
-		assertEquals(vidaOriginalVenusaur - 12 + 2, venusaur.salud(), 0.001D);
+		assertEquals(vidaOriginalBulbasaur + 2, bulbasaur.getVida(), 0.001D);
 
 	}
 	

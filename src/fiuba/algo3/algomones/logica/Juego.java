@@ -11,16 +11,14 @@ public class Juego {
 	
 	private Jugador jugadorActivo;
 	
-//	private int etapa = 0;
-	
 	private SimpleStringProperty nombreJugadorActivoProperty = new SimpleStringProperty();
 	
-	public void setJugador1(String nombre) {
-		this.jugador1 = new Jugador(nombre);
+	public void setJugador1(Jugador jugador) {
+		this.jugador1 = jugador;
 	}
 	
-	public void setJugador2(String nombre) {
-		this.jugador2 = new Jugador(nombre);
+	public void setJugador2(Jugador jugador) {
+		this.jugador2 = jugador;
 	}
 	
 	public Jugador getJugador1() {
@@ -71,13 +69,5 @@ public class Juego {
 			return jugador1;
 		}
 	}
-	
-//	public void setEtapa(int etapa) {
-//		this.etapa = etapa;
-//	}
-	
-//	public int getEtapa() {
-//		return this.etapa;
-//	}
 	
 }

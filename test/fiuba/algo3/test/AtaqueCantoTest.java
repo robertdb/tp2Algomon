@@ -2,63 +2,46 @@ package fiuba.algo3.test;
 
 import static org.junit.Assert.*;
 
-import java.util.EnumMap;
-
 import org.junit.Test;
 
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.Ataque;
-import fiuba.algo3.algomones.AtaqueCanto;
-import fiuba.algo3.algomones.AtaqueSimple;
-import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.TipoAgua;
-import fiuba.algo3.algomones.TipoFuego;
-import fiuba.algo3.algomones.TipoNormal;
-import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
+import fiuba.algo3.algomones.logica.especiesdealgomones.*;
 
 public class AtaqueCantoTest {
 
 	@Test
 	public void testAtacarConCantoYelAtacadoNoPuedeAtacarDurante3Turnos() {
 		
-		//Se crea un algomon personalizado con fogonazo.
-		Ataque canto = new AtaqueCanto(new TipoNormal(), 0, 4 );
-		EnumMap<NombreDelAtaque, Ataque> ataques = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataques.put(NombreDelAtaque.CANTO,canto);
-		Algomon chansey = new Algomon("Chansey", new TipoFuego(), ataques , new Salud(400));
+		Algomon chansey = new Chansey();
 		
-		// Se crea un algomon personalizado.
-		Ataque ataqueRapido = new AtaqueSimple(new TipoNormal(), 10 , 16 );
-		EnumMap<NombreDelAtaque, Ataque> ataquesNormal = new EnumMap<NombreDelAtaque, Ataque >(NombreDelAtaque.class);
-		ataquesNormal.put(NombreDelAtaque.ATAQUE_RAPIDO, ataqueRapido);
-		Algomon blastoise = new Algomon("Blastoise", new TipoAgua(), ataquesNormal, new Salud(400));
+		Algomon squirtle = new Squirtle();
 		
-		chansey.atacar(blastoise, NombreDelAtaque.CANTO);
+		chansey.atacar(squirtle, "Canto");
 		
 		try{
 			
-			blastoise.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
+			squirtle.atacar(chansey, "Ataque Rapido");
 		
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
-		
-		try{
-			
-			blastoise.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
-		
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		}catch (AlgomonDormidoNoPuedeAtacarException exception){}
 		
 		try{
 			
-			blastoise.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
+			squirtle.atacar(chansey, "Ataque Rapido");
 		
-		}catch(AtacarDormidoNoPuedeRealizarseException exception){}
+		}catch (AlgomonDormidoNoPuedeAtacarException exception){}
 		
-		assertEquals(400,chansey.salud(),0.001D);
+		try{
+			
+			squirtle.atacar(chansey, "Ataque Rapido");
 		
-		blastoise.atacar(chansey, NombreDelAtaque.ATAQUE_RAPIDO);
+		}catch (AlgomonDormidoNoPuedeAtacarException exception){}
 		
-		assertEquals(390,chansey.salud(),0.001D);
+		assertEquals(130,chansey.getVida(),0.001D);
+		
+		squirtle.atacar(chansey, "Ataque Rapido");
+		
+		assertEquals(120,chansey.getVida(),0.001D);
 
 		
 	}

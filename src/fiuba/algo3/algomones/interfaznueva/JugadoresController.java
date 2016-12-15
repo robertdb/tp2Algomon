@@ -1,6 +1,7 @@
 package fiuba.algo3.algomones.interfaznueva;
 
 import fiuba.algo3.algomones.logica.Juego;
+import fiuba.algo3.algomones.logica.Jugador;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -24,8 +25,8 @@ public class JugadoresController implements Controller  {
     @FXML
     void continuar(ActionEvent event) throws Exception {
     	
-    	this.juego.setJugador1(inputNombreJugador1.getText());
-    	this.juego.setJugador2(inputNombreJugador2.getText());
+    	this.juego.setJugador1(new Jugador(inputNombreJugador1.getText()));
+    	this.juego.setJugador2(new Jugador(inputNombreJugador2.getText()));
     	this.juego.setJugadorActivoRandom();
     	
     	this.inicioController.mostrarEscena(this.inicioController.cargarEscena("SeleccionAlgomones.fxml"));

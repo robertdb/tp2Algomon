@@ -4,95 +4,93 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.EspecieAlgomon;
-import fiuba.algo3.algomones.NombreDelAtaque;
-import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
-import fiuba.algo3.algomones.excepciones.AtaqueNoPertenecienteAalgomonException;
-import fiuba.algo3.algomones.excepciones.CantidadDeAtaquesAgotadosException;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.especiesdealgomones.*;
+import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
+import fiuba.algo3.algomones.logica.excepciones.AtaqueAgotadoException;
 
 public class AlgomonTest {
 
 	@Test
 	public void testAtacarConBurbujaQuita20ptsAunAlgomonTipoFuego() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		double vidaOriginal = charmander.salud();
+		int vidaOriginal = charmander.getVida();
 
-		squirtle.atacar(charmander, NombreDelAtaque.BURBUJA);
+		squirtle.atacar(charmander, "Burbuja");
 
-		assertEquals(vidaOriginal - 20,  charmander.salud() , 0.001D);
+		assertEquals(vidaOriginal - 20,  charmander.getVida() , 0.001D);
 
 	}
 
 	@Test
 	public void testAtacarConCanionDeAguaQuita40ptsAunAlgomonTipoFuego() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		double vidaOriginal = charmander.salud();
+		int vidaOriginal = charmander.getVida();
 
-		squirtle.atacar(charmander, NombreDelAtaque.CANION_DE_AGUA);
+		squirtle.atacar(charmander, "Canon De Agua");
 
-		assertEquals(vidaOriginal - 40,  charmander.salud() , 0.001D);
+		assertEquals(vidaOriginal - 40,  charmander.getVida() , 0.001D);
 
 	}
 
 	@Test
 	public void testAtacarConBurbujaQuita5ptsAunAlgomonTipoPlanta() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		double vidaOriginal = bulbasaur.salud();
+		int vidaOriginal = bulbasaur.getVida();
 
-		squirtle.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
+		squirtle.atacar(bulbasaur, "Burbuja");
 
-		assertEquals(vidaOriginal - 5, bulbasaur.salud() , 0.001D);
+		assertEquals(vidaOriginal - 5, bulbasaur.getVida() , 0.001D);
 
 	}
 
 	@Test
 	public void testAtacarConCanionDeAguaQuita10ptsAunAlgomonTipoPlanta() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		double vidaOriginal = bulbasaur.salud();
+		int vidaOriginal = bulbasaur.getVida();
 
-		squirtle.atacar(bulbasaur, NombreDelAtaque.CANION_DE_AGUA);
+		squirtle.atacar(bulbasaur, "Canon De Agua");
 
-		assertEquals(vidaOriginal - 10,  bulbasaur.salud() , 0.001D);
+		assertEquals(vidaOriginal - 10,  bulbasaur.getVida() , 0.001D);
 
 	}
 
 	@Test
 	public void testAtacarConCanionDeAguaQuita20ptsAunAlgomonTipoNormal() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon chansey = new Chansey();
 
-		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		Algomon rattata = new Rattata();
 
-		double vidaOriginalChamsey = chansey.salud();
+		int vidaOriginalChansey = chansey.getVida();
 
-		double vidaOriginalRattata = rattata.salud();
+		int vidaOriginalRattata = rattata.getVida();
 
-		squirtle.atacar(chansey, NombreDelAtaque.CANION_DE_AGUA);
+		squirtle.atacar(chansey, "Canon De Agua");
 
-		squirtle.atacar(rattata, NombreDelAtaque.CANION_DE_AGUA);
+		squirtle.atacar(rattata, "Canon De Agua");
 
-		assertEquals(vidaOriginalChamsey - 20,  chansey.salud() , 0.001D);
+		assertEquals(vidaOriginalChansey - 20,  chansey.getVida() , 0.001D);
 
-		assertEquals(vidaOriginalRattata - 20,  rattata.salud() , 0.001D);
+		assertEquals(vidaOriginalRattata - 20,  rattata.getVida() , 0.001D);
 
 	}
 
@@ -100,25 +98,25 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConLatigoCepaQuita30ptsAunAlgomonTipoAgua() {
 
-		Algomon squirtle1 = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle1 = new Squirtle();
 
-		Algomon squirtle2 = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle2 = new Squirtle();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon chansey = new Chansey();
 
-		double vidaOriginalSquirtle1 = squirtle1.salud();
+		int vidaOriginalSquirtle1 = squirtle1.getVida();
 
-		double vidaOriginalSquirtle2 = squirtle2.salud();
+		int vidaOriginalSquirtle2 = squirtle2.getVida();
 
-		bulbasaur.atacar(squirtle1, NombreDelAtaque.LATIGO_CEPA);
+		bulbasaur.atacar(squirtle1, "Latigo Cepa");
 
-		chansey.atacar(squirtle2, NombreDelAtaque.LATIGO_CEPA);
+		chansey.atacar(squirtle2, "Latigo Cepa");
 
-		assertEquals(vidaOriginalSquirtle1 - 30,  squirtle1.salud() , 0.001D);
+		assertEquals(vidaOriginalSquirtle1 - 30,  squirtle1.getVida() , 0.001D);
 
-		assertEquals(vidaOriginalSquirtle2 - 30,  squirtle2.salud() , 0.001D);
+		assertEquals(vidaOriginalSquirtle2 - 30,  squirtle2.getVida() , 0.001D);
 
 	}
 
@@ -126,25 +124,25 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConLatigoCepaQuita7ptsAunAlgomonTipoFuego() {
 
-		Algomon charmi1 = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmi1 = new Charmander();
 
-		Algomon charmi2= EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmi2= new Charmander();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon chansey = new Chansey();
 
-		double vidaOriginalCharmi1 = charmi1.salud();
+		int vidaOriginalCharmi1 = charmi1.getVida();
 
-		double vidaOriginaCharmi2 = charmi2.salud();
+		int vidaOriginaCharmi2 = charmi2.getVida();
 
-		bulbasaur.atacar(charmi1, NombreDelAtaque.LATIGO_CEPA);
+		bulbasaur.atacar(charmi1, "Latigo Cepa");
 
-		chansey.atacar(charmi2, NombreDelAtaque.LATIGO_CEPA);
+		chansey.atacar(charmi2, "Latigo Cepa");
 
-		assertEquals(vidaOriginalCharmi1 - 7,  charmi1.salud() , 0.001D);
+		assertEquals(vidaOriginalCharmi1 - 7,  charmi1.getVida() , 0.001D);
 
-		assertEquals(vidaOriginaCharmi2  - 7,  charmi2.salud() , 0.001D);
+		assertEquals(vidaOriginaCharmi2  - 7,  charmi2.getVida() , 0.001D);
 
 	}
 
@@ -152,25 +150,25 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConLatigoCepaQuita15ptsAunAlgomonTipoNormal() {
 
-		Algomon jiggly1 = EspecieAlgomon.JIGGLYPUFF.nuevo();
+		Algomon jiggly1 = new Jigglypuff();
 
-		Algomon jiggly2 = EspecieAlgomon.JIGGLYPUFF.nuevo();
+		Algomon jiggly2 = new Jigglypuff();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon chansey = new Chansey();
 
-		double vidaOriginalJiggly1 = jiggly1.salud();
+		int vidaOriginalJiggly1 = jiggly1.getVida();
 
-		double vidaOriginaJiggly2 = jiggly2.salud();
+		int vidaOriginaJiggly2 = jiggly2.getVida();
 
-		bulbasaur.atacar(jiggly1, NombreDelAtaque.LATIGO_CEPA);
+		bulbasaur.atacar(jiggly1, "Latigo Cepa");
 
-		chansey.atacar(jiggly2, NombreDelAtaque.LATIGO_CEPA);
+		chansey.atacar(jiggly2, "Latigo Cepa");
 
-		assertEquals(vidaOriginalJiggly1 - 15,  jiggly1.salud() , 0.001D);
+		assertEquals(vidaOriginalJiggly1 - 15,  jiggly1.getVida() , 0.001D);
 
-		assertEquals(vidaOriginaJiggly2 - 15,  jiggly2.salud() , 0.001D);
+		assertEquals(vidaOriginaJiggly2 - 15,  jiggly2.getVida() , 0.001D);
 
 	}
 
@@ -178,15 +176,15 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConBrasasQuita32ptsAunAlgomonTipoAgua() {
 
-		Algomon squirtle = EspecieAlgomon.SQUIRTLE.nuevo();
+		Algomon squirtle = new Squirtle();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		double vidaOriginal = squirtle.salud();
+		int vidaOriginal = squirtle.getVida();
 
-		charmander.atacar(squirtle, NombreDelAtaque.BRASAS);
+		charmander.atacar(squirtle, "Brasas");
 
-		assertEquals(vidaOriginal - 8,  squirtle.salud() , 0.001D);
+		assertEquals(vidaOriginal - 8,  squirtle.getVida() , 0.001D);
 
 	}
 
@@ -194,30 +192,30 @@ public class AlgomonTest {
 	@Test
 	public void testAtacarConBrasasQuita8ptsAunAlgomonTipoPlanta() {
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		double vidaOriginal = bulbasaur.salud();
+		int vidaOriginal = bulbasaur.getVida();
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.BRASAS);
+		charmander.atacar(bulbasaur, "Brasas");
 
-		assertEquals(vidaOriginal - 32,  bulbasaur.salud() , 0.001D);
+		assertEquals(vidaOriginal - 32,  bulbasaur.getVida() , 0.001D);
 
 	}
 
 	@Test
 	public void testAtacarConBrasasQuita16ptsAunAlgomonTipoNormal() {
 
-		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		Algomon rattata = new Rattata();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		double vidaOriginal = rattata.salud();
+		int vidaOriginal = rattata.getVida();
 
-		charmander.atacar(rattata, NombreDelAtaque.BRASAS);
+		charmander.atacar(rattata, "Brasas");
 
-		assertEquals(vidaOriginal - 16,  rattata.salud() , 0.001D);
+		assertEquals(vidaOriginal - 16,  rattata.getVida() , 0.001D);
 
 	}
 
@@ -225,176 +223,145 @@ public class AlgomonTest {
 	@Test
 	public void testAlgomonesAtacanConAtaqueRapidoYquitan10ptsDeVidaAdosAlgomones() {
 
-		Algomon jiggly1 = EspecieAlgomon.JIGGLYPUFF.nuevo();
+		Algomon jiggly1 = new Jigglypuff();
 
-		Algomon jiggly2 = EspecieAlgomon.JIGGLYPUFF.nuevo();
+		Algomon jiggly2 = new Jigglypuff();
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon chansey = EspecieAlgomon.CHANSEY.nuevo();
+		Algomon chansey = new Chansey();
 
-		double vidaOriginalJiggly1 = jiggly1.salud();
+		int vidaOriginalJiggly1 = jiggly1.getVida();
 
-		double vidaOriginaJiggly2 = jiggly2.salud();
+		int vidaOriginaJiggly2 = jiggly2.getVida();
 
-		bulbasaur.atacar(jiggly1, NombreDelAtaque.ATAQUE_RAPIDO);
+		bulbasaur.atacar(jiggly1, "Ataque Rapido");
 
-		chansey.atacar(jiggly2, NombreDelAtaque.ATAQUE_RAPIDO);
+		chansey.atacar(jiggly2, "Ataque Rapido");
 
-		assertEquals(vidaOriginalJiggly1 - 10,  jiggly1.salud() , 0.001D);
+		assertEquals(vidaOriginalJiggly1 - 10,  jiggly1.getVida() , 0.001D);
 
-		assertEquals(vidaOriginaJiggly2 - 10,  jiggly2.salud() , 0.001D);
+		assertEquals(vidaOriginaJiggly2 - 10,  jiggly2.getVida() , 0.001D);
 
 	}
 
-	@Test(expected = CantidadDeAtaquesAgotadosException .class)
+	@Test(expected = AtaqueAgotadoException.class)
 	public void testAlgomonAgotoLaCantidadDeAtaquesLatigoCepaYnoPuedeUtilizarElAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
-
-		int cantidadQueSuperaAlMaximoDeAtaques = 15;
-		int ataque  = 1;
-
-		while (ataque < cantidadQueSuperaAlMaximoDeAtaques  ){
-
-			bulbasaur.atacar(charmander, NombreDelAtaque.LATIGO_CEPA);
-			ataque += 1;
-
-		}
-	}
-
-	@Test(expected = CantidadDeAtaquesAgotadosException .class)
-	public void testAlgomonAgotoLaCantidadDeAtaquesbrasasYnoPuedeUtilizarElAtaque(){
-
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
-
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
 		int cantidadQueSuperaAlMaximoDeAtaques = 15;
 		int ataque  = 1;
 
 		while (ataque < cantidadQueSuperaAlMaximoDeAtaques  ){
 
-			charmander.atacar(bulbasaur, NombreDelAtaque.BRASAS);
+			bulbasaur.atacar(charmander, "Latigo Cepa");
 			ataque += 1;
 
 		}
 	}
 
-	@Test(expected = CantidadDeAtaquesAgotadosException .class)
+	@Test(expected = AtaqueAgotadoException.class)
 	public void testAlgomonAgotoLaCantidadDeAtaquesFogonazoYnoPuedeUtilizarElAtaque(){
 
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
 
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon charmander = new Charmander();
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		charmander.atacar(bulbasaur, "Fogonazo");
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		charmander.atacar(bulbasaur, "Fogonazo");
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		charmander.atacar(bulbasaur, "Fogonazo");
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
+		charmander.atacar(bulbasaur, "Fogonazo");
 
-		charmander.atacar(bulbasaur, NombreDelAtaque.FOGONAZO);
-
-	}
-
-
-
-	@Test(expected = AtaqueNoPertenecienteAalgomonException.class)
-	public void testAlgomonNoPuedeAtacarSiNotieneEseAtaque(){
-
-		Algomon bulbasaur = EspecieAlgomon.BULBASAUR.nuevo();
-
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
-
-		charmander.atacar(bulbasaur, NombreDelAtaque.BURBUJA);
+		charmander.atacar(bulbasaur, "Fogonazo");
 
 	}
 
 	@Test
 	public void testJigglypuffAtacanConCantoAlgomonNormalPierdeTresTurnos() {
-		Algomon jigglypuff = EspecieAlgomon.JIGGLYPUFF.nuevo();
-		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		Algomon jigglypuff = new Jigglypuff();
+		Algomon rattata = new Rattata();
 
-		jigglypuff.atacar(rattata, NombreDelAtaque.CANTO);
+		jigglypuff.atacar(rattata, "Canto");
 
 		//~ trata de atacar tres veces con el algomon dormido
 		//~ si no tira excepcion en todas, el test falla
 		for (int i = 0; i < 3; i++) {
 			try {
-				rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
-			} catch (AtacarDormidoNoPuedeRealizarseException e) {
+				rattata.atacar(jigglypuff, "Ataque Rapido");
+			} catch (AlgomonDormidoNoPuedeAtacarException e) {
 				continue;
 			}
 			fail("rattata durmio " + i + " turnos antes de despertarse");
 		}
 
-		rattata.atacar(jigglypuff, NombreDelAtaque.ATAQUE_RAPIDO);
+		rattata.atacar(jigglypuff, "Ataque Rapido");
 	}
 
 	@Test
-	public void testBulbasourAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
+	public void testBulbasaurAtacaConChupavidasACharmanderRecuperaVida2DeVida(){
 
-		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon bulbasaur = new Bulbasaur();
+		Algomon charmander = new Charmander();
 
-		charmander.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
+		charmander.atacar(bulbasaur, "Ataque Rapido");
 
-		assertEquals(130,bulbasour.salud(),0.01D);
+		assertEquals(130,bulbasaur.getVida(),0.01D);
 
-		bulbasour.atacar(charmander, NombreDelAtaque.CHUPAVIDAS);
+		bulbasaur.atacar(charmander, "Chupavidas");
 
-		assertEquals(132,bulbasour.salud(),0.0001D);
-		assertEquals(163,charmander.salud(),0.0001D);
+		assertEquals(132,bulbasaur.getVida(),0.0001D);
+		assertEquals(163,charmander.getVida(),0.0001D);
 	}
 	@Test
-	public void testBulbasourAtacaSquartleConChupavidasRecupera9Vida(){
-		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
-		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
+	public void testBulbasaurAtacaSquartleConChupavidasRecupera9Vida(){
+		Algomon bulbasaur = new Bulbasaur();
+		Algomon squirtle = new Squirtle();
 
-		squartle.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
-		bulbasour.atacar(squartle, NombreDelAtaque.CHUPAVIDAS);
+		squirtle.atacar(bulbasaur, "Ataque Rapido");
+		bulbasaur.atacar(squirtle, "Chupavidas");
 
-		assertEquals(120,squartle.salud(),0.0001D);
-		assertEquals(139,bulbasour.salud(),0.0001D);
+		assertEquals(120,squirtle.getVida(),0.0001D);
+		assertEquals(139,bulbasaur.getVida(),0.0001D);
 	}
 	@Test
 	public void testBulbasourAtacaAlgomonNormalConChupavidasRecupera4Vida(){
-		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
-		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
+		Algomon bulbasour = new Bulbasaur();
+		Algomon rattata = new Rattata();
 
-		rattata.atacar(bulbasour, NombreDelAtaque.ATAQUE_RAPIDO);
-		bulbasour.atacar(rattata, NombreDelAtaque.CHUPAVIDAS);
+		rattata.atacar(bulbasour, "Ataque Rapido");
+		bulbasour.atacar(rattata, "Chupavidas");
 
-		assertEquals(155,rattata.salud(),0.0001D);
-		assertEquals(134,bulbasour.salud(),0.0001D);
+		assertEquals(155,rattata.getVida(),0.0001D);
+		assertEquals(134,bulbasour.getVida(),0.0001D);
 
 	}
 	@Test
 	public void testCharmanderRattataAtacanConFogonazoAalgomonRecibeDanioCuandoEstaActivo(){
 
 		//Algomones atacando
-		Algomon rattata = EspecieAlgomon.RATTATA.nuevo();
-		Algomon charmander = EspecieAlgomon.CHARMANDER.nuevo();
+		Algomon rattata = new Rattata();
+		Algomon charmander = new Charmander();
 		//Algomones a atacar
-		Algomon squartle = EspecieAlgomon.SQUIRTLE.nuevo();
-		Algomon bulbasour = EspecieAlgomon.BULBASAUR.nuevo();
+		Algomon squartle = new Squirtle();
+		Algomon bulbasour = new Bulbasaur();
 
-		rattata.atacar(squartle, NombreDelAtaque.FOGONAZO);
-		assertEquals(149,squartle.salud(),0.001D);
+		rattata.atacar(squartle, "Fogonazo");
+		assertEquals(149,squartle.getVida(),0.001D);
 
-		squartle.atacar(rattata, NombreDelAtaque.ATAQUE_RAPIDO);
-		assertEquals(134,squartle.salud(),0.001D);
+		squartle.atacar(rattata, "Ataque Rapido");
+		assertEquals(134,squartle.getVida(),0.001D);
 
-		charmander.atacar(bulbasour, NombreDelAtaque.FOGONAZO);
-		assertEquals(136,bulbasour.salud(),0.001D);
+		charmander.atacar(bulbasour, "Fogonazo");
+		assertEquals(136,bulbasour.getVida(),0.001D);
 
-		bulbasour.atacar(charmander, NombreDelAtaque.ATAQUE_RAPIDO);
-		assertEquals(122,bulbasour.salud(),0.001D);
+		bulbasour.atacar(charmander, "Ataque Rapido");
+		assertEquals(122,bulbasour.getVida(),0.001D);
 
 	}
 }

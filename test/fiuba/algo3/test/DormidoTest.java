@@ -2,23 +2,23 @@ package fiuba.algo3.test;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.Dormido;
-import fiuba.algo3.algomones.Efecto;
-import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.TipoPlanta;
-import fiuba.algo3.algomones.excepciones.AtacarDormidoNoPuedeRealizarseException;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.especiesdealgomones.*;
+import fiuba.algo3.algomones.logica.estadosdealgomones.EstadoDormido;
+import fiuba.algo3.algomones.logica.excepciones.AlgomonDormidoNoPuedeAtacarException;
 
 public class DormidoTest {
 
-	@Test(expected = AtacarDormidoNoPuedeRealizarseException .class)
+	@Test(expected = AlgomonDormidoNoPuedeAtacarException.class)
 	public void testEfectoDormirProduceUnaExcepcion(){
 	
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, new Salud(400));
+		Algomon bulbasaur = new Bulbasaur();
 		
-		Efecto dormido = new Dormido();
+		Algomon charmander = new Charmander();
+
+		bulbasaur.setEstadoEfimero(new EstadoDormido());
 		
-		dormido.aplicarEfecto(venusaur);
+		bulbasaur.atacar(charmander, "Latigo Cepa");
 		
 	}
 	

@@ -80,7 +80,7 @@ public class Jugador {
 	
 	public void sumarDerrota() {
 		this.cantidadDeAlgomonesDerrotados++;
-		System.out.println(this.getNombre() + " - algomones derrotados: " + this.cantidadDeAlgomonesDerrotados);
+		//System.out.println(this.getNombre() + " - algomones derrotados: " + this.cantidadDeAlgomonesDerrotados);
 	}
 	
 	public ArrayList<Algomon> getListadoAlgomones() {
