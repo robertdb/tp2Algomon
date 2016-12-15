@@ -4,26 +4,29 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algomones.Algomon;
-import fiuba.algo3.algomones.Efecto;
-import fiuba.algo3.algomones.Quemado;
-import fiuba.algo3.algomones.Salud;
-import fiuba.algo3.algomones.TipoPlanta;
+import fiuba.algo3.algomones.logica.Algomon;
+import fiuba.algo3.algomones.logica.ContextoEstado;
+import fiuba.algo3.algomones.logica.especiesdealgomones.Bulbasaur;
+import fiuba.algo3.algomones.logica.estadosdealgomones.EstadoQuemado;
 
 public class QuemadoTest {
 
 	@Test
 	public void testEfectoQuemadoQuita10PorcientoDeVidaOriginal(){
 
-		Efecto quemado = new Quemado();
+		Algomon bulbasaur = new Bulbasaur();
 		
-		Salud salud = new Salud(400);
+		ContextoEstado contexto = new ContextoEstado();
 		
-		Algomon venusaur = new Algomon("Venusaur", new TipoPlanta(), null, salud);
+		contexto.setEstadoPersistente(new EstadoQuemado());
 		
-		quemado.aplicarEfecto(venusaur);
+		contexto.aplicarEfectosElemento(bulbasaur);
 		
-		assertEquals(360,venusaur.salud(),0.001D);
+		assertEquals(126, bulbasaur.getVida(), 0.001D);
+		
+		contexto.aplicarEfectosAtaque(bulbasaur);
+		
+		assertEquals(112, bulbasaur.getVida(), 0.001D);
 				
 	}
 	
